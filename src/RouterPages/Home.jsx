@@ -2,22 +2,31 @@ import dinnigImg from "../assets/images/dinning-1.jpg";
 import livingImg from "../assets/images/living room.jpg";
 import bedroomImg from "../assets/images/bedroom.webp";
 import gridImg from "../assets/images/grid.jpg";
+import HeroImg from "../assets/images/back-img.jpg";
 import React from "react";
 import { useNavigate } from "react-router";
 
 export default function Home() {
   const Navigate = useNavigate();
 
+  const scrollDown = () => {
+    const viewportHeight = window.innerHeight;
+    window.scrollTo({
+      top: viewportHeight, // Scroll down by one viewport height
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
+
   return (
     <main>
-      <section
-        className={`h-[calc(100vh_-_4rem)] bg-[url("./assets/images/back-img.jpg")] bg-cover bg-center relative;`}
-      >
+      <section>
+        <img src={HeroImg} alt="heroimg" className="h-[calc(100vh_-_4rem)] w-full bg-cover bg-center relative" />
         <div className="absolute text-7xl w-[500px] right-[5%] top-2/4">
           <h1>Discover Our New collection</h1>
           <button
             className=" 
-  text-[white] bg-[black] text-xl px-16 py-4 rounded-[20px]"
+  text-[white] bg-[black] text-xl px-16 py-4 rounded-[20px] hover:bg-white hover:text-black hover:font-semibold"
+            onClick={scrollDown}
           >
             Explore
           </button>
@@ -76,7 +85,7 @@ export default function Home() {
             </div>
           </div>
           <button
-            className="flex justify-center bg-transparent cursor-default m-auto border-[none] text-[white] bg-black text-base font-[bold] mt-8 px-8 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black]"
+            className="flex justify-center cursor-pointer text-white bg-black text-base mt-8 px-8 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black] hover:font-semibold"
             onClick={() => Navigate("/Category")}
           >
             Show more
@@ -159,11 +168,11 @@ export default function Home() {
           </div>
         </div>
         <button
-            className="flex justify-center bg-transparent cursor-default m-auto border-[none] text-[white] bg-black text-base font-[bold] mt-8 px-8 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black]"
-            onClick={() => Navigate("/Products")}
-          >
-            Show more
-          </button>
+          className="flex justify-center m-auto cursor-pointer text-white bg-black text-base mt-8 px-8 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black] hover:font-semibold"
+          onClick={() => Navigate("/Products")}
+        >
+          Show more
+        </button>
       </section>
     </main>
   );
