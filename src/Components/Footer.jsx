@@ -5,6 +5,13 @@ import { useNavigate } from "react-router";
 const Footer = () => {
   const Navigate = useNavigate();
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // Add smooth scrolling behavior
+    });
+  };
+
   return (
     <footer className="bg-[#f4f4f4] mt-20 px-0 py-[70px]">
       <div>
@@ -12,7 +19,7 @@ const Footer = () => {
           src={logo}
           alt="Arthodox-logo"
           className=" h-7 cursor-pointer w-40 flex mt-[-3rem] m-auto"
-          onClick={() => Navigate("/")}
+          onClick={scrollToTop}
         />
       </div>
       <div className="max-w-[1170px] mt-8 m-auto">
