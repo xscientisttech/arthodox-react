@@ -99,8 +99,8 @@ export default function Home() {
             Our Products
           </h1>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8 max-w-[1200px] mt-8 mx-auto my-0">
-          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc] transform hover:scale-110">
+        <div className=" transition-all grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8 max-w-[1200px] mt-8 mx-auto my-0">
+          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc]">
             <img
               className="max-w-full h-auto rounded-[15px_15px_0_0]"
               src={gridImg}
@@ -111,7 +111,7 @@ export default function Home() {
             <p>Attractive Wall Frames</p>
             <p>Price: &#8377;1000.00</p>
           </div>
-          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc]">
             <img
               className="max-w-full h-auto rounded-[15px_15px_0_0]"
               src={gridImg}
@@ -122,7 +122,7 @@ export default function Home() {
             <p>Attractive Wall Frames</p>
             <p>Price: &#8377;1000.00</p>
           </div>
-          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc]">
             <img
               className="max-w-full h-auto rounded-[15px_15px_0_0]"
               src={gridImg}
@@ -133,7 +133,7 @@ export default function Home() {
             <p>Attractive Wall Frames</p>
             <p>Price: &#8377;1000.00</p>
           </div>
-          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc]">
             <img
               className="max-w-full h-auto rounded-[15px_15px_0_0]"
               src={gridImg}
@@ -144,7 +144,7 @@ export default function Home() {
             <p>Attractive Wall Frames</p>
             <p>Price: &#8377;2000.00</p>
           </div>
-          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc]">
             <img
               className="max-w-full h-auto rounded-[15px_15px_0_0]"
               src={gridImg}
@@ -155,7 +155,7 @@ export default function Home() {
             <p>Attractive Wall Frames</p>
             <p>Price: &#8377;1000.00</p>
           </div>
-          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-center border bg-neutral-100 rounded-[15px] border-solid border-[#ccc]">
             <img
               className="max-w-full h-auto rounded-[15px_15px_0_0] "
               src={gridImg}

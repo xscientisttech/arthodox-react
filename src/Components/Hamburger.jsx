@@ -11,12 +11,12 @@ const HamburgerMenu = () => {
   const Navigate = useNavigate();
 
   return (
-    <div>
+    <div className="md:hidden">
       <div
-        className={`hamburger relative ${menuOpen ? "open" : ""}`}
+        className={`hamburger relative text-2xl hover:scale-110`}
         onClick={toggleMenu}
       >
-        <i id="menu" className="fa-solid fa-bars text-2xl hover:scale-110"></i>
+        <i id="menu" className={menuOpen ? "fa-solid fa-x" : "fa-solid fa-bars"}></i>
       </div>
       {menuOpen && (
         <div className="absolute top-14 right-8 w-72 h-0 ">

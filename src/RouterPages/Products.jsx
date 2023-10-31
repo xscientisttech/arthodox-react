@@ -3,9 +3,10 @@ import HeroImg from "../assets/images/back-img.jpg";
 import gridImg from "../assets/images/grid.jpg";
 import PageSection from "../Components/PageSection";
 import Quality from "../Components/Quality";
+import { Fragment } from "react";
 const Products = () => {
   return (
-    <div>
+    <Fragment>
       <div className="flex justify-center items-center">
         <div className="w-full h-[25rem]">
           <img
@@ -164,7 +165,7 @@ const Products = () => {
         </div>
         <PageSection/>
         <Quality/>
-      </div>
+      </Fragment>
   );
 };
 
