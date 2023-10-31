@@ -2,6 +2,9 @@ import React from "react";
 import logo from "../assets/images/Frame 168.png";
 import { useLocation, useNavigate } from "react-router";
 import HamburgerMenu from "./Hamburger";
+import NavCart from "./navCart";
+import SearchIcon from "./SearchIcon";
+
 const Header = () => {
   const location = useLocation();
   const pathMatchRoute = (route) => {
@@ -61,19 +64,13 @@ const Header = () => {
             About
           </li>
         </ul>
-        <div className="flex justify-center items-center gap-10 text-2xl">
-          <i className="fa-solid fa-magnifying-glass hover:scale-110 py-3"></i>
-          <i
-            id="cart"
-            className="fa-solid fa-cart-shopping hover:scale-110 py-3"
-          ></i>
-          {/* <div className="toggle-btn" onClick={Hamburger}>
-              <i id="menu" className="fa-solid fa-bars"></i>
-            </div> */}
+        <div className="flex justify-center items-center gap-5 text-2xl">
+          <SearchIcon/>
+          <NavCart/>
         </div>
-        <div className="md:hidden">
+
           <HamburgerMenu />
-        </div>
+
       </header>
     </div>
   );
