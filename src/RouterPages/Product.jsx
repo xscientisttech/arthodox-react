@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Quality from '../Components/Quality'
 import Navigation from '../Components/Navigation'
 import PageSection from '../Components/PageSection'
@@ -9,17 +9,21 @@ import mainImg from '../assets/images/grid.jpg'
 import img1 from '../assets/images/image 9.png'
 import img2 from '../assets/images/image 81.png'
 import img3 from '../assets/images/image 8.png'
+import { useNavigate } from "react-router";
 
 const Product = () => {
 
-  const frames = [ mainImg, img1, img2, img3];
+
+  const Navigate = useNavigate();
+
+  const frames = [mainImg, img1, img2, img3];
   const [selectedImage, setSelectedImage] = useState(frames[0]);
 
   const changeImage = (frame) => {
     setSelectedImage(frame);
   };
 
-  
+
   const [count, setCount] = useState(1);
 
   const increment = () => {
@@ -68,10 +72,11 @@ const Product = () => {
             <div className="color-palette">
               <p>Color</p>
               <div className="colors flex gap-1">
-                <div className="color w-6 rounded-xl aspect-square bg-blue-700"></div>
-                <div className="color w-6 rounded-xl aspect-square bg-blue-700"></div>
-                <div className="color w-6 rounded-xl aspect-square bg-blue-700"></div>
-                <input id="color-picker" value="#ffffff" type="color" />
+                <div className="color w-6 rounded-xl h-6 bg-purple-500 cursor-pointer"></div>
+                <div className="color w-6 rounded-xl h-6 bg-green-500 cursor-pointer"></div>
+                <div className="color w-6 rounded-xl h-6 bg-red-500 cursor-pointer"></div>
+                <span className='color-pick'>
+                  <input className=' rounded-xl w-6 aspect-square' id="color-picker" value="#ffffff" type="color" /></span>
               </div>
             </div>
             <div className="btns">
@@ -83,7 +88,7 @@ const Product = () => {
               <div className="btn">
                 <button className="add-to-cart">Add To Cart</button>
                 <a href="./checkout.html">
-                  <button className="buy">BUY</button>
+                  <button className="buy" onClick={() => Navigate("/Checkout")}>BUY</button>
                 </a>
               </div>
             </div>
@@ -110,6 +115,34 @@ const Product = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section className="description">
+        <div className="container">
+          <div className="c1">
+            <div className="headings">
+              <h3>Description</h3>
+              <h3>Additional Information</h3>
+            </div>
+            <p className="text1">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, placeat perferendis dicta quae
+              corrupti velit ipsa minus inventore nihil, perspiciatis laboriosam sapiente veritatis explicabo
+              deserunt. Totam perspiciatis doloribus vero sed.
+            </p>
+            <p className="text2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci rerum neque repellat ratione
+              tempore recusandae iure architecto, rem fugiat nesciunt provident fuga, ipsum suscipit labore ipsa
+              molestiae veritatis. Necessitatibus, voluptatibus? Lorem, ipsum dolor sit amet consectetur
+              adipisicing elit. Molestias earum impedit fugit pariatur ut obcaecati autem assumenda corporis,
+              debitis, voluptatem nulla! Soluta minus sint optio delectus beatae unde eveniet repellat?
+            </p>
+          </div>
+          <div className="c2">
+            <div className="img"></div>
+            <div className="img"></div>
           </div>
         </div>
       </section>
