@@ -6,27 +6,12 @@ import HeroImg from "../assets/images/back-img.jpg";
 import dinnigImg from "../assets/images/dinning-1.jpg";
 import livingImg from "../assets/images/living room.jpg";
 import bedroomImg from "../assets/images/bedroom.webp";
+import Hero from "../Components/Hero";
 
 const Category = () => {
   return (
     <Fragment>
-      <div className="flex justify-center items-center">
-        <div className="w-full h-[25rem]">
-          <img
-            src={HeroImg}
-            alt="back-img"
-            className=" bg-cover bg-no-repeat h-full w-full transform opacity-50"
-          />
-        </div>
-        <div className=" absolute flex flex-col justify-center items-center">
-          <h2 className="text-[3rem] font-bold ">Category</h2>
-          <p className="">
-            <span className="text-xl font-semibold">Home </span>
-            <i className="fa-solid fa-greater-than"></i>
-            <span className="text-xl font-semibold"> Category</span>
-          </p>
-        </div>
-      </div>
+      <Hero title="Category"/>
       <Filter />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-40 py-16">
         {[
