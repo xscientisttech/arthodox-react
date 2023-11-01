@@ -4,31 +4,22 @@ import gridImg from "../assets/images/grid.jpg";
 import PageSection from "../Components/PageSection";
 import Quality from "../Components/Quality";
 import { Fragment } from "react";
+import { useNavigate } from "react-router";
+import Hero from "../Components/Hero";
+
 const Products = () => {
+
+  const Navigate = useNavigate();
+
+
   return (
     <Fragment>
-      <div className="flex justify-center items-center">
-        <div className="w-full h-[25rem]">
-          <img
-            src={HeroImg}
-            alt="back-img"
-            className=" bg-cover bg-no-repeat h-full w-full transform opacity-50"
-          />
-        </div>
-        <div className=" absolute flex flex-col justify-center items-center">
-          <h2 className="text-[3rem] font-bold ">Products</h2>
-          <p className="">
-            <span className="text-xl font-semibold">Home </span>
-            <i className="fa-solid fa-greater-than"></i>
-            <span className="text-xl font-semibold"> Products</span>
-          </p>
-        </div>
-      </div>
+      <Hero title="Products" />
 
       <Filter />
 
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8 max-w-[1200px] mt-16 mx-auto my-0">
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8 max-w-[1200px] mt-16 mx-auto my-0" onClick={() => Navigate("/Product")}>
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -39,7 +30,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -62,7 +53,7 @@ const Products = () => {
             </div>
           </div>
 
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -73,7 +64,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -84,7 +75,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -95,7 +86,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -106,7 +97,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -117,7 +108,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -129,7 +120,7 @@ const Products = () => {
             </div>
           </div>
 
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -140,7 +131,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
@@ -151,7 +142,7 @@ const Products = () => {
               </p>
             </div>
           </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
+          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 cursor-pointer">
             <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
             <div className="p-2">
               <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
