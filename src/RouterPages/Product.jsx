@@ -13,7 +13,7 @@ import { useNavigate } from "react-router";
 
 const Product = () => {
 
-  
+
   const Navigate = useNavigate();
 
   const frames = [mainImg, img1, img2, img3];
@@ -75,7 +75,8 @@ const Product = () => {
                 <div className="color w-6 rounded-xl h-6 bg-purple-500 cursor-pointer"></div>
                 <div className="color w-6 rounded-xl h-6 bg-green-500 cursor-pointer"></div>
                 <div className="color w-6 rounded-xl h-6 bg-red-500 cursor-pointer"></div>
-                <input className=' rounded-xl w-6 aspect-square' id="color-picker" value="#ffffff" type="color" />
+                <span className='color-pick'>
+                  <input className=' rounded-xl w-6 aspect-square' id="color-picker" value="#ffffff" type="color" /></span>
               </div>
             </div>
             <div className="btns">
@@ -87,7 +88,7 @@ const Product = () => {
               <div className="btn">
                 <button className="add-to-cart">Add To Cart</button>
                 <a href="./checkout.html">
-                  <button className="buy"  onClick={() => Navigate("/Checkout")}>BUY</button>
+                  <button className="buy" onClick={() => Navigate("/Checkout")}>BUY</button>
                 </a>
               </div>
             </div>
