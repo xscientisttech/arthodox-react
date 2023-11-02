@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <div className=" bg-white border-b shadow-sm sticky top-0 z-50">
-      <header className="flex justify-between items-center px-12 mx-auto">
+      <header className="flex justify-between items-center xl:px-12 lg:px-12 md:px-12 mx-auto sm:px-6">
         <div>
           <img
             src={logo}
