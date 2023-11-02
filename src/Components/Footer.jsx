@@ -23,8 +23,8 @@ const Footer = () => {
         />
       </div>
       <div className="max-w-[1170px] mt-8 m-auto flex">
-        <div className=" flex">
-          <div className="w-3/12 px-[15px] py-0">
+        <div className=" px-10 gap-10 flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div className=" min-w-3/12 px-[15px] py-0">
             <h4 className="text-lg text-[black] capitalize font-medium relative mb-[35px] before:content-[''] before:absolute before:bg-[black] before:h-0.5 before:box-border before:w-[75px] before:left-0 before:-bottom-2.5">
               Registered Office Address:
             </h4>
@@ -34,7 +34,7 @@ const Footer = () => {
               Nagar, Maharashtra 431005.
             </p>
           </div>
-          <div className="w-3/12 px-[15px] py-0">
+          <div className=" min-w-3/12 px-[15px] py-0">
             <h4 className="text-lg text-[black] capitalize font-medium relative mb-[35px] before:content-[''] before:absolute before:bg-[black] before:h-0.5 before:box-border before:w-[75px] before:left-0 before:-bottom-2.5">
               Customer Service
             </h4>
@@ -56,7 +56,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="w-3/12 px-[15px] py-0">
+          <div className=" min-w-3/12 px-[15px] py-0">
             <h4 className="text-lg text-[black] capitalize font-medium relative mb-[35px] before:content-[''] before:absolute before:bg-[black] before:h-0.5 before:box-border before:w-[75px] before:left-0 before:-bottom-2.5">
               Links
             </h4>
@@ -73,7 +73,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="w-3/12 px-[15px] py-0">
+          <div className=" min-w-3/12 px-[15px] py-0">
             <h4 className="text-lg text-[black] capitalize font-medium relative mb-[35px] before:content-[''] before:absolute before:bg-[black] before:h-0.5 before:box-border before:w-[75px] before:left-0 before:-bottom-2.5">
               follow us
             </h4>
