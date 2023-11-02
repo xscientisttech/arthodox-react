@@ -9,6 +9,7 @@ import Cart from './RouterPages/Cart';
 import About from './RouterPages/About';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import SepProduct from './RouterPages/SepProduct';
 
 const App = () => {
   return(
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='/Checkout' element={<Checkout/>}/>
           <Route path='/Cart' element={<Cart/>}/>
           <Route path='/About' element={<About/>}/>
+          <Route path='/SepProduct' element={<SepProduct/>}/>
         </Routes>
         <Footer/>
       </Router>

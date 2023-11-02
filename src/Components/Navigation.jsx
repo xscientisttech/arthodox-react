@@ -10,7 +10,6 @@ const Navigation = () => {
                         <i class="fa-solid fa-caret-left"></i>
                         <p>Products</p>
                         <i class="fa-solid fa-caret-left"></i>
-                        <p>Product</p>
                     </div>
                 </div>
             </div>
@@ -18,4 +17,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation
+export default Navigation;
