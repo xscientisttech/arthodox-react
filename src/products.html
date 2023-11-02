@@ -1,10 +1,166 @@
-const Quality = () => {
-  return (
-    <section className="bg-[#FAF3EA] w-full flex items-center justify-center p-[5%] mt-10">
-      <div className="bg-[#FAF3EA] gap-10 w-full flex items-center flex-wrap justify-center">
-        <div className="flex gap-2.5 w-[300px]">
-          <svg
-          className="w-20 aspect-[1]"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="./Arthodox//Components/navbar.css">
+  <link rel="stylesheet" href="./Arthodox//Components/footer.css">
+  <link rel="stylesheet" href="style.css" />
+
+  <title>Arthodox</title>
+</head>
+
+<body>
+  <div id="wrapper"  class="box-border overflow-x-hidden m-0 p-0  block max-w-full h-auto">
+
+    <!-- =============================================== Header ============================================== -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <img
+            class="nav-img"
+            src="./Arthodox/assets/images/Frame 168.png"
+            alt=""
+          />
+        </div>
+        <ul class="links">
+          <li><a href="./home.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
+          <li><a href="./category.html">Category</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <div class="nav-icons">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <i id="cart" class="fa-solid fa-cart-shopping"></i>
+          <div class="toggle-btn">
+            <i id="menu" class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown-menu">
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="./products.html">Products</a></li>
+        <li><a href="./category.html">Category</a></li>
+        <li><a href="#about">About</a></li>
+      </div>
+      <div class="cart-menu">
+        <div>
+          <img src="../assets/images/grid.jpg" alt="" width="100rem" />
+          <div>
+            <h3>Wall Frame</h3>
+            <p>1 &#215; rs. 1000</p>
+          </div>
+        </div>
+
+        <div>
+          <img src="../assets/images/grid.jpg" alt="" width="100rem" />
+          <div>
+            <h3>Wall Frame</h3>
+            <p>1 &#215; rs. 1000</p>
+          </div>
+        </div>
+        <div>
+          <p>subtotal</p>
+          <p>Rs. 2000</p>
+        </div>
+        <div>
+          <a href="./cart.html">Cart</a>
+          <a href="./checkout.html">Checkout</a>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- ============================ hero ======================== -->
+    <div class="h-[316px] w-full relative flex justify-center items-center">
+      <div class="bg-no-repeat bg-cover w-full h-full absolute bg-[url('./Arthodox/assets/images/Rectangle\ 1.png')]"></div>
+      <div class="relative">
+        <h2 class="text-5xl font-bold p-2">Products</h2>
+        <p class="text-[1.2rem] flex justify-evenly">
+          <span class="font-bold">Home</span>
+          <span class="font-bold"> ></span>
+          <span>Products</span>
+        </p>
+      </div>
+    </div>
+
+
+    <!-- ===================== filter ===================== -->
+    <div
+    class="bg-[#F9F1E7] h-[70px] w-full flex justify-around items-center"
+  >
+    <div class="flex gap-5">
+      <div class="flex gap-2.5 justify-between items-center">
+        <i class="fa-solid fa-sliders"></i>
+        <p>Filter</p>
+      </div>
+    </div>
+    <div class="flex gap-5">
+      <div class="sort-by">
+        <label class="relative flex w-40 md:w-60 rounded overflow-hidden">
+          <select
+            class="appearance-none text-inherit shadow-none flex-1 cursor-pointer p-[0.7em] border-0"
+          >
+            <option value="1">Default</option>
+            <option value="2">Price Low To High</option>
+            <option value="3">Price High To Low</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================================== card =============================  -->
+
+    <div class="max-w-full h-auto grid place-items-center p-6 md:p-20">
+      <div class="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
+        <div class="relative bg-[#f4f5f7] overflow-hidden max-w-[300px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 ">
+          <img src="./Arthodox/assets/images/card.png" alt="Avatar" style="width: 100%" />
+          <div class="flex flex-col gap-[5px] w-full justify-start p-[3%]">
+            <h3 class="font-semibold text-2xl text-[#3a3a3a]">wall frame</h3>
+            <p>Attrative Wall Frames</p>
+            <p class="text-[#898989] text-base flex gap-2.5"><span class="text-[#3a3a3a] font-medium">Rs.1000</span><del>Rs. 1500.00</del></p>
+          </div>
+        </div>
+
+        <div class="relative bg-[#f4f5f7] overflow-hidden max-w-[300px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 ">
+          <img src="./Arthodox/assets/images/card.png" alt="Avatar" style="width: 100%" />
+          <div class="flex flex-col gap-[5px] w-full justify-start p-[3%]">
+            <h3 class="font-semibold text-2xl text-[#3a3a3a]">wall frame</h3>
+            <p>Attrative Wall Frames</p>
+            <p class="text-[#898989] text-base flex gap-2.5"><span class="text-[#3a3a3a] font-medium">Rs.1000</span><del>Rs. 1500.00</del></p>
+          </div>
+        </div>
+
+        <div class="relative bg-[#f4f5f7] overflow-hidden max-w-[300px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 ">
+          <img src="./Arthodox/assets/images/card.png" alt="Avatar" style="width: 100%" />
+          <div class="flex flex-col gap-[5px] w-full justify-start p-[3%]">
+            <h3 class="font-semibold text-2xl text-[#3a3a3a]">wall frame</h3>
+            <p>Attrative Wall Frames</p>
+            <p class="text-[#898989] text-base flex gap-2.5"><span class="text-[#3a3a3a] font-medium">Rs.1000</span><del>Rs. 1500.00</del></p>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+    
+    
+    <!--============================ pages =========================== -->
+    <div class="flex justify-center items-center gap-2 md:gap-4 mb-[5%] p-8">
+      <div class="items-center md:px-6 md:py-[0.8rem] rounded-[5px] px-4 py-[0.6rem] bg-[#B88E2F] text-white">1</div>
+      <div class="bg-[#F9F1E7] items-center md:px-6 md:py-[0.8rem] rounded-[5px] px-4 py-[0.6rem]">2</div>
+      <div class="bg-[#F9F1E7] items-center md:px-6 md:py-[0.8rem] rounded-[5px] px-4 py-[0.6rem]">3</div>
+      <div class="bg-[#F9F1E7] items-center md:px-6 md:py-[0.8rem] rounded-[5px] px-4 py-[0.6rem]">Next</div>
+    </div>
+
+    <!-- ============================ Quality =============================-->
+    <section class="bg-[#FAF3EA] w-full flex items-center justify-evenly p-[5%]">
+      <div class="flex-wrap gap-8 bg-[#FAF3EA] w-full flex items-center justify-start md:justify-center ">
+        <div class="flex">
+          <svg class="w-10 h-12 md:w-20 md:h-16 aspect-[1]" 
             width="60"
             height="60"
             viewBox="0 0 60 60"
@@ -23,14 +179,13 @@ const Quality = () => {
               </g>
             </g>
           </svg>
-          <div className="flex gap-2.5 flex-col">
-            <h1 className="text-xl font-semibold">High Quality</h1>
-            <p>crafted from top materials</p>
+          <div class="flex flex-col">
+            <h1 class="font-bold text-base md:text-2xl">High Quality</h1>
+            <p class="text-sm md:text-base">crafted from top materials</p>
           </div>
         </div>
-        <div className="flex gap-2.5 w-[300px]">
-          <svg
-          className="w-20 aspect-[1]"
+        <div class="flex">
+          <svg class="w-10 h-12 md:w-20 md:h-16 aspect-[1]"
             width="60"
             height="60"
             viewBox="0 0 60 60"
@@ -57,14 +212,13 @@ const Quality = () => {
               </clipPath>
             </defs>
           </svg>
-          <div className="flex gap-2.5 flex-col">
-            <h1 className="text-xl font-semibold">Warranty Protection</h1>
-            <p>Over 2 years</p>
+          <div class="flex flex-col">
+            <h1 class="font-bold text-base md:text-2xl">Warranty Protection</h1>
+            <p class="text-sm md:text-base">Over 2 years</p>
           </div>
         </div>
-        <div className="flex gap-2.5 w-[300px]">
-          <svg
-          className="w-20 aspect-[1]"
+        <div class="flex">
+          <svg class="w-10 h-12 md:w-20 md:h-16 aspect-[1]"
             width="60"
             height="60"
             viewBox="0 0 60 60"
@@ -89,14 +243,13 @@ const Quality = () => {
               </clipPath>
             </defs>
           </svg>
-          <div className="flex gap-2.5 flex-col">
-            <h1 className="text-xl font-semibold">Free Shipping</h1>
-            <p>Order over &#x20b9;1500</p>
+          <div class="flex flex-col">
+            <h1 class="font-bold text-base md:text-2xl">Free Shipping</h1>
+            <p class="text-sm md:text-base">Order over 150 $</p>
           </div>
         </div>
-        <div className="flex gap-2.5 w-[300px]">
-          <svg
-          className="w-20 aspect-[1]"
+        <div class="flex">
+          <svg class="w-10 h-12 md:w-20 md:h-16 aspect-[1]"
             width="60"
             height="60"
             viewBox="0 0 60 60"
@@ -116,15 +269,70 @@ const Quality = () => {
               </clipPath>
             </defs>
           </svg>
-          <div className="flex gap-2.5 flex-col">
-            <h1 className="text-xl font-semibold">24 / 7 Support</h1>
-            <p>Dedicated support</p>
+          <div class="flex flex-col">
+            <h1 class="font-bold text-base md:text-2xl">24 / 7 Support</h1>
+            <p class="text-sm md:text-base">Dedicated support</p>
           </div>
         </div>
       </div>
     </section>
-  );
-};
 
 
-export default Quality;
+    <!--            footer          -->
+    <div>
+      <footer class="footer">
+        <div>
+          <img class="foot-img" src="./res/images/Frame 168.png" alt="" />
+        </div>
+        <div class="foot-container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>Registered Office Address:</h4>
+              <p>xScientist Tech LLP Office, Beed Bypass Rd, Near Jain International School, Shiv
+                Krupa Colony, Pwd Colony, Chh Sambhaji Nagar, Maharashtra 431005.</p>
+            </div>
+            <div class="footer-col">
+              <h4>Customer Service</h4>
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">shipping</a></li>
+                <li><a href="#">returns</a></li>
+                <li><a href="#">order status</a></li>
+                <li><a href="#">payment options</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Links</h4>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#category">Category</a></li>
+                <li><a href="#about">About</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+  </div>
+</body>
+<script>
+  function openCart() {
+      window.location.href = "./cart.html";
+    }
+</script>
+<script src="./Components/navbar.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+</html>

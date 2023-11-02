@@ -9,6 +9,11 @@ const NavCart = () => {
     setCartOpen(!cartOpen);
   };
 
+  const closeCart = (page) => {
+    Navigate(page);
+    toggleCart();
+  }
+
   const Navigate = useNavigate();
 
   return (
@@ -22,17 +27,17 @@ const NavCart = () => {
         ></i>
       </div>
       {cartOpen && (
-        <div className=" absolute top-14 right-10 w-96 gap-3 flex flex-col justify-center items-center py-5 font-semibold text-lg bg-[rgba(255,255,255,0.5)] rounded-xl">
-          <div className="flex justify-center items-center gap-10">
-            <img src={gridImg} alt="" width="100rem" />
+        <div className=" absolute top-14 right-10 p-10 w-fit gap-3 flex flex-col justify-start items-center py-5 font-semibold text-lg bg-[rgba(255,255,255,0.5)] rounded-xl">
+          <div className="flex justify-start items-center gap-10 cursor-pointer" >
+            <img src={gridImg} alt="" width="50rem" />
             <div>
               <h3 className="text-xl font-semibold">Wall Frame</h3>
               <p>1 &#215; rs. 1000</p>
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-10">
-            <img src={gridImg} alt="" width="100rem" />
+          <div className="flex justify-start items-center gap-10 cursor-pointer" >
+            <img src={gridImg} alt="" width="50rem" />
             <div>
               <h3 className="text-xl font-semibold">Wall Frame</h3>
               <p>1 &#215; rs. 1000</p>
@@ -46,13 +51,13 @@ const NavCart = () => {
             <ul className="flex justify-center items-center gap-10">
               <li
                 className="text-xl bg-black text-white rounded-lg px-4 py-1 cursor-pointer"
-                onClick={() => Navigate("/Cart")}
+                onClick={() => closeCart("/Cart")}
               >
                 Cart
               </li>
               <li
                 className="text-xl bg-black text-white rounded-lg px-4 py-1 cursor-pointer"
-                onClick={() => Navigate("/Checkout")}
+                onClick={() => closeCart("/Checkout")}
               >
                 Checkout
               </li>

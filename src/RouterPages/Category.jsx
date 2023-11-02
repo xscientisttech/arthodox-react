@@ -3,34 +3,31 @@ import PageSection from "../Components/PageSection";
 import Quality from "../Components/Quality";
 import Filter from "../Components/Filter";
 import HeroImg from "../assets/images/back-img.jpg";
-import dinnigImg from "../assets/images/dinning-1.jpg";
-import livingImg from "../assets/images/living room.jpg";
-import bedroomImg from "../assets/images/bedroom.webp";
+import CategoryImagesGrid from "../Components/CategoryImagesGrid";
 import Hero from "../Components/Hero";
+import CategoryItem from "../Components/CategoryItem";
 
 const Category = () => {
   return (
     <Fragment>
-      <Hero title="Category"/>
+      <Hero title="Category" />
       <Filter />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-40 py-16">
-        {[
-          { src: dinnigImg, alt: "Image 1" },
-          { src: livingImg, alt: "Image 2" },
-          { src: bedroomImg, alt: "Image 3" },
-          { src: dinnigImg, alt: "Image 4" },
-          { src: livingImg, alt: "Image 5" },
-          { src: bedroomImg, alt: "Image 6" },
-          { src: dinnigImg, alt: "Image 7" },
-          { src: livingImg, alt: "Image 8" },
-          { src: bedroomImg, alt: "Image 9" },
-        ].map((item, index) => (
-          <div key={index} className="grid-item">
-            <img src={item.src} alt={item.alt} className="w-full h-96 object-cover rounded-xl" />
-          </div>
-        ))}
+
+      <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
+        <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
+        <CategoryItem />
+        <CategoryItem />
+        <CategoryItem />
+        <CategoryItem />
+        <CategoryItem />
+        <CategoryItem />
+        <CategoryItem />
+        <CategoryItem />
+        <CategoryItem />
+        </div>
       </div>
 
+      {/* <CategoryImagesGrid/> */}
       <PageSection />
       <Quality />
     </Fragment>

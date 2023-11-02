@@ -16,8 +16,8 @@ const Header = () => {
   const Navigate = useNavigate();
 
   return (
-    <div className=" bg-white border-b shadow-sm sticky top-0 z-50">
-      <header className="flex justify-between items-center px-12 mx-auto">
+    <div className=" px-5 bg-white border-b shadow-sm sticky top-0 z-50">
+      <header className="flex justify-between items-center xl:px-12 lg:px-12 md:px-12 mx-auto sm:px-6">
         <div>
           <img
             src={logo}
@@ -67,10 +67,8 @@ const Header = () => {
         <div className="flex justify-center items-center gap-5 text-2xl">
           <SearchIcon/>
           <NavCart/>
-        </div>
-
           <HamburgerMenu />
-
+        </div>
       </header>
     </div>
   );
