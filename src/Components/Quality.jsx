@@ -1,7 +1,7 @@
 const Quality = () => {
   return (
     <section className="bg-[#FAF3EA] w-full flex items-center justify-center p-[5%] mt-10">
-      <div className="bg-[#FAF3EA] w-full flex items-center flex-wrap justify-center">
+      <div className="bg-[#FAF3EA] gap-10 w-full flex items-center flex-wrap justify-center">
         <div className="flex gap-2.5 w-[300px]">
           <svg
           className="w-20 aspect-[1]"

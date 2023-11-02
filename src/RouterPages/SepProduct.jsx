@@ -3,7 +3,6 @@ import Quality from "../Components/Quality";
 import Navigation from "../Components/Navigation";
 import dinnigImg from "../assets/images/dinning-1.jpg";
 import livingImg from "../assets/images/living room.jpg";
-
 import ColorPicker from "../Components/colorPicker";
 import { useNavigate } from "react-router";
 import gridImg from "../assets/images/grid.jpg";
@@ -15,7 +14,7 @@ const SepProduct = () => {
   return (
     <>
       <Navigation />
-      <ColorPicker/>
+      <ColorPicker />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
         <div className="w-full flex flex-col items-center justify-center gap-20">
@@ -183,7 +182,6 @@ const SepProduct = () => {
           Show more
         </button>
       </section>
-
       <Quality />
     </>
   );
