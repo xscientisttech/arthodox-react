@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import livingImg from "../assets/images/living room.jpg";
+import img1 from "../assets/images/image 1.png" 
+import img2 from  "../assets/images/image 9.png" 
+import img3 from  "../assets/images/image 81.png" 
+import img4 from  "../assets/images/image 8.png"
+
+
 const ColorPicker = () => {
   const [selectedColor, setSelectedColor] = useState('#b99033');
 
-  const handleColorChange = (event) => {
-    setSelectedColor(event.target.value);
-    // event.target.value = selectedColor;
+  const frames = [img1, img2, img3, img4];
+
+  const [selectedImage, setSelectedImage] = useState(frames[0]);
+
+  const changeImage = (frame) => {
+    setSelectedImage(frame);
+    // setBackgroundMain(frame);
+    console.log(frame);
   };
 
+  const handleColorChange = (event) => {
+    setSelectedColor(event.target.value);
+    // setBackgroundMain(event.target.value);
+  };
+  
   const handleColorPallate = (color) => {
     setSelectedColor(color);
-    console.log(color);
+    // setBackgroundMain(color);
   }
 
   const [count, setCount] = useState(1);
@@ -26,13 +42,26 @@ const ColorPicker = () => {
   };
 
   return (
-    <section className="w-full flex justify-center items-center p-14">
+    <section className="w-full flex justify-center items-center p-14 bg-[]">
       <div className="w-full md:w-4/5 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
         <div className="w-6/12 flex grow flex-col p-2.5 justify-center">
-          <div className="flex justify-center min-w-[50%] min-h-[30rem] items-center" style={{ backgroundColor: selectedColor }}>
+          {/* <div className= {`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `}  style={{ backgroundImage:`url(${selectedImage})` }}> */}
+          <div className= {`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `}  style={{ background:selectedColor }}>
             <img className=" w-80 h-96" id="" src={livingImg} alt="" />
           </div>
-          <div className="h-24 w-full bg-slate-400"></div>
+          <div id="frames-container" className=" justify-center gap-7 p-5 w-full flex flex-grow">
+            {frames.map((frame, index) => (
+              <div className="w-20">
+                <img 
+                key={index}
+                className=" w-full rounded-lg aspect-square cursor-pointer"
+                src={frame}
+                onClick={() => changeImage(frame)}
+                alt={`Frame ${index + 1}`}
+              />
+              </div>
+            ))}
+          </div>
         </div>
 
 
