@@ -29,10 +29,13 @@ const ColorPicker = () => {
     <section className="w-full flex justify-center items-center p-14">
       <div className="w-full md:w-4/5 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
         <div className="w-6/12 flex grow flex-col p-2.5 justify-center">
-          <div className="flex justify-center min-w-[50%] min-h-[38rem] items-center" style={{ backgroundColor: selectedColor }}>
+          <div className="flex justify-center min-w-[50%] min-h-[30rem] items-center" style={{ backgroundColor: selectedColor }}>
             <img className=" w-80 h-96" id="" src={livingImg} alt="" />
           </div>
+          <div className="h-24 w-full bg-slate-400"></div>
         </div>
+
+
         <div className="w-6/12 h-full flex grow flex-col gap-5 p-2.5">
           <h1 className="text-[2.5rem] font-semibold">Photo Frame</h1>
           <p className="text-[1.2rem] text-[#9F9F9F] p-0">Rs. 1000</p>
