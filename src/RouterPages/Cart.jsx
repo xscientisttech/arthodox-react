@@ -10,8 +10,8 @@ const Cart = () => {
     <Fragment>
       <Hero title="Cart" />
       <section className="w-full flex justify-center px-[10%] py-[4%]">
-        <div className="w-full gap-5 flex ">
-          <div className="w-9/12">
+        <div className="w-full gap-5 flex flex-wrap">
+          <div className="flex">
             <table className="w-full border-collapse">
               <thead className="flex flex-wrap">
                 <tr className=" bg-[#faf3ea] flex gap-20">
@@ -22,7 +22,6 @@ const Cart = () => {
                   <th className="text-center p-4">Quantity</th>
                   <th className="text-center p-4">Subtotal</th>
                   <th className="text-center p-4"> </th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody className="flex  justify-centre items-center mt-10">
