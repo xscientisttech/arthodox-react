@@ -4,6 +4,7 @@ import Quality from "../Components/Quality";
 import Filter from "../Components/Filter";
 import HeroImg from "../assets/images/back-img.jpg";
 import CategoryImagesGrid from "../Components/CategoryImagesGrid";
+import Hero from "../Components/Hero";
 
 const Category = () => {
   return (

@@ -16,7 +16,6 @@ const Products = () => {
   return (
     <Fragment>
       <Hero title="Products" />
-
       <Filter />
       <ProductImageGrid />
       <PageSection />

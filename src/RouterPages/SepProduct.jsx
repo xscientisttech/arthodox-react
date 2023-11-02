@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Quality from "../Components/Quality";
 import Navigation from "../Components/Navigation";
-import "./single_product.css";
 import dinnigImg from "../assets/images/dinning-1.jpg";
 import livingImg from "../assets/images/living room.jpg";
 
