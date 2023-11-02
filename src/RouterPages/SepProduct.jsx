@@ -3,7 +3,7 @@ import Quality from "../Components/Quality";
 import Navigation from "../Components/Navigation";
 import dinnigImg from "../assets/images/dinning-1.jpg";
 import livingImg from "../assets/images/living room.jpg";
-import ColorPicker from "../Components/colorPicker";
+import ProductMain from "../Components/ProductMain";
 import { useNavigate } from "react-router";
 import gridImg from "../assets/images/grid.jpg";
 import ProductItem from "../Components/ProductItem";
@@ -15,12 +15,12 @@ const SepProduct = () => {
   return (
     <>
       <Navigation />
-      <ColorPicker />
+      <ProductMain />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
         <div className="w-full flex flex-col items-center justify-center gap-20">
           <div className="max-w-[1200px] flex flex-col items-center justify-center gap-5 px-[5%] py-[0%]">
-            <div className="flex gap-5 cursor-pointer justify-center items-center ml-28">
+            <div className="flex gap-5 cursor-pointer justify-center items-center ">
               <h3 className="text-[22px] font-bold">Description</h3>
               <h3 className="text-[22px] text-[#00000084] font-bold">
                 Additional Information
