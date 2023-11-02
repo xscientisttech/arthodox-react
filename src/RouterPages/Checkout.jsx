@@ -7,7 +7,7 @@ const Checkout = () => {
   return (
     <Fragment>
       <Hero title="Checkout" />
-      <section className="content w-full p-32">
+      <section className="content w-full p-32 py-0">
         <div className="container p-20 flex justify-center gap-10">
           <div className="c1 w-1/2 flex flex-col gap-10">
             <h1 className="text-2xl font-bold">Billing Details</h1>
