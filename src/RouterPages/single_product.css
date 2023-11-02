@@ -1,0 +1,457 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    color: white;
+    background-color: black;
+}
+
+
+button,
+a {
+    cursor: pointer;
+
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+i {
+    cursor: pointer;
+}
+
+/* -------------------- product ---------------- */
+
+.product {
+    width: 100%;
+    /* height: 80vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #000000a2; */
+    padding: 3.5rem
+}
+
+.product .container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.product .container .c1 {
+    width: 50%;
+    /* height: 100%; */
+    padding: 10px;
+    display: flex;
+    flex-grow: 1;
+    /* align-items: center; */
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+
+.product .container .c1 .main-img {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    min-width: 50%;
+    height: 100%;
+}
+
+.product .container .c1 #main-img {
+    width: 100%;
+    height: 100%;
+    max-width: 480px;
+    max-height: 520px;
+}
+
+.product .container .c1 .list {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.product .c1 .list img {
+    cursor: pointer;
+    min-width: 50px;
+    max-width: 80px;
+    aspect-ratio: 1;
+    border-radius: 10px;
+}
+
+.product .c1 .list img:hover {
+    scale: 1.05;
+}
+
+
+.product .c2 {
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    /* justify-content: start;
+    align-items: start; */
+    gap: 20px;
+}
+
+.product .c2 #product-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.product .c2 #price {
+    font-size: 1.2rem;
+    color: #9F9F9F;
+}
+
+.product .c2 p {
+    padding: 0;
+    color: #9F9F9F;
+}
+
+.product .c2 .discription {
+    color: black;
+}
+
+.product .color-pallate .colors {
+    /* background-color: #fff; */
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.color-pallate .color {
+    width: 30px;
+
+    height: 30px;
+    /* aspect-ratio: 1; */
+    background-color: #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.product .color-pallate .color:nth-child(1) {
+    background-color: #816DFA;
+}
+
+.product .color-pallate .color:nth-child(3) {
+    background-color: #c74646;
+}
+
+.product .color-pallate #color-picker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    width: 38px;
+    height: 42px;
+    aspect-ratio: 1;
+    outline: none;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+.product .color-pallate #color-picker::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 3px solid black;
+}
+
+.product .color-pallate #color-picker::-moz-color-swatch {
+    border-radius: 50%;
+    border: 3px solid black;
+}
+
+.product .c2 button {
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    /* margin: auto; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    /* margin-top: 2rem; */
+    border-radius: 12px;
+}
+
+.product .frame-size , .product .color-pallate {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product .frame-size button {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid black;
+}
+
+.product .btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.product .btns .btn {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.product .c2 .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    gap: 20px;
+    border: 1px solid rgb(175, 175, 175);
+}
+
+.product .c2 .quantity i {
+    cursor: pointer;
+}
+
+
+.product .c2 button {
+    font-size: 0.8rem;
+    transition: .2s;
+}
+
+.product .c2 button:hover {
+	color: black;
+	background-color: white;
+    /* scale: 1.2; */
+}
+
+.product .c2 .social-links a {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background-color: black;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    color: white;
+    transition: all 0.5s ease;
+}
+
+.product .c2 .social-links a:hover {
+    color: black;
+    background-color: white;
+    scale: 1.2;
+}
+
+
+/* .product .c2 .social-links {
+    display: flex;
+    gap: 10px;
+}
+.product .c2 .social-links .fa-brands {
+    width: 30px;
+    font-size: 2px;
+    aspect-ratio: 1;
+} */
+
+
+.product .features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product .features .f1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.product .features .f1 p:first-child {
+    width: 80px;
+}
+
+
+
+/* ---------------- description ------------------- */
+
+
+.description {
+    width: 100%;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 10%;
+}
+
+.description .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+.description .c1 {
+    max-width: 1200px;
+    padding: 0% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.description .c1 .headings {
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+
+
+.description .c1 .headings h3 {
+    font-size: 22px;
+}
+
+.description .c1 .headings h3:nth-child(2) {
+    color: #00000084;
+}
+
+.description .c1 .text1,
+.description .c1 .text2 {
+    font-size: 16px;
+    color: #888888;
+}
+
+.description .c2 {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.description .c2 .img {
+    width: 50%;
+    max-width: 543px;
+    min-width: 250px;
+    /* width: 50%; */
+    aspect-ratio: 1.5;
+    /* height: 300px; */
+    border-radius: 10px;
+}
+
+.description .c2 .img:nth-child(1) {
+    background-image: url("../assets/images/image\ 100.png");
+}
+
+.description .c2 .img:nth-child(2) {
+    background-image: url("../assets/images/image\ 106.png");
+}
+
+
+
+/* ================================================== Grid images section ========================================== */
+.main {
+    padding:0 10%;
+}
+
+.product-grid {
+    margin-top: 5rem;
+}
+
+.grid-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+    gap: 20px;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.grid-item {
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    max-width: 300px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+}
+
+.grid-item:hover {
+    scale: 1.06;
+}
+
+.category-btn {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    margin-top: 2rem;
+    border-radius: 12px;
+}
+
+
+.color-picker{
+    padding: 10px 20px;
+    background: linear-gradient(to right, red, pink, yellow, blue);
+    border: 0px solid transparent;
+    background-clip: padding-box;
+    border-image: linear-gradient(to right, red, yellow, blue) 1;
+    border-image-slice: 1;
+    color: white;
+    font-weight: bold;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.color-picker:hover {
+    background: linear-gradient(to right, pink, blue, yellow, red);
+    border-image: linear-gradient(to right, blue, yellow, red) 1;
+  }

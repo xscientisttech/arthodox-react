@@ -5,20 +5,16 @@ import HeroImg from "../assets/images/back-img.jpg";
 const Cart = () => {
   return (
     <Fragment>
-      <div className="flex justify-center items-center">
-        <div className="w-full h-[25rem]">
-          <img
-            src={HeroImg}
-            alt="back-img"
-            className=" bg-cover bg-no-repeat h-full w-full transform opacity-50"
-          />
-        </div>
-        <div className=" absolute flex flex-col justify-center items-center">
-          <h2 className="text-[3rem] font-bold ">Cart</h2>
-          <p className="">
-            <span className="text-xl font-semibold">Home </span>
-            <i className="fa-solid fa-greater-than"></i>
-            <span className="text-xl font-semibold"> Cart</span>
+      <div className="h-[25rem] w-full relative flex justify-center items-center">
+        <img src={HeroImg} alt="" className="bg-no-repeat bg-cover w-full h-full absolute transform opacity-60" />
+        <div className="relative">
+          <h2 className="text-5xl font-bold p-2">Cart</h2>
+          <p className="text-[1.2rem] flex justify-evenly">
+            <span className="font-bold">Home</span>
+            <span>
+              <i className="fa-solid fa-greater-than text-sm"></i>
+            </span>
+            <span>Cart</span>
           </p>
         </div>
       </div>

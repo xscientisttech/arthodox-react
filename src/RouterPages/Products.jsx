@@ -4,168 +4,33 @@ import gridImg from "../assets/images/grid.jpg";
 import PageSection from "../Components/PageSection";
 import Quality from "../Components/Quality";
 import { Fragment } from "react";
+import ProductImageGrid from "../Components/ProductImageGrid";
 const Products = () => {
   return (
     <Fragment>
-      <div className="flex justify-center items-center">
-        <div className="w-full h-[25rem]">
-          <img
-            src={HeroImg}
-            alt="back-img"
-            className=" bg-cover bg-no-repeat h-full w-full transform opacity-50"
-          />
-        </div>
-        <div className=" absolute flex flex-col justify-center items-center">
-          <h2 className="text-[3rem] font-bold ">Products</h2>
-          <p className="">
-            <span className="text-xl font-semibold">Home </span>
-            <i className="fa-solid fa-greater-than"></i>
-            <span className="text-xl font-semibold"> Products</span>
+      <div className="h-[25rem] w-full relative flex justify-center items-center">
+        <img
+          src={HeroImg}
+          alt=""
+          className="bg-no-repeat bg-cover w-full h-full absolute transform opacity-60"
+        />
+        <div className="relative">
+          <h2 className="text-5xl font-bold p-2">Products</h2>
+          <p className="text-[1.2rem] flex justify-evenly">
+            <span className="font-bold">Home</span>
+            <span>
+              <i className="fa-solid fa-greater-than text-sm"></i>
+            </span>
+            <span>Products</span>
           </p>
         </div>
       </div>
 
       <Filter />
-
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8 max-w-[1200px] mt-16 mx-auto my-0">
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110 ">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-          <div className="text-start border bg-neutral-100 border-solid border-[#ccc] transform hover:scale-110">
-            <img src={gridImg} alt="Avatar" className=" cursor-pointer" />
-            <div className="p-2">
-              <h3 className="text-xl font-semibold cursor-pointer">wall frame</h3>
-              <p className=" cursor-pointer">Attrative Wall Frames</p>
-              <p className=" cursor-pointer">
-                <span>Rs.1000</span>
-                <del>Rs. 1500.00</del>
-              </p>
-            </div>
-          </div>
-        </div>
-        <PageSection/>
-        <Quality/>
-      </Fragment>
+      <ProductImageGrid />
+      <PageSection />
+      <Quality />
+    </Fragment>
   );
 };
 
