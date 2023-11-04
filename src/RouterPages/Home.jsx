@@ -9,15 +9,15 @@ import CategoryItem from "../Components/CategoryItem";
 import ProductItem from "../Components/ProductItem";
 
 export default function Home() {
-  const Navigate = useNavigate();
+	const Navigate = useNavigate();
 
-  const scrollDown = () => {
-    const viewportHeight = window.innerHeight;
-    window.scrollTo({
-      top: viewportHeight,
-      behavior: "smooth", 
-    });
-  };
+	const scrollDown = () => {
+		const viewportHeight = window.innerHeight;
+		window.scrollTo({
+			top: viewportHeight,
+			behavior: "smooth",
+		});
+	};
 
 	return (
 		<main>

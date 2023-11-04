@@ -58,8 +58,15 @@ const Cart = () => {
                   >
                     <div className="flex justify-between flex-col items-end md:flex-row sm:before:content-none sm:items-center gap-14">
                       <p>Rs. 1000</p>
-                      <i className="fa-solid fa-trash text-orange-600"></i>
+                      
                     </div>
+                  </td>
+                  <td
+                    className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
+                    data-title="Subtotal"
+                  >
+                    <i className="fa-solid fa-trash text-orange-600"></i>
+
                   </td>
                 </tr>
               </tbody>
