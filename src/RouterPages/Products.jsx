@@ -6,8 +6,6 @@ import Quality from "../Components/Quality";
 import { Fragment } from "react";
 import { useNavigate } from "react-router";
 import Hero from "../Components/Hero";
-
-import ProductImageGrid from "../Components/ProductImageGrid";
 import ProductItem from "../Components/ProductItem";
 const Products = () => {
 
@@ -18,7 +16,6 @@ const Products = () => {
     <Fragment>
       <Hero title="Products" />
       <Filter />
-      {/* <ProductImageGrid /> */}
       <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
           <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
            <ProductItem />

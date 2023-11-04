@@ -4,7 +4,6 @@ import bedroomImg from "../assets/images/bedroom.webp";
 import HeroImg from "../assets/images/back-img.jpg";
 import React from "react";
 import { useNavigate } from "react-router";
-import ProductGrid from "../Components/ProductGrid";
 import CategoryItem from "../Components/CategoryItem";
 import ProductItem from "../Components/ProductItem";
 
