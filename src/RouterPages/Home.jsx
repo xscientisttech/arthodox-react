@@ -14,8 +14,8 @@ export default function Home() {
 	const scrollDown = () => {
 		const viewportHeight = window.innerHeight;
 		window.scrollTo({
-			top: viewportHeight, // Scroll down by one viewport height
-			behavior: "smooth", // Add smooth scrolling behavior
+			top: viewportHeight,
+			behavior: "smooth",
 		});
 	};
 

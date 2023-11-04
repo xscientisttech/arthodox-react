@@ -29,8 +29,8 @@ const Checkout = () => {
     <Fragment>
       <Hero title="Checkout" />
       <section className="content w-full p-10 lg:p-16 py-10">
-        <form action="submit" className="container grid grid-cols-1 lg:grid-cols-2 md:p-20 p-0 justify-center gap-10">
-          <div className="c1 min-w-1/2 sm:w-full flex flex-col gap-10">
+        <form action="submit" className="container grid grid-cols-1 lg:grid-cols-2 md:p-20 lg:px-40 p-0 justify-center gap-10">
+          <div className="c1 items-center lg:items-start min-w-1/2 sm:w-full flex flex-col gap-10">
             <h1 className="text-2xl font-bold">Billing Details</h1>
             <div id="billing" className="form flex flex-col font-semibold gap-5">
               <div className="name flex  gap-5 max-w-md font-normal">
