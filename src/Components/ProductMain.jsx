@@ -37,14 +37,11 @@ const ProductMain = () => {
     };
 
     return (
-        <section className="p-5 mt-14  sm:p-16 md:mt-0 w-full flex justify-center items-center md:p-14 bg-[]">
-            <div className="w-full md:w-4/5 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
-                <div className="w-full md:w-6/12 flex grow flex-col p-2.5 justify-center">
+        <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-14 bg-[]">
+            <div className="w-full flex flex-col md:flex-row justify-center gap-4 md:gap-8">
+                <div className="w-full md:w-6/12 flex mt-5 h-full p-2.5 justify-between">
                     {/* <div className= {`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `}  style={{ backgroundImage:`url(${selectedImage})` }}> */}
-                    <div className={`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
-                        <img className=" w-80 h-96" id="" src={DummyData.LivingImgUrl} alt="" />
-                    </div>
-                    <div id="frames-container" className=" justify-center gap-7 p-5 w-full flex flex-grow">
+                    <div id="frames-container" className=" flex flex-col py-10 pt-0 justify-between w-24 ">
                         {frames.map((frame, index) => (
                             <div className="w-20">
                                 <img
@@ -55,8 +52,12 @@ const ProductMain = () => {
                                     alt={`Frame ${index + 1}`}
                                 />
                             </div>
-                        ))}
+                        ))}   
                     </div>
+                    <div className={`flex justify-center min-w-[80%] min-h-[65vh] items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
+                        <img className="w-80 h-96" id="" src={DummyData.BgChangeImgUrl1} alt="" />
+                    </div>
+                    
                 </div>
 
 
