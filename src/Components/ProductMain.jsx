@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import livingImg from "../assets/images/living room.jpg";
-import img1 from "../assets/images/image 1.png"
-import img2 from "../assets/images/image 9.png"
-import img3 from "../assets/images/image 81.png"
-import img4 from "../assets/images/image 8.png"
-
+import DummyData from './DummyData';
 
 const ProductMain = () => {
     const [selectedColor, setSelectedColor] = useState('#b99033');
 
-    const frames = [img1, img2, img3, img4];
+    const frames = [DummyData.BgChangeImgUrl1, DummyData.BgChangeImgUrl2, DummyData.BgChangeImgUrl3, DummyData.BgChangeImgUrl4];
 
     const [selectedImage, setSelectedImage] = useState(frames[0]);
 
@@ -47,7 +42,7 @@ const ProductMain = () => {
                 <div className="w-full md:w-6/12 flex grow flex-col p-2.5 justify-center">
                     {/* <div className= {`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `}  style={{ backgroundImage:`url(${selectedImage})` }}> */}
                     <div className={`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
-                        <img className=" w-80 h-96" id="" src={livingImg} alt="" />
+                        <img className=" w-80 h-96" id="" src={DummyData.LivingImgUrl} alt="" />
                     </div>
                     <div id="frames-container" className=" justify-center gap-7 p-5 w-full flex flex-grow">
                         {frames.map((frame, index) => (
