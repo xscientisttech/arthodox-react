@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "../assets/images/Frame 168.png";
 import { useLocation, useNavigate } from "react-router";
 import HamburgerMenu from "./Hamburger";
 import NavCart from "./navCart";
 import SearchIcon from "./SearchIcon";
+import DummyData from "./DummyData";
 
 const Header = () => {
   const location = useLocation();
@@ -20,7 +20,7 @@ const Header = () => {
       <header className="flex justify-between items-center xl:px-12 lg:px-12 md:px-12 mx-auto sm:px-6">
         <div>
           <img
-            src={logo}
+            src={DummyData.ArthLogo}
             alt="Arthodox-logo"
             className=" h-7 cursor-pointer"
             onClick={() => Navigate("/")}
@@ -30,7 +30,7 @@ const Header = () => {
           <li
             className={` cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${
               pathMatchRoute("/") &&
-              "font-bold text-gray-900 border-b-orange-500"
+              "font-bold text-gray-900 border-b-orange-600"
             }`}
             onClick={() => Navigate("/")}
           >
@@ -39,7 +39,7 @@ const Header = () => {
           <li
             className={` cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${
               pathMatchRoute("/Products") &&
-              "border-b-orange-500 font-bold text-gray-900"
+              "border-b-orange-600 font-bold text-gray-900"
             }`}
             onClick={() => Navigate("/Products")}
           >
@@ -48,7 +48,7 @@ const Header = () => {
           <li
             className={`cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${
               pathMatchRoute("/Category") &&
-              "border-b-orange-500 font-bold text-gray-900"
+              "border-b-orange-600 font-bold text-gray-900"
             }`}
             onClick={() => Navigate("/Category")}
           >
@@ -57,7 +57,7 @@ const Header = () => {
           <li
             className={`cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${
               pathMatchRoute("/About") &&
-              "border-b-orange-500 font-bold text-gray-900"
+              "border-b-orange-600 font-bold text-gray-900"
             }`}
             onClick={() => Navigate("/About")}
           >

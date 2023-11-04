@@ -1,6 +1,5 @@
 import { Fragment, useState } from "react";
 import Quality from "../Components/Quality";
-import HeroImg from "../assets/images/back-img.jpg";
 import Hero from "../Components/Hero";
 
 const Checkout = () => {

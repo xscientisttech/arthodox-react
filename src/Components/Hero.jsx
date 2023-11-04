@@ -1,5 +1,6 @@
 import React from "react";
-import HeroImg from "../assets/images/back-img.jpg";
+import DummyData from "./DummyData";
+
 
 const Hero = (props) => {
 	return (
@@ -7,7 +8,7 @@ const Hero = (props) => {
 			<div className="flex justify-center items-center">
 				<div className="w-full h-[25rem]">
 					<img
-						src={HeroImg}
+						src={DummyData.HeroImgUrl}
 						alt="back-img"
 						className=" bg-cover bg-no-repeat h-full w-full transform opacity-50 object-cover"
 					/>

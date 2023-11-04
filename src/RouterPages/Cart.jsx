@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import { useNavigate } from "react-router";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
-import gridImg from "../assets/images/grid.jpg";
+import DummyData from "../Components/DummyData";
+
 
 const Cart = () => {
   const Navigate = useNavigate();
@@ -24,11 +25,20 @@ const Cart = () => {
                   <th class=" py-5"></th>
                 </tr>
               </thead>
-              <tbody>
-                <tr className="">
-                  <td className=" mt-10">
-                    <div className="flex justify-center items-center gap-10">
-                      <img src={gridImg} alt="" className="w-[6rem] rounded-lg" />
+              <tbody className="flex  justify-centre items-center mt-10 flex-col">
+                <tr className="block w-full sm:flex px-8 xl:px-0 lg:px-0 md:px-0 gap-28 items-center justify-centre">
+                  <td
+                    className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
+                    data-title="Product"
+                  >
+                    {" "}
+                    <div className="flex justify-center flex-col items-end md:flex-row sm:items-center gap-10">
+                      <img
+                        src={DummyData.GridImgUrl}
+                        alt=""
+                        className="w-[6rem] rounded-lg"
+                      />
+                      <p>Wall Frame</p>
                     </div>
                   </td>
                   <td class=" text-center">Wall Frame</td>

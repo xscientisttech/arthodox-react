@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Quality from "../Components/Quality";
 import Navigation from "../Components/Navigation";
-import dinnigImg from "../assets/images/dinning-1.jpg";
-import livingImg from "../assets/images/living room.jpg";
 import ProductMain from "../Components/ProductMain";
 import { useNavigate } from "react-router";
-import gridImg from "../assets/images/grid.jpg";
 import ProductItem from "../Components/ProductItem";
+import DummyData from "../Components/DummyData";
 
 const SepProduct = () => {
 
@@ -42,11 +40,11 @@ const SepProduct = () => {
           </div>
           <div className="w-full flex gap-10 items-center justify-center flex-wrap">
             <img
-              src={livingImg}
+              src={DummyData.LivingImgUrl} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
             <img
-              src={dinnigImg}
+              src={DummyData.dinnigImgUrl} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
           </div>

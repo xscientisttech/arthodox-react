@@ -1,7 +1,6 @@
 import React from "react";
-import bedroomImg from "../assets/images/bedroom.webp";
+import DummyData from "./DummyData";
 import { useNavigate } from "react-router";
-
 const CategoryItem = () => {
 
 	
@@ -11,7 +10,7 @@ const CategoryItem = () => {
 		<div className="relative overflow-hidden cursor-pointer" onClick={() => Navigate("/Category")}>
 			<div className="relative after:content-[''] after:absolute after:w-full after:h-full after:opacity-30- after:hover:opacity-0- after:rounded-3xl after:left-0 after:top-0 after:bg-gradient-to-b after:from-gray-50/0 after:to-gray-900/80">
 				<img
-					src={bedroomImg}
+					src={DummyData.CategoryImgUrl}
 					alt="image"
 					className="w-[328px] rounded-3xl xl:w-[348px]"
 				/>

@@ -10,7 +10,9 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import SepProduct from './RouterPages/SepProduct';
 
+
 const App = () => {
+
   return(
     <Fragment>
       <Router>
