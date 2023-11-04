@@ -27,41 +27,46 @@ const NavCart = () => {
         ></i>
       </div>
       {cartOpen && (
-        <div className=" absolute top-14 right-10 p-10 w-fit gap-3 flex flex-col justify-start items-center py-5 font-semibold text-lg bg-[rgba(255,255,255,0.5)] rounded-xl">
-          <div className="flex justify-start items-center gap-10 cursor-pointer" >
-            <img src={gridImg} alt="" width="50rem" />
-            <div>
-              <h3 className="text-xl font-semibold">Wall Frame</h3>
-              <p>1 &#215; rs. 1000</p>
+        <div className=" transition shadow-lg absolute top-10 md:top-14 right-0 md:right-10 w-full sm:w-fit h-fit min-h-[96px]  flex flex-col justify-start items-center font-semibold bg-white text-base ">
+          <div className=" group/item flex min-w-[300px] justify-between items-center  px-5 py-5 w-full border hover:bg-slate-100 cursor-pointer" onClick={() => closeCart("/Cart")}>
+            <div className="flex">
+              <img className=" shadow-lg border" src={gridImg} alt="" width="50rem" />
+              <div className=" ml-5" >
+                <h4 className="text-lg font-semibold text-gray-600">Wall Frame</h4>
+                <p className=" text-red-700 text-sm" >Rs. 1000</p>
+              </div>
             </div>
+            <i class="fa-solid fa-circle-xmark group/edit invisible group-hover/item:visible text-lg text-gray-400"></i>
           </div>
 
-          <div className="flex justify-start items-center gap-10 cursor-pointer" >
-            <img src={gridImg} alt="" width="50rem" />
-            <div>
-              <h3 className="text-xl font-semibold">Wall Frame</h3>
-              <p>1 &#215; rs. 1000</p>
+          <div className=" group/item flex min-w-[300px] justify-between items-center  px-5 py-5 w-full border hover:bg-slate-100 cursor-pointer" onClick={() => closeCart("/Cart")}>
+            <div className="flex">
+              <img className=" shadow-lg border" src={gridImg} alt="" width="50rem" />
+              <div className=" ml-5" >
+                <h4 className="text-lg font-semibold text-gray-600">Wall Frame</h4>
+                <p className=" text-red-700 text-sm" >Rs. 1000</p>
+              </div>
             </div>
+            <i class="fa-solid fa-circle-xmark group/edit invisible group-hover/item:visible text-lg text-gray-400"></i>
           </div>
-          <div className="flex justify-center items-center gap-10">
-            <p>subtotal</p>
-            <p>Rs. 2000</p>
+
+          <div className=" group/item flex min-w-[300px]  justify-between items-center px-5 py-5 w-full border hover:bg-slate-100 cursor-pointer" onClick={() => closeCart("/Cart")}>
+            <div className="flex">
+              <img className=" shadow-lg border" src={gridImg} alt="" width="50rem" />
+              <div className=" ml-5" >
+                <h4 className="text-lg font-semibold text-gray-600">Wall Frame</h4>
+                <p className=" text-red-700 text-sm" >Rs. 1000</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-circle-xmark group/edit invisible group-hover/item:visible text-lg text-gray-400"></i>
           </div>
-          <div>
-            <ul className="flex justify-center items-center gap-10">
-              <li
-                className="text-xl bg-black text-white rounded-lg px-4 py-1 cursor-pointer"
-                onClick={() => closeCart("/Cart")}
-              >
-                Cart
-              </li>
-              <li
-                className="text-xl bg-black text-white rounded-lg px-4 py-1 cursor-pointer"
-                onClick={() => closeCart("/Checkout")}
-              >
-                Checkout
-              </li>
-            </ul>
+
+          <div className="flex min-w-[300px] justify-between px-5 py-5 w-full border cursor-pointer" >
+            <div className=" flex items-center gap-2">
+              <h3>Total : </h3>
+              <p className=" text-red-700 text-sm"> Rs 2000</p>
+            </div>
+            <button className="border p-2 px-3 text-xs bg-gray-100 hover:bg-gray-200" onClick={() => closeCart("/Checkout")}>CHECKOUT</button>
           </div>
         </div>
       )}
