@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import PageSection from "../Components/PageSection";
 import Quality from "../Components/Quality";
 import Filter from "../Components/Filter";
-import HeroImg from "../assets/images/back-img.jpg";
 import Hero from "../Components/Hero";
 import CategoryItem from "../Components/CategoryItem";
 

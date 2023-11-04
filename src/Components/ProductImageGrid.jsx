@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 
 const ProductImageGrid = () => {
   const Navigate = useNavigate();
+
   return (
     <Fragment>
       <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
@@ -178,4 +179,4 @@ const ProductImageGrid = () => {
   );
 };
 
-export default ProductImageGrid;
+// export default ProductImageGrid;

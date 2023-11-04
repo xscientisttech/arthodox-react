@@ -1,12 +1,8 @@
-import dinnigImg from "../assets/images/dinning-1.jpg";
-import livingImg from "../assets/images/living room.jpg";
-import bedroomImg from "../assets/images/bedroom.webp";
-import HeroImg from "../assets/images/back-img.jpg";
 import React from "react";
 import { useNavigate } from "react-router";
-import ProductGrid from "../Components/ProductGrid";
 import CategoryItem from "../Components/CategoryItem";
 import ProductItem from "../Components/ProductItem";
+import DummyData from "../Components/DummyData";
 
 export default function Home() {
 	const Navigate = useNavigate();
@@ -23,7 +19,7 @@ export default function Home() {
 		<main>
 			<section>
 				<img
-					src={HeroImg}
+					src={DummyData.HeroImgUrl}
 					alt="heroimg"
 					className="h-[50vh] xl:h-[calc(100vh_-_4rem)] lg:h-[80vh] md:h-[70vh] sm:h-[60vh] w-full bg-cover bg-center relative"
 				/>

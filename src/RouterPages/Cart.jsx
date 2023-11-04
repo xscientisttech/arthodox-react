@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import { useNavigate } from "react-router";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
-import gridImg from "../assets/images/grid.jpg";
+import DummyData from "../Components/DummyData";
+
 
 const Cart = () => {
 	const Navigate = useNavigate();
@@ -33,7 +34,7 @@ const Cart = () => {
                     {" "}
                     <div className="flex justify-center flex-col items-end md:flex-row sm:items-center gap-10">
                       <img
-                        src={gridImg}
+                        src={DummyData.GridImgUrl}
                         alt=""
                         className="w-[6rem] rounded-lg"
                       />

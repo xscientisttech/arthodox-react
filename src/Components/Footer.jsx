@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../assets/images/Frame 168.png";
 import { useNavigate } from "react-router";
+import DummyData from "./DummyData";
 
 const Footer = () => {
   const Navigate = useNavigate();
@@ -16,7 +16,7 @@ const Footer = () => {
     <footer className="bg-[#f4f4f4] mt-20 px-0 py-[70px]">
       <div>
         <img
-          src={logo}
+          src={DummyData.ArthLogo}
           alt="Arthodox-logo"
           className=" h-7 cursor-pointer w-40 flex mt-[-3rem] m-auto"
           onClick={scrollToTop}
