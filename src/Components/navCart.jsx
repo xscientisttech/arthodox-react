@@ -36,16 +36,10 @@ const NavCart = () => {
           <div className=" max-h-[360px] overflow-y-auto ">
 
             {cart.map((item, index) => (
-              <li key={index}>
-                {item}
-                <button onClick={() => removeFromCart(index)}>Remove</button>
+              <li className=" list-none" key={index}>
+                <PopupCartItem closeCart={closeCart} index={index} removeFromCart={removeFromCart} />
               </li>
             ))}
-
-            {/* <PopupCartItem />
-            <PopupCartItem />
-            <PopupCartItem />
-            <PopupCartItem /> */}
           </div>
 
           <div className="flex min-w-[300px] justify-between px-5 py-5 w-full border cursor-pointer" >
