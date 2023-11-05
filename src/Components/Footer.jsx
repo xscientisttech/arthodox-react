@@ -13,7 +13,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#f4f4f4] mt-20 px-0 py-[70px]">
+    <footer className="bg-[#f4f4f4] mt-20 px-0 py-[70px] font-Poppins">
       <div>
         <img
           src={DummyData.ArthLogo}

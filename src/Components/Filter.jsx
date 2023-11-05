@@ -1,6 +1,6 @@
 const Filter = () => {
   return (
-    <div className="bg-[#F9F1E7] h-[70px] w-full flex justify-around items-center">
+    <div className="bg-[#F9F1E7] h-[70px] w-full flex justify-around items-center font-Poppins">
       <div className="flex gap-5">
         <div className="flex gap-2.5 justify-between cursor-pointer items-center">
           <i className="fa-solid fa-sliders"></i>

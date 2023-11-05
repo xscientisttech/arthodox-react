@@ -7,7 +7,7 @@ const CategoryItem = (props) => {
 	const Navigate = useNavigate();
 
 	return (
-		<div className="relative overflow-hidden cursor-pointer" onClick={() => Navigate("/Category")}>
+		<div className="relative overflow-hidden cursor-pointer font-Poppins" onClick={() => Navigate("/Category")}>
 			<div className="relative after:content-[''] after:absolute after:w-full after:h-full after:opacity-30- after:hover:opacity-0- after:rounded-3xl after:left-0 after:top-0 after:bg-gradient-to-b after:from-gray-50/0 after:to-gray-900/80">
 				<img
 					src={props.CategoryImgUrl}

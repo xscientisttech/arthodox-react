@@ -17,7 +17,7 @@ const Category = () => {
       <Hero title="Category" />
       <Filter />
 
-      <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
+      <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 bg-[#f4f4f4]">
         <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
         <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 1" />
         <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 2" />

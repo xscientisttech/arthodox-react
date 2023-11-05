@@ -8,7 +8,7 @@ const CartItem = (props) => {
   return (
     <>
       <td
-        className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
+        className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center font-Poppins"
         data-title="Product"
       >
         {" "}
