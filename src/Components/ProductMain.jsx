@@ -56,7 +56,6 @@ const ProductMain = () => {
                         {frames.map((frame, index) => (
                             <div className=" w-16 md:w-20 ">
                                 <img
-                                    key={index}
                                     className=" w-full rounded-lg aspect-square cursor-pointer"
                                     src={frame}
                                     onClick={() => changeImage(frame)}
@@ -187,6 +186,12 @@ const ProductMain = () => {
                                     className="inline-block h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
                                 >
                                     <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a
+                                    href="#"
+                                    className="inline-block h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
+                                >
+                                    <i class="fa-regular fa-copy"></i>
                                 </a>
                             </div>
                         </div>
