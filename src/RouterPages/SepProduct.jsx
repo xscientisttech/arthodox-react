@@ -20,9 +20,6 @@ const SepProduct = () => {
           <div className="max-w-[1200px] flex flex-col items-center justify-center gap-5 px-[5%] py-[0%]">
             <div className="flex gap-5 cursor-pointer justify-center items-center ">
               <h3 className="text-[22px] font-bold">Description</h3>
-              <h3 className="text-[22px] text-[#00000084] font-bold">
-                Additional Information
-              </h3>
             </div>
             <p className="text-base text-[#888888]">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis,
