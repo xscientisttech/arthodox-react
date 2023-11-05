@@ -1,11 +1,18 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { useNavigate } from "react-router";
 import CategoryItem from "../Components/CategoryItem";
 import ProductItem from "../Components/ProductItem";
 import DummyData from "../Components/DummyData";
 
 export default function Home() {
-  const Navigate = useNavigate();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	  }, []);
+	  
+
+	const Navigate = useNavigate();
+
 
   const scrollDown = () => {
     const viewportHeight = window.innerHeight;
@@ -34,64 +41,62 @@ export default function Home() {
           </button>
         </div>
       </section>
+			<section className="xl:mt-16 lg:mt-12 md:mt-8 sm:mt-6 mt-4">
+				<div className="flex flex-col justify-center items-center text-2xl m-auto">
+					<div className="xl:text-xl lg:text-lg md:text-md sm:text-md text-sm">
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing
+							elit.
+						</p>
+					</div>
+					<div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] bg-[#f4f4f4] mt-4 m-auto rounded-[10px]">
+						<h1 className="justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md">
+							Browse The Range
+						</h1>
+					</div>
+					<div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
+						<div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
+							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 1" />
+							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 2" />
+							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 3" />
+						</div>
+					</div>
+					<button
+						className="flex justify-center cursor-pointer text-white bg-black xl:px-8 lg:px-7 md:px-6 sm:px-5 px-4 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black] hover:font-semibold xl:text-xl lg:text-lg md:text-md sm:text-md text-sm"
+						onClick={() => Navigate("/Category")}
+					>
+						Show more
+					</button>
+				</div>
+			</section>
 
-      <section className="xl:mt-16 lg:mt-12 md:mt-8 sm:mt-6 mt-4">
-        <div className="flex flex-col justify-center items-center text-2xl m-auto">
-          <div className="xl:text-xl lg:text-lg md:text-md sm:text-md text-sm">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-          </div>
-          <div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] bg-[#f4f4f4] mt-4 m-auto rounded-[10px]">
-            <h1 className="justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md">
-              Browse The Range
-            </h1>
-          </div>
-          <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
-            <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-              <CategoryItem />
-              <CategoryItem />
-              <CategoryItem />
-            </div>
-          </div>
-          <button
-            className="flex justify-center cursor-pointer text-white bg-black xl:px-8 lg:px-7 md:px-6 sm:px-5 px-4 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black] hover:font-semibold xl:text-xl lg:text-lg md:text-md sm:text-md text-sm"
-            onClick={() => Navigate("/Category")}
-          >
-            Show more
-          </button>
-        </div>
-      </section>
+			{/* <ProductGrid /> */}
+			<section className="mt-20">
+				<div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] bg-[#f4f4f4] mt-4 m-auto rounded-[10px]">
+					<h1 className="justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md">
+						Our Products
+					</h1>
+				</div>
+				<div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
+					<div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 03" Description="Here is the Description" Dprice="Rs.786" Oprice="1200" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 04" Description="Here is the Description" Dprice="Rs.971" Oprice="1200" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 05" Description="Here is the Description" Dprice="Rs.1200" Oprice="1300" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 06" Description="Here is the Description" Dprice="Rs.516" Oprice="600" />
+					</div>
+				</div>
+				<button
+					className="flex justify-center m-auto cursor-pointer text-white bg-black xl:px-8 lg:px-7 md:px-6 sm:px-5 px-4 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black] hover:font-semibold xl:text-xl lg:text-lg md:text-md sm:text-md text-sm"
+					onClick={() => Navigate("/Products")}
+				>
+					Show more
+				</button>
+			</section>
+		</main>
+	);
 
-      {/* <ProductGrid /> */}
-      <section className="mt-20  bg-[#f4f5f7]">
-        <div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] py-10 rounded-[10px]">
-          <h1 className="justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md">
-            Our Products
-          </h1>
-        </div>
-        <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
-          <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-          </div>
-        </div>
-        <div className=" pb-10">
-          <button
-            className="flex justify-center m-auto cursor-pointer text-white bg-black xl:px-8 lg:px-7 md:px-6 sm:px-5 px-4 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black] hover:font-semibold xl:text-xl lg:text-lg md:text-md sm:text-md text-sm"
-            onClick={() => Navigate("/Products")}
-          >
-            Show more
-          </button>
-        </div>
-      </section>
-    </main>
-  );
 }
 
 // export default Home;

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import DummyData from "./DummyData";
+import PopupCartItem from "./PopupCartItem";
+import { useCart } from "./CartContext";
 
 const NavCart = () => {
+
+  const { cart, removeFromCart } = useCart();
+
   const [cartOpen, setCartOpen] = useState(false);
 
   const toggleCart = () => {
@@ -28,37 +33,19 @@ const NavCart = () => {
       </div>
       {cartOpen && (
         <div className=" transition shadow-lg absolute top-10 md:top-14 right-0 md:right-10 w-full sm:w-fit h-fit min-h-[96px]  flex flex-col justify-start items-center font-semibold bg-white text-base ">
-          <div className=" group/item flex min-w-[300px] justify-between items-center  px-5 py-5 w-full border hover:bg-slate-100 cursor-pointer" onClick={() => closeCart("/Cart")}>
-            <div className="flex">
-              <img className=" shadow-lg border" src={DummyData.GridImgUrl} alt="5" width="50rem" />
-              <div className=" ml-5" >
-                <h4 className="text-lg font-semibold text-gray-600">{DummyData.Title}</h4>
-                <p className=" text-red-700 text-sm" >{DummyData.Dprice}</p>
-              </div>
-            </div>
-            <i class="fa-solid fa-circle-xmark group/edit invisible group-hover/item:visible text-lg text-gray-400"></i>
-          </div>
+          <div className=" max-h-[360px] overflow-y-auto ">
 
-          <div className=" group/item flex min-w-[300px] justify-between items-center  px-5 py-5 w-full border hover:bg-slate-100 cursor-pointer" onClick={() => closeCart("/Cart")}>
-            <div className="flex">
-              <img className=" shadow-lg border" src={DummyData.GridImgUrl} alt="cart-img" width="50rem" />
-              <div className=" ml-5" >
-                <h4 className="text-lg font-semibold text-gray-600">{DummyData.Title}</h4>
-                <p className=" text-red-700 text-sm" >{DummyData.Dprice}</p>
-              </div>
-            </div>
-            <i class="fa-solid fa-circle-xmark group/edit invisible group-hover/item:visible text-lg text-gray-400"></i>
-          </div>
+            {cart.map((item, index) => (
+              <li key={index}>
+                {item}
+                <button onClick={() => removeFromCart(index)}>Remove</button>
+              </li>
+            ))}
 
-          <div className=" group/item flex min-w-[300px]  justify-between items-center px-5 py-5 w-full border hover:bg-slate-100 cursor-pointer" onClick={() => closeCart("/Cart")}>
-            <div className="flex">
-              <img className=" shadow-lg border" src={DummyData.GridImgUrl} alt="cart-img" width="50rem" />
-              <div className=" ml-5" >
-                <h4 className="text-lg font-semibold text-gray-600">{DummyData.Title}</h4>
-                <p className=" text-red-700 text-sm" >{DummyData.Dprice}</p>
-              </div>
-            </div>
-            <i class="fa-solid fa-circle-xmark group/edit invisible group-hover/item:visible text-lg text-gray-400"></i>
+            {/* <PopupCartItem />
+            <PopupCartItem />
+            <PopupCartItem />
+            <PopupCartItem /> */}
           </div>
 
           <div className="flex min-w-[300px] justify-between px-5 py-5 w-full border cursor-pointer" >

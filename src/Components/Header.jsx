@@ -28,45 +28,42 @@ const Header = () => {
         </div>
         <ul className=" flex justify-center gap-10">
           <li
-            className={` cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${
-              pathMatchRoute("/") &&
+            className={` cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${pathMatchRoute("/") &&
               "font-bold text-gray-900 border-b-orange-600"
-            }`}
+              }`}
             onClick={() => Navigate("/")}
           >
             Home
           </li>
           <li
-            className={` cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${
-              pathMatchRoute("/Products") &&
+            className={` cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${pathMatchRoute("/Products") &&
               "border-b-orange-600 font-bold text-gray-900"
-            }`}
+              }`}
             onClick={() => Navigate("/Products")}
           >
             Products
           </li>
           <li
-            className={`cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${
-              pathMatchRoute("/Category") &&
+            className={`cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${pathMatchRoute("/Category") &&
               "border-b-orange-600 font-bold text-gray-900"
-            }`}
+              }`}
             onClick={() => Navigate("/Category")}
           >
             Category
           </li>
           <li
-            className={`cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${
-              pathMatchRoute("/About") &&
+            className={`cursor-pointer py-3 text-lg text-gray-400 border-b-[3px] border-b-transparent hidden md:block ${pathMatchRoute("/About") &&
               "border-b-orange-600 font-bold text-gray-900"
-            }`}
+              }`}
             onClick={() => Navigate("/About")}
           >
             About
           </li>
         </ul>
         <div className="flex justify-center items-center gap-5 text-2xl">
-          <SearchIcon/>
-          <NavCart/>
+          <SearchIcon />
+
+          <NavCart />
           <HamburgerMenu />
         </div>
       </header>

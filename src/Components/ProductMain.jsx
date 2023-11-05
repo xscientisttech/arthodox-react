@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import DummyData from './DummyData';
+import { useCart } from './CartContext';
 
 const ProductMain = () => {
+
+    const product = "product 1";
+
+    const { addToCart } = useCart();
+
+    const [bgVisible, setBgVisible] = useState("visible");
+
     const [selectedColor, setSelectedColor] = useState('#b99033');
 
     const frames = [DummyData.BgChangeImgUrl1, DummyData.BgChangeImgUrl2, DummyData.BgChangeImgUrl3, DummyData.BgChangeImgUrl4];
@@ -11,17 +19,20 @@ const ProductMain = () => {
 
     const changeImage = (frame) => {
         setSelectedImage(frame);
+        setBgVisible("visible");
         // setBackgroundMain(frame);
         console.log(frame);
     };
 
     const handleColorChange = (event) => {
         setSelectedColor(event.target.value);
+        setBgVisible("invisible");
         // setBackgroundMain(event.target.value);
     };
-
+    
     const handleColorPallate = (color) => {
         setSelectedColor(color);
+        setBgVisible("invisible");
         // setBackgroundMain(color);
     }
 
@@ -37,14 +48,13 @@ const ProductMain = () => {
     };
 
     return (
-        <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-14 bg-[]">
+        <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-24 bg-[]">
             <div className="w-full flex flex-col md:flex-row justify-center gap-4 md:gap-8">
-                <div className="w-full md:w-6/12 flex mt-5 h-full p-2.5 justify-between">
+                <div className="w-full h-fit sm:min-w-max gap-5 sm:gap-10 md:w-6/12 flex mt-5 md:h-full p-2.5 justify-between">
                     {/* <div className= {`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `}  style={{ backgroundImage:`url(${selectedImage})` }}> */}
-
-                    <div id="frames-container" className=" flex flex-col py-10 pt-0 justify-between w-24 ">
+                    <div id="frames-container" className=" flex gap-5 flex-col py-10 pt-0 justify-between w-10 aspect-square sm:w-24 ">
                         {frames.map((frame, index) => (
-                            <div key={index} className="w-20">
+                            <div className=" w-16 md:w-20 ">
                                 <img
                                     className=" w-full rounded-lg aspect-square cursor-pointer"
                                     src={frame}
@@ -52,12 +62,14 @@ const ProductMain = () => {
                                     alt={`Frame ${index + 1}`}
                                 />
                             </div>
-                        ))}   
+                        ))}
                     </div>
-                    <div className={`flex justify-center min-w-[80%] min-h-[65vh] items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
-                        <img className="w-80 h-96" id="" src={DummyData.BgChangeImgUrl1} alt="" />
+                    {/* <div className={`flex justify-center min-w-[80%] min-h-max md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}> */}
+                    <div className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
+                        <img className={`md:w-[450px] md:h-[450px] ${ bgVisible}`} src={selectedImage} alt="" />
+                        <img className="absolute sm:w-72 h-20 sm:h-80" id="" src={DummyData.BgChangeImgUrl1} alt="" />
                     </div>
-                    
+
                 </div>
 
 
@@ -72,7 +84,7 @@ const ProductMain = () => {
                         {/* <p>Size</p> */}
                         <div className="flex gap-5 ">
                             <div className="sort-by">
-                                <label className="relative flex w-20 md:w-40 rounded overflow-hidden">
+                                <label className="relative flex w-40 md:w-40 rounded overflow-hidden">
                                     <select className="appearance-none text-inherit shadow-none flex-1 cursor-pointer p-[0.7em] border border-black">
                                         <option value="1">Frame Size</option>
                                         <option value="2">Size 1</option>
@@ -116,12 +128,22 @@ const ProductMain = () => {
                             ></i>
                         </div>
                         <div className="flex gap-5 items-center">
-                            <button className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black">
-                                Add To Cart
+                            <button className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
+                                onClick={() => addToCart(product)}>Add To Cart
                             </button>
 
                             <button className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black" onClick={() => Navigate("/Checkout")}>
                                 BUY
+                            </button>
+                            <button
+                                id="copy-button"
+                                type="button"
+                                data-te-clipboard-init
+                                data-te-clipboard-target="#copy-target"
+                                data-te-ripple-init
+                                data-te-ripple-color="light"
+                                class=" bg-slate-200 rounded-xl hover:bg-slate-300 py-2 px-3">
+                                <i class="fa-solid fa-link"></i>
                             </button>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
@@ -6,7 +6,14 @@ import DummyData from "../Components/DummyData";
 
 
 const Cart = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const Navigate = useNavigate();
+
+
   return (
     <Fragment>
       <Hero title="Cart" />
