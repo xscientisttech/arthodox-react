@@ -2,15 +2,37 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import DummyData from '../assets/data/DummyData';
 import { useCart } from '../assets/data/CartContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductMain = (props) => {
 
-    const product = props.product; 
+    const product = props.product;
     const { addToCart } = useCart();
     const [bgVisible, setBgVisible] = useState("visible");
     const [selectedColor, setSelectedColor] = useState('#b99033');
     const frames = [DummyData.BgChangeImgUrl1, DummyData.BgChangeImgUrl2, DummyData.BgChangeImgUrl3, DummyData.BgChangeImgUrl4];
     const [selectedImage, setSelectedImage] = useState(frames[0]);
+
+    const [linkCoppied, setLinkCoppied] = useState("hidden");
+    const copyLink = () => {
+        setLinkCoppied("block");
+        console.log('copied ! ');
+    }
+
+    const notifyAddedToCart = (product) => {
+        addToCart(product);
+        toast.success(`${product.title} added to Cart ! `, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
 
     const changeImage = (frame) => {
         setSelectedImage(frame);
@@ -125,7 +147,7 @@ const ProductMain = (props) => {
                         </div>
                         <div className="flex gap-5 items-center">
                             <button className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
-                                onClick={() => addToCart(product)}>Add To Cart
+                                onClick={() => notifyAddedToCart(product)}>Add To Cart
                             </button>
 
                             <button className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black" onClick={() => Navigate("/Checkout")}>
@@ -139,8 +161,12 @@ const ProductMain = (props) => {
                                 data-te-ripple-init
                                 data-te-ripple-color="light"
                                 class=" bg-slate-200 rounded-xl hover:bg-slate-300 py-2 px-3">
-                                <i class="fa-solid fa-link"></i>
+                                <div className="flex gap-2 items-center">
+                                    <i class="fa-solid fa-link" onClick={copyLink}></i>
+                                    <span className={`${linkCoppied}`} >Coppied !</span>
+                                </div>
                             </button>
+                            <ToastContainer />
                         </div>
                     </div>
                     <div class="flex flex-col gap-2.5">
