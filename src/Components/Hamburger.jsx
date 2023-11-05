@@ -11,7 +11,7 @@ const HamburgerMenu = () => {
   const Navigate = useNavigate();
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden font-Poppins">
       <div
         className={`hamburger relative text-2xl hover:scale-110`}
         onClick={toggleMenu}

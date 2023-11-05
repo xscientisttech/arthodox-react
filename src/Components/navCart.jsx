@@ -22,7 +22,7 @@ const NavCart = () => {
   const Navigate = useNavigate();
 
   return (
-    <div className="">
+    <div className=" font-Poppins">
       <div className="relative text-2xl hover:scale-110" onClick={toggleCart}>
         <i
           id="menu"

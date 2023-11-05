@@ -9,7 +9,7 @@ function ProductItem(props) {
 
 
     return (
-        <div className="relative bg-[#f4f5f7] overflow-hidden max-w-[350px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 "
+        <div className="relative bg-white overflow-hidden max-w-[350px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 rounded-xl font-Poppins"
             onClick={() => Navigate("/SepProduct")}
             key={props.id}
         >

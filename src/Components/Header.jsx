@@ -16,7 +16,7 @@ const Header = () => {
   const Navigate = useNavigate();
 
   return (
-    <div className=" px-5 bg-white border-b shadow-sm sticky top-0 z-50">
+    <div className=" px-5 bg-white border-b shadow-sm sticky top-0 z-50 font-Poppins">
       <header className="flex justify-between items-center xl:px-12 lg:px-12 md:px-12 mx-auto sm:px-6">
         <div>
           <img

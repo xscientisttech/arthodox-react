@@ -5,7 +5,7 @@ import DummyData from "./DummyData";
 const Hero = (props) => {
 	return (
 		<>
-			<div className="flex justify-center items-center">
+			<div className="flex justify-center items-center font-Poppins">
 				<div className="w-full h-[25rem]">
 					<img
 						src={DummyData.HeroImgUrl}
