@@ -7,7 +7,7 @@ export function ProductProvider({ children }) {
   const products = [
     {
       id: 1,
-      img: 'src',
+      img: '../assets/images/grid.jpg',
       title: 'Product 1',
       price: 1000,
       Discount: 890,
@@ -63,6 +63,14 @@ export function ProductProvider({ children }) {
     },
     {
       id: 8,
+      img: 'src',
+      title: 'Product 8',
+      price: 2000,
+      Discount: 1300,
+      description: 'Description for Product 8',
+    },
+    {
+      id: 9,
       img: 'src',
       title: 'Product 8',
       price: 2000,
