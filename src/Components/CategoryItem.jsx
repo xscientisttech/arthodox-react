@@ -1,5 +1,5 @@
 import React from "react";
-import DummyData from "./DummyData";
+import DummyData from "../assets/data/DummyData";
 import { useNavigate } from "react-router";
 const CategoryItem = (props) => {
 

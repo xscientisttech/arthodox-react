@@ -1,16 +1,22 @@
 import React from 'react'
 import { useNavigate } from "react-router";
-import DummyData from './DummyData';
+// import DummyData from "../assets/data/DummyData";
+import DummyData from '../assets/data/DummyData';
+
 
 function ProductItem(props) {
 
     const Navigate = useNavigate();
 
+    // Function to navigate to a specific product page
+    const navigateToProduct = (productId) => {
+        Navigate(`/SepProduct/${productId}`);
+    };
 
 
     return (
         <div className="relative bg-[#f4f5f7] overflow-hidden max-w-[350px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 "
-            onClick={() => Navigate("/SepProduct")}
+            onClick={() => navigateToProduct(props.id)}
             key={props.id}
         >
             <img

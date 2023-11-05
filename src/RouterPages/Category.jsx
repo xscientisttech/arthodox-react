@@ -4,7 +4,7 @@ import Quality from "../Components/Quality";
 import Filter from "../Components/Filter";
 import Hero from "../Components/Hero";
 import CategoryItem from "../Components/CategoryItem";
-import DummyData from "../Components/DummyData";
+import DummyData from "../assets/data/DummyData";
 
 const Category = () => {
 

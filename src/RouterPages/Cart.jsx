@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
 import CartItem from "../Components/CartItem";
-import { useCart } from "../Components/CartContext";
+import { useCart } from "../assets/data/CartContext";
 
 
 const Cart = () => {
@@ -36,7 +36,7 @@ const Cart = () => {
               <tbody className="flex  justify-centre items-center mt-10 flex-col">
                 {cart.map((item, index) => (
                   <tr className="block w-full sm:flex px-8 xl:px-0 lg:px-0 md:px-0 gap-28 items-center justify-centre" key={index}>
-                    <CartItem index={index} removeFromCart={removeFromCart} />
+                    <CartItem product={item} index={index} removeFromCart={removeFromCart} />
                   </tr>
                 ))}
               </tbody>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import DummyData from './DummyData';
-import { useCart } from './CartContext';
+import DummyData from '../assets/data/DummyData';
+import { useCart } from '../assets/data/CartContext';
 
-const ProductMain = () => {
+const ProductMain = (props) => {
 
-    const product = "product 1";
+    const product = props.product; 
     const { addToCart } = useCart();
     const [bgVisible, setBgVisible] = useState("visible");
     const [selectedColor, setSelectedColor] = useState('#b99033');
@@ -24,7 +24,7 @@ const ProductMain = () => {
         setBgVisible("invisible");
         // setBackgroundMain(event.target.value);
     };
-    
+
     const handleColorPallate = (color) => {
         setSelectedColor(color);
         setBgVisible("invisible");
@@ -61,16 +61,15 @@ const ProductMain = () => {
                     </div>
                     {/* <div className={`flex justify-center min-w-[80%] min-h-max md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}> */}
                     <div className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
-                        <img className={`w-full h-full ${ bgVisible}`} src={selectedImage} alt="" />
-                        <img className="absolute sm:w-72 h-20 sm:h-80" id="" src={DummyData.BgChangeImgUrl1} alt="" />
+                        <img className={`w-full h-full ${bgVisible}`} src={selectedImage} alt="" />
+                        <img className="absolute sm:w-72 h-20 sm:h-80" id="" src={product.img} alt="" />
                     </div>
-
                 </div>
 
 
                 <div className="w-full md:w-6/12 h-full flex grow flex-col gap-5 p-2.5">
-                    <h1 className="text-[2.5rem] font-semibold absolute top-24 md:relative md:top-0">Photo Frame</h1>
-                    <p className="text-[1.2rem] text-[#9F9F9F] p-0">Rs. 1000</p>
+                    <h1 className="text-[2.5rem] font-semibold absolute top-24 md:relative md:top-0">{product.title}</h1>
+                    <p className="text-[1.2rem] text-[#9F9F9F] p-0">{product.price}</p>
                     <p className="text-black">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa,
                         atque ducimus! Officiis rerum maxime eaque magnam

@@ -1,7 +1,10 @@
 import React from 'react';
-import DummyData from "../Components/DummyData";
+import DummyData from "../assets/data/DummyData";
 
 const CartItem = (props) => {
+
+  const product = props.product;
+
   return (
     <>
       <td
@@ -11,18 +14,18 @@ const CartItem = (props) => {
         {" "}
         <div className="flex justify-center flex-col items-end md:flex-row sm:items-center gap-10">
           <img
-            src={DummyData.GridImgUrl}
+            src={product.img}
             alt=""
             className="w-[6rem] rounded-lg"
           />
-          <p>Wall Frame</p>
+          <p> {product.title} </p>
         </div>
       </td>
       <td
         className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
         data-title="Price"
       >
-        Rs. 100
+        {product.price}
       </td>
       <td
         className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
@@ -35,7 +38,7 @@ const CartItem = (props) => {
         data-title="Subtotal"
       >
         <div className="flex justify-between flex-col items-end md:flex-row sm:before:content-none sm:items-center gap-14">
-          <p>Rs. 1000</p>
+          <p> {product.price} </p>
 
         </div>
       </td>

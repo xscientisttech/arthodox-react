@@ -5,8 +5,8 @@ import Quality from "../Components/Quality";
 import { Fragment } from "react";
 import Hero from "../Components/Hero";
 import ProductItem from "../Components/ProductItem";
-import DummyData from "../Components/DummyData";
-import { useProducts } from '../Components/ProductContext';
+import DummyData from "../assets/data/DummyData";
+import { useProducts } from '../assets/data/ProductContext';
 
 
 const Products = () => {
@@ -26,7 +26,7 @@ const Products = () => {
         <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
 
           {products.map((product, index) => (
-            <ProductItem Img={DummyData.GridImgUrl} id={product.id} index={index} Title={product.title} Dprice={product.Discount} Oprice={product.price} Description={product.description} />
+            <ProductItem Img={product.img} id={product.id} index={index} Title={product.title} Dprice={product.Discount} Oprice={product.price} Description={product.description} />
           ))}
 
         </div>
