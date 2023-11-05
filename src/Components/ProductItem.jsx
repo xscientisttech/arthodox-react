@@ -4,17 +4,19 @@ import DummyData from './DummyData';
 
 function ProductItem(props) {
 
-  const Navigate = useNavigate();
+    const Navigate = useNavigate();
 
 
 
     return (
-        <div className="relative bg-[#f4f5f7] overflow-hidden max-w-[350px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 ">
+        <div className="relative bg-[#f4f5f7] overflow-hidden max-w-[350px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 "
+            onClick={() => Navigate("/SepProduct")}
+            key={props.id}
+        >
             <img
                 src={props.Img}
                 alt="Avatar"
                 className="w-[100%]"
-                onClick={() => Navigate("/SepProduct")}
             />
             <div className="flex flex-col gap-[5px] w-full justify-start p-[3%]">
                 <h3 className="font-semibold text-2xl text-[#3a3a3a]">
