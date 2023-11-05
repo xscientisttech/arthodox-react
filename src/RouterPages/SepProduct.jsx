@@ -58,11 +58,11 @@ const SepProduct = () => {
           </div>
           <div className="w-full flex gap-10 items-center justify-center flex-wrap">
             <img
-              src={DummyData.LivingImgUrl} alt="living-img"
+              src={DummyData.BgChangeImgUrl1} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
             <img
-              src={DummyData.dinnigImgUrl} alt="living-img"
+              src={DummyData.BgChangeImgUrl2} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
           </div>
