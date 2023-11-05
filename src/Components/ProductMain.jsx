@@ -66,7 +66,7 @@ const ProductMain = () => {
                     </div>
                     {/* <div className={`flex justify-center min-w-[80%] min-h-max md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}> */}
                     <div className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
-                        <img className={`md:w-[450px] md:h-[450px] ${ bgVisible}`} src={selectedImage} alt="" />
+                        <img className={`w-full h-full ${ bgVisible}`} src={selectedImage} alt="" />
                         <img className="absolute sm:w-72 h-20 sm:h-80" id="" src={DummyData.BgChangeImgUrl1} alt="" />
                     </div>
 
