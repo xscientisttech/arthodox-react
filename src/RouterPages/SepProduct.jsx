@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import Quality from "../Components/Quality";
 import Navigation from "../Components/Navigation";
 import ProductMain from "../Components/ProductMain";
@@ -8,12 +8,17 @@ import DummyData from "../Components/DummyData";
 
 const SepProduct = () => {
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const Navigate = useNavigate();
 
   return (
     <>
       <Navigation />
-      <ProductMain />
+      <ProductMain product="Product 1" />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
         <div className="w-full flex flex-col items-center justify-center gap-20">
@@ -59,9 +64,9 @@ const SepProduct = () => {
         </div>
         <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
           <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
+            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
+            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
+            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 03" Description="Here is the Description" Dprice="Rs.786" Oprice="1200" />
           </div>
         </div>
         <button

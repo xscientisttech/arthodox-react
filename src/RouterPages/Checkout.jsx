@@ -1,8 +1,13 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
 
 const Checkout = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
 
   const [formData, setFormData] = useState({
     fname: '',

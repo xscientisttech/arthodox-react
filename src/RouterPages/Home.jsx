@@ -1,10 +1,17 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { useNavigate } from "react-router";
 import CategoryItem from "../Components/CategoryItem";
 import ProductItem from "../Components/ProductItem";
 import DummyData from "../Components/DummyData";
 
 export default function Home() {
+
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	  }, []);
+	  
+
 	const Navigate = useNavigate();
 
 	const scrollDown = () => {
@@ -50,9 +57,9 @@ export default function Home() {
 					</div>
 					<div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
 						<div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-							<CategoryItem />
-							<CategoryItem />
-							<CategoryItem />
+							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 1" />
+							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 2" />
+							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 3" />
 						</div>
 					</div>
 					<button
@@ -73,15 +80,12 @@ export default function Home() {
 				</div>
 				<div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
 					<div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
-						<ProductItem />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 03" Description="Here is the Description" Dprice="Rs.786" Oprice="1200" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 04" Description="Here is the Description" Dprice="Rs.971" Oprice="1200" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 05" Description="Here is the Description" Dprice="Rs.1200" Oprice="1300" />
+						<ProductItem Img={DummyData.GridImgUrl} Title="Frame 06" Description="Here is the Description" Dprice="Rs.516" Oprice="600" />
 					</div>
 				</div>
 				<button

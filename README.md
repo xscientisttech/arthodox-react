@@ -16,3 +16,16 @@
 - improve ux
 - change background
 - large space 
+
+
+# Bugs
+
+- sepProduct Resiponsiveness
+- scroll to zero 
+- product image not changing
+- categoryItem filter not that good
+
+
+# fixed 
+
+- scroll to zero 
