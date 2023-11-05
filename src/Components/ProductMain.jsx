@@ -41,11 +41,11 @@ const ProductMain = () => {
             <div className="w-full flex flex-col md:flex-row justify-center gap-4 md:gap-8">
                 <div className="w-full md:w-6/12 flex mt-5 h-full p-2.5 justify-between">
                     {/* <div className= {`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `}  style={{ backgroundImage:`url(${selectedImage})` }}> */}
+
                     <div id="frames-container" className=" flex flex-col py-10 pt-0 justify-between w-24 ">
                         {frames.map((frame, index) => (
-                            <div className="w-20">
+                            <div key={index} className="w-20">
                                 <img
-                                    key={index}
                                     className=" w-full rounded-lg aspect-square cursor-pointer"
                                     src={frame}
                                     onClick={() => changeImage(frame)}
@@ -164,6 +164,12 @@ const ProductMain = () => {
                                     className="inline-block h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
                                 >
                                     <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a
+                                    href="#"
+                                    className="inline-block h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
+                                >
+                                    <i class="fa-regular fa-copy"></i>
                                 </a>
                             </div>
                         </div>

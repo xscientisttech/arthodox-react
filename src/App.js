@@ -11,6 +11,7 @@ import Footer from './Components/Footer';
 import SepProduct from './RouterPages/SepProduct';
 
 
+
 const App = () => {
 
   return(
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/Cart' element={<Cart/>}/>
           <Route path='/About' element={<About/>}/>
           <Route path='/SepProduct' element={<SepProduct/>}/>
+
         </Routes>
         <Footer/>
       </Router>
