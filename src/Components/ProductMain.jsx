@@ -6,15 +6,10 @@ import { useCart } from './CartContext';
 const ProductMain = () => {
 
     const product = "product 1";
-
     const { addToCart } = useCart();
-
     const [bgVisible, setBgVisible] = useState("visible");
-
     const [selectedColor, setSelectedColor] = useState('#b99033');
-
     const frames = [DummyData.BgChangeImgUrl1, DummyData.BgChangeImgUrl2, DummyData.BgChangeImgUrl3, DummyData.BgChangeImgUrl4];
-
     const [selectedImage, setSelectedImage] = useState(frames[0]);
 
     const changeImage = (frame) => {
