@@ -66,10 +66,10 @@ const ProductMain = (props) => {
 
     return (
         <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-24 bg-[] font-Poppins">
-            <div className="w-full flex flex-col md:flex-row justify-center gap-4 md:gap-8">
-                <div className="w-full h-fit sm:min-w-max gap-5 sm:gap-10 md:w-6/12 flex mt-5 md:h-full p-2.5 justify-between">
+            <div className="w-full flex flex-col md:flex-row justify-center gap-10 xl:gap-28 lg:gap-24 md:gap-20">
+                <div className="w-full h-fit sm:min-w-max  gap-10 sm:gap-10 md:w-6/12 flex mt-5 md:h-full p-0 justify-between">
                     {/* <div className= {`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `}  style={{ backgroundImage:`url(${selectedImage})` }}> */}
-                    <div id="frames-container" className=" flex gap-5 flex-col py-10 pt-0 justify-between w-10 aspect-square sm:w-24">
+                    <div id="frames-container" className=" flex gap-5 flex-col py-10 pt-0 justify-between w-8 aspect-square sm:w-24">
                         {frames.map((frame, index) => (
                             <div className=" w-16 md:w-20 ">
                                 <img
@@ -83,7 +83,7 @@ const ProductMain = (props) => {
                         ))}
                     </div>
                     {/* <div className={`flex justify-center min-w-[80%] min-h-max md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}> */}
-                    <div className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
+                    <div className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] sm:w-[16rem] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}>
                         <img className={`w-full h-full ${bgVisible}`} src={selectedImage} alt="" />
                         <img className="absolute sm:w-72 h-20 sm:h-80" id="" src={product.img} alt="" />
 

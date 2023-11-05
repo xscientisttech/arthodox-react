@@ -31,3 +31,5 @@
 
 - scroll to zero 
 - product image not changing 
+- change background
+-Cart item count icon
