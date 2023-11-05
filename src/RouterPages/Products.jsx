@@ -20,7 +20,7 @@ const Products = () => {
     <Fragment>
       <Hero title="Products" />
       <Filter />
-      <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
+      <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 bg-[#f4f5f7]">
           <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
