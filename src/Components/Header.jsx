@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from "react-router";
 import HamburgerMenu from "./Hamburger";
 import NavCart from "./navCart";
 import SearchIcon from "./SearchIcon";
-import DummyData from "./DummyData";
+import DummyData from "../assets/data/DummyData";
+import logo from '../assets/images/Arth-Logo.png'
 
 const Header = () => {
   const location = useLocation();
@@ -18,13 +19,14 @@ const Header = () => {
   return (
     <div className=" px-5 bg-white border-b shadow-sm sticky top-0 z-50 font-Poppins">
       <header className="flex justify-between items-center xl:px-12 lg:px-12 md:px-12 mx-auto sm:px-6">
-        <div>
+        <div className="flex items-center" >
           <img
-            src={DummyData.ArthLogo}
+            src={logo}
             alt="Arthodox-logo"
-            className=" h-7 cursor-pointer"
+            className="w-10 h-10 cursor-pointer"
             onClick={() => Navigate("/")}
           />
+          <h1 className="text-lg font-bold" >Arthodox</h1>
         </div>
         <ul className=" flex justify-center gap-10">
           <li

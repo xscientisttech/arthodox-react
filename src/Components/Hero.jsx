@@ -1,5 +1,5 @@
 import React from "react";
-import DummyData from "./DummyData";
+import DummyData from "../assets/data/DummyData";
 
 
 const Hero = (props) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import DummyData from "./DummyData";
+import DummyData from "../assets/data/DummyData";
 
 const Footer = () => {
   const Navigate = useNavigate();

@@ -4,21 +4,34 @@ import Navigation from "../Components/Navigation";
 import ProductMain from "../Components/ProductMain";
 import { useNavigate } from "react-router";
 import ProductItem from "../Components/ProductItem";
-import DummyData from "../Components/DummyData";
+import DummyData from "../assets/data/DummyData";
+import { useParams } from 'react-router-dom';
+import { useProducts } from '../assets/data/ProductContext';
 
 const SepProduct = () => {
+
+  const Navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const { productId } = useParams();
+  const products = useProducts();
 
-  const Navigate = useNavigate();
+
+  // Find the product with the matching ID
+  const product = products.find((product) => product.id === parseInt(productId, 10));
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
 
   return (
     <>
       <Navigation />
-      <ProductMain product="Product 1" />
+      <ProductMain product={product} />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
         <div className="w-full flex flex-col items-center justify-center gap-20">
@@ -45,11 +58,11 @@ const SepProduct = () => {
           </div>
           <div className="w-full flex gap-10 items-center justify-center flex-wrap">
             <img
-              src={DummyData.LivingImgUrl} alt="living-img"
+              src={DummyData.BgChangeImgUrl1} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
             <img
-              src={DummyData.dinnigImgUrl} alt="living-img"
+              src={DummyData.BgChangeImgUrl2} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
           </div>
@@ -64,9 +77,13 @@ const SepProduct = () => {
         </div>
         <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
           <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
-            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
-            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 03" Description="Here is the Description" Dprice="Rs.786" Oprice="1200" />
+            {products.slice(0,3).map((product, index) => (
+              <ProductItem Img={product.img} id={product.id} index={index} Title={product.title} Dprice={product.Discount} Oprice={product.price} Description={product.description} />
+            ))}
+
+            {/* <ProductItem Img={product.img} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
+            <ProductItem Img={product.img} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
+            <ProductItem Img={product.img} Title="Frame 03" Description="Here is the Description" Dprice="Rs.786" Oprice="1200" /> */}
           </div>
         </div>
         <button
