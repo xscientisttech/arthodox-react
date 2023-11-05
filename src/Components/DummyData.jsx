@@ -23,7 +23,7 @@ const DummyData = {
     Title: "Wall Frame",
     Description : "Attractive Wall Frames",
     Dprice: "Rs.1000",
-    Oprice: "Rs. 1500.00",
+    Oprice: "Rs. 1500.00"
 }
 
 export default DummyData;

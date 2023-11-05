@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect } from "react";
 import Quality from "../Components/Quality";
 import Navigation from "../Components/Navigation";
 import ProductMain from "../Components/ProductMain";
@@ -8,21 +8,23 @@ import DummyData from "../Components/DummyData";
 
 const SepProduct = () => {
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const Navigate = useNavigate();
 
   return (
     <>
       <Navigation />
-      <ProductMain />
+      <ProductMain product="Product 1" />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
         <div className="w-full flex flex-col items-center justify-center gap-20">
           <div className="max-w-[1200px] flex flex-col items-center justify-center gap-5 px-[5%] py-[0%]">
             <div className="flex gap-5 cursor-pointer justify-center items-center ">
               <h3 className="text-[22px] font-bold">Description</h3>
-              <h3 className="text-[22px] text-[#00000084] font-bold">
-                Additional Information
-              </h3>
             </div>
             <p className="text-base text-[#888888]">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis,
@@ -62,9 +64,9 @@ const SepProduct = () => {
         </div>
         <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
           <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
+            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
+            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
+            <ProductItem Img={DummyData.GridImgUrl} Title="Frame 03" Description="Here is the Description" Dprice="Rs.786" Oprice="1200" />
           </div>
         </div>
         <button
