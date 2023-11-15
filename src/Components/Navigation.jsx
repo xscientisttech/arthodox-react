@@ -1,4 +1,5 @@
 import React from 'react'
+import {FaCaretLeft} from 'react-icons/fa'
 
 const Navigation = () => {
     return (
@@ -7,9 +8,9 @@ const Navigation = () => {
                 <div className="flex gap-5">
                     <div className="flex gap-2.5 justify-start items-center">
                         <p>Home</p>
-                        <i class="fa-solid fa-caret-left"></i>
+                        <FaCaretLeft/>
                         <p>Products</p>
-                        <i class="fa-solid fa-caret-left"></i>
+                        <FaCaretLeft/>
                     </div>
                 </div>
             </div>
