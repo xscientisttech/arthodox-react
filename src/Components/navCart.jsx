@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import DummyData from "../assets/data/DummyData";
 import PopupCartItem from "./PopupCartItem";
 import { useCart } from "../assets/data/CartContext";
+import {FaCartShopping} from 'react-icons/fa6'
 
 const NavCart = () => {
 
@@ -34,12 +35,12 @@ const NavCart = () => {
   return (
     <div className=" font-Poppins">
       <div className="relative text-2xl hover:scale-110" onClick={toggleCart}>
-        <i
+        <FaCartShopping
           id="menu"
           className={
-            cartOpen ? "fa-solid fa-cart-shopping" : "fa-solid fa-cart-shopping"
+            cartOpen ? <FaCartShopping/> : <FaCartShopping/>
           }
-        ></i>
+        />
       </div>
       {cartOpen && (
 

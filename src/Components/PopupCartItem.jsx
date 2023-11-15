@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router";
 import DummyData from "../assets/data/DummyData";
+import { FaRegCircleXmark } from "react-icons/fa6";
 
 const PopupCartItem = (props) => {
 
@@ -20,8 +21,7 @@ const PopupCartItem = (props) => {
                     </div>
                 </div>
                 <div className="w-10 aspect-square flex justify-end items-center" onClick={() => props.removeFromCart(props.index)}>
-                    <i class="fa-solid fa-circle-xmark group/edit invisible group-hover/item:visible text-lg text-gray-400">
-                    </i>
+                    <FaRegCircleXmark className='group/edit invisible group-hover/item:visible text-lg text-gray-400'/>
                 </div>
             </div>
         </>
