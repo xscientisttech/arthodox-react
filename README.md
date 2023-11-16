@@ -1,6 +1,8 @@
 # Arthodox-React
 
-# Guidelines
+## Guidelines
+
+> Always remember to install packages after all git changes ( push | Pull )
 
 ### Issues guidelines
 
@@ -53,13 +55,13 @@ src:
 |       ...
 ```
 
-## Color schemas
+### Color schemas
 
-## Pages
+### Pages
 
-## Bugs
+### Bugs
 
-## Tasks:
+### Tasks:
 
 1. Add Poppins as default font
 2. Home page sections are not distinguishable
