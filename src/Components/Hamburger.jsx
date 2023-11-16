@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { FaXmark, FaBars } from "react-icons/fa6";
 
 const HamburgerMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,10 +17,10 @@ const HamburgerMenu = () => {
         className={`hamburger relative text-2xl hover:scale-110`}
         onClick={toggleMenu}
       >
-        <i
+        <FaBars
           id="menu"
-          className={menuOpen ? "fa-solid fa-x" : "fa-solid fa-bars"}
-        ></i>
+          className={menuOpen ? <FaXmark/> : <FaBars/>}
+        />
       </div>
       {menuOpen && (
         <div className="absolute top-14 right-8 w-72 h-0 ">

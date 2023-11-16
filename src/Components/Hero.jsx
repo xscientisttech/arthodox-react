@@ -1,5 +1,6 @@
 import React from "react";
 import DummyData from "../assets/data/DummyData";
+import { FaGreaterThan } from "react-icons/fa6";
 
 
 const Hero = (props) => {
@@ -15,9 +16,9 @@ const Hero = (props) => {
 				</div>
 				<div className=" absolute flex flex-col justify-center items-center">
 					<h2 className="text-[3rem] font-bold ">{props.title}</h2>
-					<p className="">
+					<p className="flex justify-center items-center">
 						<span className="text-xl font-semibold">Home </span>
-						<i className="fa-solid fa-greater-than"></i>
+						<FaGreaterThan/>
 						<span className="text-xl font-semibold">
 							{" "}
 							{props.title}
