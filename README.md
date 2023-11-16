@@ -52,16 +52,3 @@ src:
 |       Products.jsx
 |       ...
 ```
-
-## Color schemas
-
-## Pages
-
-## Bugs
-
-## Tasks:
-
-1. Add Poppins as default font
-2. Home page sections are not distinguishable
-3. Product Card Optimization.
-4. Add dynamic contents.

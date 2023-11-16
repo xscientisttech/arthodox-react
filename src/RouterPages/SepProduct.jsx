@@ -1,30 +1,43 @@
-import React, { useState } from "react";
+import { React, useEffect } from "react";
 import Quality from "../Components/Quality";
 import Navigation from "../Components/Navigation";
-import dinnigImg from "../assets/images/dinning-1.jpg";
-import livingImg from "../assets/images/living room.jpg";
-import ColorPicker from "../Components/colorPicker";
+import ProductMain from "../Components/ProductMain";
 import { useNavigate } from "react-router";
-import gridImg from "../assets/images/grid.jpg";
 import ProductItem from "../Components/ProductItem";
+import DummyData from "../assets/data/DummyData";
+import { useParams } from 'react-router-dom';
+import { useProducts } from '../assets/data/ProductContext';
 
 const SepProduct = () => {
 
   const Navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const { productId } = useParams();
+  const products = useProducts();
+
+
+  // Find the product with the matching ID
+  const product = products.find((product) => product.id === parseInt(productId, 10));
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
+
   return (
     <>
       <Navigation />
-      <ColorPicker />
+      <ProductMain product={product} />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
         <div className="w-full flex flex-col items-center justify-center gap-20">
           <div className="max-w-[1200px] flex flex-col items-center justify-center gap-5 px-[5%] py-[0%]">
-            <div className="flex gap-5 cursor-pointer justify-center items-center ml-28">
+            <div className="flex gap-5 cursor-pointer justify-center items-center ">
               <h3 className="text-[22px] font-bold">Description</h3>
-              <h3 className="text-[22px] text-[#00000084] font-bold">
-                Additional Information
-              </h3>
             </div>
             <p className="text-base text-[#888888]">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis,
@@ -45,28 +58,32 @@ const SepProduct = () => {
           </div>
           <div className="w-full flex gap-10 items-center justify-center flex-wrap">
             <img
-              src={livingImg}
+              src={DummyData.BgChangeImgUrl1} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
             <img
-              src={dinnigImg}
+              src={DummyData.BgChangeImgUrl2} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
           </div>
         </div>
       </section>
 
-      <section className="mt-20 px-[10%]">
-        <div className="h-[7.5vh]  mx-20 max-w-full pl-5 bg-[#f4f4f4] mt-4 ">
-          <h1 className=" justify-start flex items-start text-[2.5rem]">
-            Related Products
-          </h1>
-        </div>
-        <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
+      <section className="mt-20 px-[10%] bg-[#f4f4f4] py-10">
+      <div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] mt-4 m-auto rounded-[10px]">
+						<h1 className=" justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md font-Poppins">
+							Related Products
+						</h1>
+					</div>
+        <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 ">
           <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
+            {products.slice(0,3).map((product, index) => (
+              <ProductItem Img={product.img} id={product.id} index={index} Title={product.title} Dprice={product.Discount} Oprice={product.price} Description={product.description} />
+            ))}
+
+            {/* <ProductItem Img={product.img} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
+            <ProductItem Img={product.img} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
+            <ProductItem Img={product.img} Title="Frame 03" Description="Here is the Description" Dprice="Rs.786" Oprice="1200" /> */}
           </div>
         </div>
         <button

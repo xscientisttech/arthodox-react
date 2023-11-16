@@ -1,8 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import gridImg from "../assets/images/grid.jpg";
+import DummyData from "../assets/data/DummyData";
+import PopupCartItem from "./PopupCartItem";
+import { useCart } from "../assets/data/CartContext";
+import {FaCartShopping} from 'react-icons/fa6'
 
 const NavCart = () => {
+
+  const { cart, cartTotal, removeFromCart } = useCart();
+
+  // const cartTotal = () => {
+  //   let total = 0;
+  //   for (const item of cart) {
+  //     total += item.price;
+  //   }
+  //   return total;
+  // };
+
+  // const [cartTotal, setCartTotal] = useState(0);
+
   const [cartOpen, setCartOpen] = useState(false);
 
   const toggleCart = () => {
@@ -17,51 +33,38 @@ const NavCart = () => {
   const Navigate = useNavigate();
 
   return (
-    <div className="">
+    <div className=" font-Poppins">
       <div className="relative text-2xl hover:scale-110" onClick={toggleCart}>
-        <i
+        <FaCartShopping
           id="menu"
           className={
-            cartOpen ? "fa-solid fa-cart-shopping" : "fa-solid fa-cart-shopping"
+            cartOpen ? <FaCartShopping/> : <FaCartShopping/>
           }
-        ></i>
+        />
       </div>
       {cartOpen && (
-        <div className=" absolute top-14 right-10 p-10 w-fit gap-3 flex flex-col justify-start items-center py-5 font-semibold text-lg bg-[rgba(255,255,255,0.5)] rounded-xl">
-          <div className="flex justify-start items-center gap-10 cursor-pointer" >
-            <img src={gridImg} alt="" width="50rem" />
-            <div>
-              <h3 className="text-xl font-semibold">Wall Frame</h3>
-              <p>1 &#215; rs. 1000</p>
+
+        <div className=" transition shadow-lg absolute top-10 md:top-14 right-0 md:right-10 w-full sm:w-fit h-fit min-h-[96px]  flex flex-col justify-start items-center font-semibold bg-white text-base ">
+          <div className="flex min-w-[300px] justify-between px-5 py-5 w-full border cursor-pointer" >
+            <div className=" flex items-center gap-2">
+              <h3>Shopping Cart</h3>
             </div>
+            </div>
+          
+          <div className=" max-h-[360px] overflow-y-auto ">
+            {cart.map((item, index) => (
+              <li className=" list-none" key={index}>
+                <PopupCartItem product={item} closeCart={closeCart} index={index} removeFromCart={removeFromCart} />
+              </li>
+            ))}
           </div>
 
-          <div className="flex justify-start items-center gap-10 cursor-pointer" >
-            <img src={gridImg} alt="" width="50rem" />
-            <div>
-              <h3 className="text-xl font-semibold">Wall Frame</h3>
-              <p>1 &#215; rs. 1000</p>
+          <div className="flex min-w-[300px] justify-between px-5 py-5 w-full border cursor-pointer" >
+            <div className=" flex items-center gap-2">
+              <h3>Total : </h3>
+              <p className=" text-red-700 text-sm"> Rs {cartTotal()}</p>
             </div>
-          </div>
-          <div className="flex justify-center items-center gap-10">
-            <p>subtotal</p>
-            <p>Rs. 2000</p>
-          </div>
-          <div>
-            <ul className="flex justify-center items-center gap-10">
-              <li
-                className="text-xl bg-black text-white rounded-lg px-4 py-1 cursor-pointer"
-                onClick={() => closeCart("/Cart")}
-              >
-                Cart
-              </li>
-              <li
-                className="text-xl bg-black text-white rounded-lg px-4 py-1 cursor-pointer"
-                onClick={() => closeCart("/Checkout")}
-              >
-                Checkout
-              </li>
-            </ul>
+            <button className="border p-2 px-3 text-xs bg-gray-100 hover:bg-gray-200" onClick={() => closeCart("/Checkout")}>CHECKOUT</button>
           </div>
         </div>
       )}
