@@ -1,37 +1,36 @@
+import { React, useEffect } from "react";
 import Filter from "../Components/Filter";
-import HeroImg from "../assets/images/back-img.jpg";
-import gridImg from "../assets/images/grid.jpg";
 import PageSection from "../Components/PageSection";
 import Quality from "../Components/Quality";
 import { Fragment } from "react";
-import { useNavigate } from "react-router";
 import Hero from "../Components/Hero";
-
-import ProductImageGrid from "../Components/ProductImageGrid";
 import ProductItem from "../Components/ProductItem";
+import DummyData from "../assets/data/DummyData";
+import { useProducts } from '../assets/data/ProductContext';
+
+
 const Products = () => {
 
-  const Navigate = useNavigate();
+  const products = useProducts();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
 
   return (
     <Fragment>
       <Hero title="Products" />
       <Filter />
-      {/* <ProductImageGrid /> */}
-      <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
-          <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-           <ProductItem />
-           <ProductItem />
-           <ProductItem />
-           <ProductItem />
-           <ProductItem />
-           <ProductItem />
-           <ProductItem />
-           <ProductItem />
-           <ProductItem />
-          </div>
+      <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 bg-[#f4f5f7]">
+        <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
+
+          {products.map((product, index) => (
+            <ProductItem Img={product.img} id={product.id} index={index} Title={product.title} Dprice={product.Discount} Oprice={product.price} Description={product.description} />
+          ))}
+
         </div>
+      </div>
       <PageSection />
       <Quality />
     </Fragment>
