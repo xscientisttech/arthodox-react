@@ -4,10 +4,6 @@
 
 > Always remember to install packages after all git changes ( push | Pull )
 
-# Guidelines
-
-### Issues guidelines
-
 ### Issues guidelines
 
 - Start have regular team meet, discuss daily goles and share work along with
@@ -17,8 +13,6 @@
 - Don't work on more than one issue at a time, this is so that you don't make a
   huge pull request and others can have opportunities to work on another issue
   while you work on something else
-
-### Pull Guidelines
 
 ### Pull Guidelines
 
@@ -34,8 +28,6 @@
      ```git
      git pull origin dev         <!-- as all the latest changes are in dev -->
      ```
-
-### Uploading Guidelines
 
 ### Uploading Guidelines
 
