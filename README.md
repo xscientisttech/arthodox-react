@@ -18,6 +18,9 @@
 - large space 
 - responsive
 - added to cart successfully popup
+- coppied button locate beside share option
+- add Rupees icon 
+- add border radius to product card
 
 # Bugs
 
