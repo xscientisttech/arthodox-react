@@ -81,7 +81,6 @@ const ProductMain = (props) => {
     <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-24 bg-[] font-Poppins">
       <div className="w-full flex flex-col md:flex-row justify-center gap-10 xl:gap-28 lg:gap-24 md:gap-20">
         <div className="w-full h-fit sm:min-w-max  gap-10 sm:gap-10 md:w-6/12 flex mt-5 md:h-full p-0 justify-between">
-          {/* <div className= {`flex justify-center min-w-[50%] min-h-[30rem] items-center bg-[${selectedColor}] `}  style={{ backgroundImage:`url(${selectedImage})` }}> */}
           <div
             id="frames-container"
             className=" flex gap-5 flex-col py-10 pt-0 justify-between w-8 aspect-square sm:w-24"
@@ -98,7 +97,6 @@ const ProductMain = (props) => {
               </div>
             ))}
           </div>
-          {/* <div className={`flex justify-center min-w-[80%] min-h-max md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] aspect-square items-center bg-[${selectedColor}] `} style={{ background: selectedColor }}> */}
           <div
             className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] sm:w-[16rem] aspect-square items-center bg-[${selectedColor}] `}
             style={{ background: selectedColor }}
@@ -127,7 +125,6 @@ const ProductMain = (props) => {
             atque ducimus! Officiis rerum maxime eaque magnam
           </p>
           <div className="flex flex-col gap-[5px]">
-            {/* <p>Size</p> */}
             <div className="flex gap-5 ">
               <div className="sort-by">
                 <label className="relative flex w-40 md:w-40 rounded overflow-hidden">
