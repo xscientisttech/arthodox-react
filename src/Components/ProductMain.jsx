@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import DummyData from "../assets/data/DummyData";
 import { useCart } from "../assets/data/CartContext";
@@ -17,15 +17,42 @@ import {
 const ProductMain = (props) => {
   const product = props.product;
   const { addToCart } = useCart();
-  const [bgVisible, setBgVisible] = useState("visible");
+  
   const [selectedColor, setSelectedColor] = useState("#b99033");
   const frames = [
-    DummyData.BgChangeImgUrl1,
-    DummyData.BgChangeImgUrl2,
-    DummyData.BgChangeImgUrl3,
-    DummyData.BgChangeImgUrl4,
+    {
+      src: DummyData.BgChangeImgUrl1,
+      x: 45,
+      y: 40,
+      width: 122,
+      height: 60
+    },
+    {
+      src: DummyData.BgChangeImgUrl2,
+      x: 54,
+      y: 60,
+      width: 143,
+      height: 65
+    },
+    {
+      src: DummyData.BgChangeImgUrl3,
+      x: 77,
+      y: 42,
+      width: 150,
+      height: 66
+    },
+    {
+      src: DummyData.BgChangeImgUrl4,
+      x: 108,
+      y: 24,
+      width: 90,
+      height: 85
+    }
   ];
-  const [selectedImage, setSelectedImage] = useState(frames[0]);
+
+  
+
+  const [selectedImage, setSelectedImage] = useState(frames[0].src);
 
   const [linkCoppied, setLinkCoppied] = useState("hidden");
   const copyLink = () => {
@@ -47,24 +74,40 @@ const ProductMain = (props) => {
     });
   };
 
-  const changeImage = (frame) => {
-    setSelectedImage(frame);
-    setBgVisible("visible");
-    // setBackgroundMain(frame);
-    console.log(frame);
-  };
-
   const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
-    setBgVisible("invisible");
+    
     // setBackgroundMain(event.target.value);
   };
 
   const handleColorPallate = (color) => {
     setSelectedColor(color);
-    setBgVisible("invisible");
+    
+    clearCanvas();
+    setSelectedImage('');
+    setImageProps({
+      x: 50,
+      y: 25,
+      width: 200,
+      height: 100,
+    });
     // setBackgroundMain(color);
   };
+
+  
+  const changeImage = (frame) => {
+    setSelectedImage(frame.src);
+    setImageProps({
+      x: frame.x,
+      y: frame.y,
+      width: frame.width,
+      height: frame.height,
+    });
+    
+    // setBackgroundMain(frame);
+    console.log(frame.src);
+  };
+
 
   const [count, setCount] = useState(1);
 
@@ -76,6 +119,54 @@ const ProductMain = (props) => {
   const decreament = () => {
     setCount(count - 1);
   };
+
+
+  // canvas to change background images and product iamge
+
+  const canvasRef = useRef(null);
+  const [imageProps, setImageProps] = useState({
+    x: frames[0].x,
+    y: frames[0].y,
+    width: frames[0].width,
+    height: frames[0].height,
+  });
+  
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    const bgImage = new Image();
+    bgImage.src = selectedImage; 
+    
+
+    ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+
+    const mainImage = new Image();
+    mainImage.src = product.img; 
+    mainImage.onload = function() {
+      ctx.drawImage(
+        mainImage,
+        imageProps.x,
+        imageProps.y,
+        imageProps.width,
+        imageProps.height
+      );
+    };
+
+
+  }, [product.img, selectedImage, imageProps]);
+
+  const clearCanvas = () => {
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  };
+
+
+
 
   return (
     <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-24 bg-[] font-Poppins">
@@ -90,7 +181,7 @@ const ProductMain = (props) => {
                 <img
                   key={index}
                   className=" w-full rounded-lg aspect-square cursor-pointer"
-                  src={frame}
+                  src={frame.src}
                   onClick={() => changeImage(frame)}
                   alt={`Frame ${index + 1}`}
                 />
@@ -101,7 +192,7 @@ const ProductMain = (props) => {
             className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] sm:w-[16rem] aspect-square items-center bg-[${selectedColor}] `}
             style={{ background: selectedColor }}
           >
-            <img
+            {/* <img
               className={`w-full h-full ${bgVisible}`}
               src={selectedImage}
               alt=""
@@ -111,7 +202,8 @@ const ProductMain = (props) => {
               id=""
               src={product.img}
               alt=""
-            />
+            /> */}
+            <canvas  ref={canvasRef} className=" w-full h-full"   style={{ border: '1px solid #000' }} ></canvas>
           </div>
         </div>
 
@@ -142,7 +234,7 @@ const ProductMain = (props) => {
             <div className="w-fit h-fit flex gap-2.5 flex-wrap items-center">
               <div
                 className="w-[30px] h-[30px] bg-orange-700 cursor-pointer rounded-[50%]"
-                onClick={() => handleColorPallate("#F57C00")}
+                onClick={() => handleColorPallate("#c2410c")}
               ></div>
               <div
                 className="w-[30px] h-[30px] bg-red-500 cursor-pointer rounded-[50%]"

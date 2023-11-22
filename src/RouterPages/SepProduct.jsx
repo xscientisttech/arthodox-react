@@ -12,20 +12,24 @@ const SepProduct = () => {
 
   const Navigate = useNavigate();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const { productId } = useParams();
   const products = useProducts();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [productId]);
 
 
-  // Find the product with the matching ID
+  
   const product = products.find((product) => product.id === parseInt(productId, 10));
 
   if (!product) {
     return <div>Product not found</div>;
   }
+
+
+
+  // Find the product with the matching ID
 
 
   return (
@@ -81,9 +85,6 @@ const SepProduct = () => {
               <ProductItem Img={product.img} id={product.id} index={index} Title={product.title} Dprice={product.Discount} Oprice={product.price} Description={product.description} />
             ))}
 
-            {/* <ProductItem Img={product.img} Title="Frame 01" Description="Here is the Description" Dprice="Rs.1000" Oprice="1200" />
-            <ProductItem Img={product.img} Title="Frame 02" Description="Here is the Description" Dprice="Rs.900" Oprice="1200" />
-            <ProductItem Img={product.img} Title="Frame 03" Description="Here is the Description" Dprice="Rs.786" Oprice="1200" /> */}
           </div>
         </div>
         <button
