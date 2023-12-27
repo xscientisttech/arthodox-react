@@ -8,6 +8,8 @@ import DummyData from "../assets/data/DummyData";
 
 const Category = () => {
 
+  const categories = ['Games', 'Movies', 'Anime', 'Sports']
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -19,15 +21,14 @@ const Category = () => {
 
       <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 bg-[#f4f4f4]">
         <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 1" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 2" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 3" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 4" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 5" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 6" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 7" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 8" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 9" />
+
+        {categories.map((category, index) => (
+          <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title={category} Index={index+1} />
+        ))}
+
+        {/* <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Movies" />
+        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Anime" />
+        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Sports" /> */}
         </div>
       </div>
 
