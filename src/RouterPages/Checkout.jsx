@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
+import Otp from "../Components/otp";
 
 const Checkout = () => {
 
@@ -33,7 +34,7 @@ const Checkout = () => {
     <Fragment>
       <Hero title="Checkout" />
       <section className="content w-full p-10 lg:p-16 py-10">
-        <form action="submit" className="container grid grid-cols-1 lg:grid-cols-2 md:p-20 lg:px-40 p-0 justify-center gap-10">
+        <form action="submit"   className="container grid grid-cols-1 lg:grid-cols-2 md:p-20 lg:px-40 p-0 justify-center gap-10">
           <div className="c1 items-center lg:items-start min-w-1/2 sm:w-full flex flex-col gap-10">
             <h1 className="text-2xl font-bold">Billing Details</h1>
             <div id="billing" className="form flex flex-col font-semibold gap-5">
@@ -72,8 +73,9 @@ const Checkout = () => {
                 <input onChange={onChangeHandler} type="number" name="zip-code" className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 " />
               </div>
               <div className="phone flex flex-col gap-5">
-                <label htmlFor="phone">Phone</label>
-                <input onChange={onChangeHandler} type="number" name="phone" className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 " />
+                 <label htmlFor="phone">Phone</label>
+                {/*<input onChange={onChangeHandler} type="number" name="phone" className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 " /> */}
+                <Otp />
               </div>
               <div className="email flex flex-col gap-5">
                 <label htmlFor="email">Email</label>

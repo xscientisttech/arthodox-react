@@ -47,12 +47,12 @@ export default function Home() {
 			<section className="xl:mt-16 lg:mt-12 md:mt-8 sm:mt-6 mt-4  bg-[#f4f4f4] py-10">
 
 				<div className="flex flex-col justify-center items-center text-2xl m-auto">
-					<div className="xl:text-xl lg:text-lg md:text-md sm:text-md text-sm">
+					{/* <div className="xl:text-xl lg:text-lg md:text-md sm:text-md text-sm">
 						<p className=" font-Poppins">
 							Lorem ipsum dolor, sit amet consectetur adipisicing
 							elit.
 						</p>
-					</div>
+					</div> */}
 					<div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] mt-4 m-auto rounded-[10px]">
 						<h1 className=" justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md font-Poppins">
 							Browse The Range

@@ -220,7 +220,7 @@ const ProductMain = (props) => {
             <div className="flex gap-5 ">
               <div className="sort-by">
                 <label className="relative flex w-40 md:w-40 rounded overflow-hidden">
-                  <select className="appearance-none text-inherit shadow-none flex-1 cursor-pointer p-[0.7em] border border-black">
+                  <select className="appearance-none text-inherit shadow-none flex-1 cursor-pointer p-[0.7em] border-2 border-black">
                     <option value="1">Frame Size</option>
                     <option value="2">Size 1</option>
                     <option value="3">Size 2</option>
