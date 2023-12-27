@@ -13,7 +13,6 @@ import { CartProvider } from './assets/data/CartContext';
 import { ProductProvider } from './assets/data/ProductContext';
 
 
-
 const App = () => {
 
   return (
@@ -25,10 +24,8 @@ const App = () => {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/Products' element={<Products />} />
-              <Route
-                path="/SepProduct/:productId"
-                element={<SepProduct />}
-              />
+              <Route path="/SepProduct/:productId" element={<SepProduct />} />
+              <Route path="/Products/category/:categoryId" element={<Products />} />
               <Route path='/Category' element={<Category />} />
               <Route path='/Checkout' element={<Checkout />} />
               <Route path='/Cart' element={<Cart />} />

@@ -8,6 +8,7 @@ import { useProducts } from '../assets/data/ProductContext';
 export default function Home() {
 
 	const products = useProducts();
+	const categories = ['Games', 'Movies', 'Anime', 'Sports'];
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -60,9 +61,9 @@ export default function Home() {
 					</div>
 					<div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
 						<div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 1" />
-							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 2" />
-							<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Category 3" />
+							{categories.slice(0, 3).map((category, index) => (
+								<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title={category} Index={index + 1} />
+							))}
 						</div>
 					</div>
 					<button
@@ -82,8 +83,8 @@ export default function Home() {
 				<div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
 					<div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
 
-						{products.slice(0,6).map((product, index) => (
-							<ProductItem Img={product.img} id={product.id} index={index} Title={product.title} Dprice={product.Discount} Oprice={product.price} Description={product.description} />
+						{products.slice(0, 6).map((product, index) => (
+							<ProductItem key={index} product={product} />
 						))}
 
 					</div>
