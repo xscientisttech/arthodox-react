@@ -83,7 +83,7 @@ export default function Home() {
 					<div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
 
 						{products.slice(0,6).map((product, index) => (
-							<ProductItem Img={product.img} id={product.id} index={index} Title={product.title} Dprice={product.Discount} Oprice={product.price} Description={product.description} />
+							<ProductItem key={index} product={product} />
 						))}
 
 					</div>

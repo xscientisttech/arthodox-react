@@ -14,6 +14,7 @@ const ProductContext = createContext();
 
 export function ProductProvider({ children }) {
 
+
     const products = [
         {
             id: 1,
@@ -22,14 +23,16 @@ export function ProductProvider({ children }) {
             price: 1000,
             Discount: 890,
             description: 'Description for Product 1',
+            category: 0
         },
         {
             id: 2,
             img: img2,
             title: 'Product 2',
             price: 2000,
-            Discount: 1400,
+            Discount: 1000,
             description: 'Description for Product 2',
+            category: 1
         },
         {
             id: 3,
@@ -38,6 +41,7 @@ export function ProductProvider({ children }) {
             price: 2000,
             Discount: 900,
             description: 'Description for Product 3',
+            category: 1
         },
         {
             id: 4,
@@ -46,6 +50,7 @@ export function ProductProvider({ children }) {
             price: 2000,
             Discount: 1230,
             description: 'Description for Product 4',
+            category: 2
         },
         {
             id: 5,
@@ -54,6 +59,7 @@ export function ProductProvider({ children }) {
             price: 2000,
             Discount: 1150,
             description: 'Description for Product 5',
+            category: 2
         },
         {
             id: 6,
@@ -62,6 +68,7 @@ export function ProductProvider({ children }) {
             price: 2000,
             Discount: 1350,
             description: 'Description for Product 6',
+            category: 2
         },
         {
             id: 7,
@@ -70,6 +77,7 @@ export function ProductProvider({ children }) {
             price: 2000,
             Discount: 1200,
             description: 'Description for Product 7',
+            category: 3
         },
         {
             id: 8,
@@ -78,6 +86,7 @@ export function ProductProvider({ children }) {
             price: 2000,
             Discount: 1300,
             description: 'Description for Product 8',
+            category: 3
         },
         {
             id: 9,
@@ -86,6 +95,7 @@ export function ProductProvider({ children }) {
             price: 2000,
             Discount: 1300,
             description: 'Description for Product 9',
+            category: 4
         },
 
     ];
