@@ -8,7 +8,7 @@ import DummyData from "../assets/data/DummyData";
 
 const Category = () => {
 
-  const categories = ['Games', 'Movies', 'Anime', 'Sports']
+  const categories = ['Games', 'Movies', 'Anime', 'Sports'];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,10 +25,7 @@ const Category = () => {
         {categories.map((category, index) => (
           <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title={category} Index={index+1} />
         ))}
-
-        {/* <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Movies" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Anime" />
-        <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title="Sports" /> */}
+        
         </div>
       </div>
 
