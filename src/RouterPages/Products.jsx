@@ -31,7 +31,7 @@ const Products = () => {
 
         </div>
       </div>
-      <PageSection />
+      {/* <PageSection /> */}
       <Quality />
     </Fragment>
   );

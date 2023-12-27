@@ -31,7 +31,7 @@ const Category = () => {
         </div>
       </div>
 
-      <PageSection />
+      {/* <PageSection /> */}
       <Quality />
     </Fragment>
   );
