@@ -203,7 +203,11 @@ const ProductMain = (props) => {
               src={product.img}
               alt=""
             /> */}
-            <canvas  ref={canvasRef} className=" w-full h-full"   style={{ border: '1px solid #000' }} ></canvas>
+            <canvas
+              ref={canvasRef}
+              className=" w-full h-full"
+              style={{ border: "1px solid #000" }}
+            ></canvas>
           </div>
         </div>
 
@@ -211,7 +215,12 @@ const ProductMain = (props) => {
           <h1 className="text-[2.5rem] font-semibold absolute top-24 md:relative md:top-0">
             {product.title}
           </h1>
-          <p className="text-[1.2rem] text-[#9F9F9F] p-0">{product.price}</p>
+          <div className="flex gap-4 flex-wrap items-center">
+            <p className="text-[1.2rem] text-black  font-semibold p-0">{`₹${product.Discount}`}</p>
+            <del className="text-[1rem] text-[#9F9F9F] p-0">
+              {`₹${product.price}`}
+            </del>
+          </div>
           <p className="text-black">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa,
             atque ducimus! Officiis rerum maxime eaque magnam
@@ -263,9 +272,9 @@ const ProductMain = (props) => {
           </div>
           <div className="flex flex-wrap gap-5 items-center">
             <div className="flex items-center justify-center bg-white w-[120px] h-10 gap-5 border rounded-[10px] border-solid border-[rgb(175,175,175)]">
-              <FaMinus onClick={decreament}/>
+              <FaMinus onClick={decreament} />
               <p id="count">{count}</p>
-              <FaPlus onClick={increment}/>
+              <FaPlus onClick={increment} />
             </div>
             <div className="flex gap-5 items-center">
               <button

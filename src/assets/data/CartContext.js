@@ -24,7 +24,7 @@ export function CartProvider({ children }) {
   const cartTotal = () => {
     let total = 0;
     for (const item of cart) {
-      total += item.price;
+      total += item.Discount;
     }
     return total;
   };
