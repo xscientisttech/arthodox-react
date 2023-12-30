@@ -6,7 +6,7 @@ import SearchIcon from "./SearchIcon";
 import DummyData from "../assets/data/DummyData";
 import logo from "../assets/images/Arth-Logo.png";
 
-const Header = () => {
+const Header = ({search , setSearch}) => {
   const location = useLocation();
   const pathMatchRoute = (route) => {
     if (route === location.pathname) {
@@ -69,7 +69,7 @@ const Header = () => {
           </li>
         </ul>
         <div className="flex justify-center items-center gap-5 text-2xl">
-          <SearchIcon />
+          <SearchIcon search={search} setSearch={setSearch} />
 
           <NavCart />
           <HamburgerMenu />
