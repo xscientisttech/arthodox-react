@@ -58,7 +58,7 @@ const Footer = () => {
               <li>
                 <a href="#">FAQ</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#">shipping</a>
               </li>
               <li>
@@ -66,7 +66,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#">order status</a>
-              </li>
+              </li> */}
               <li>
                 <a href="#">payment options</a>
               </li>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './RouterPages/Home';
 import Products from './RouterPages/Products';
@@ -15,17 +15,19 @@ import { ProductProvider } from './assets/data/ProductContext';
 
 const App = () => {
 
+  const [search , setSearch ] = useState('');
+
   return (
     <Fragment>
       <Router>
         <ProductProvider>
           <CartProvider>
-            <Header />
+            <Header search={search} setSearch={setSearch} />
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/Products' element={<Products />} />
-              <Route path="/SepProduct/:productId" element={<SepProduct />} />
-              <Route path="/Products/category/:categoryId" element={<Products />} />
+              <Route path='/Products' element={<Products search={search} />} />
+              <Route path="/SepProduct/:productId" element={<SepProduct  />} />
+              <Route path="/Products/category/:categoryId" element={<Products search={search} />} />
               <Route path='/Category' element={<Category />} />
               <Route path='/Checkout' element={<Checkout />} />
               <Route path='/Cart' element={<Cart />} />

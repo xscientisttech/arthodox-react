@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function SearchIcon() {
+function SearchIcon({search , setSearch}) {
   const [searchOpen, setSearchOpen] = useState(false);
 
   const toggleSearch = () => {
     setSearchOpen(!searchOpen);
   };
+
+  useEffect(() => {
+    console.log(search);
+  })
 
   return (
 
@@ -22,7 +26,7 @@ function SearchIcon() {
             class="peer  h-full w-full hidden md:block outline-none text-sm text-gray-700 pr-2"
             type="text"
             id="search"
-            placeholder="Search..." />
+            placeholder="Search..." onChange={(e) => setSearch(e.target.value)} />
         </div>
 
         <div class=" group/bar group-hover/searchBar:visible md:group-hover/searchBar:invisible invisible fixed left-0 top-12 mx-1 flex items-center h-10 w-full md:border focus-within:shadow-lg bg-white overflow-hidden">
@@ -36,7 +40,7 @@ function SearchIcon() {
             class="peer h-full w-full md:block outline-none text-sm text-gray-700 pr-2"
             type="text"
             id="search"
-            placeholder="Search..." />
+            placeholder="Search..." onChange={(e) => setSearch(e.target.value)} />
         </div>
       </div>
     </>
