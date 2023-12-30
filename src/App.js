@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Fragment, useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Home from './RouterPages/Home';
 import Products from './RouterPages/Products';
 import Category from './RouterPages/Category';
@@ -14,8 +14,10 @@ import { ProductProvider } from './assets/data/ProductContext';
 
 
 const App = () => {
+  
+  const [search, setSearch] = useState('');
 
-  const [search , setSearch ] = useState('');
+  
 
   return (
     <Fragment>
@@ -26,7 +28,7 @@ const App = () => {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/Products' element={<Products search={search} />} />
-              <Route path="/SepProduct/:productId" element={<SepProduct  />} />
+              <Route path="/SepProduct/:productId" element={<SepProduct />} />
               <Route path="/Products/category/:categoryId" element={<Products search={search} />} />
               <Route path='/Category' element={<Category />} />
               <Route path='/Checkout' element={<Checkout />} />

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 
-function SearchIcon({search , setSearch}) {
+function SearchIcon({ search, setSearch }) {
   const [searchOpen, setSearchOpen] = useState(false);
+  let location = useLocation();
+  const navigate = useNavigate();
+  
 
   const toggleSearch = () => {
     setSearchOpen(!searchOpen);
@@ -9,7 +13,17 @@ function SearchIcon({search , setSearch}) {
 
   useEffect(() => {
     console.log(search);
+    console.log(location.pathname)
+    
   })
+
+  useEffect(() => {
+    if (search !== '' && location.pathname !== '/Products') {
+      navigate('/Products');
+    }
+  }, [search])
+
+
 
   return (
 

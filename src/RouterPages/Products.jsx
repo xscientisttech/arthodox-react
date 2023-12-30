@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useProducts } from '../assets/data/ProductContext';
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Filter from "../Components/Filter";
 import Hero from "../Components/Hero";
 import ProductItem from "../Components/ProductItem";
@@ -10,6 +10,8 @@ const Products = ({ search }) => {
   const { categoryId } = useParams();
   const [category, setCategory] = useState(categoryId || 0);
   const [sortBy, setSortBy] = useState("null");
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,6 +40,8 @@ const Products = ({ search }) => {
         return 0;
     }
   });
+
+
 
   return (
     <Fragment>
