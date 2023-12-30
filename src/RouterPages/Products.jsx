@@ -14,9 +14,7 @@ const Products = ({ search }) => {
 
   const products = useProducts();
   const { categoryId } = useParams();
-  const [category, setCategory] = useState(0);
-
-  // const categories = ['All','Games', 'Movies', 'Anime', 'Sports']
+  const [category, setCategory] = useState( categoryId || 0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,7 +22,7 @@ const Products = ({ search }) => {
     if (categoryId) {
       setCategory(categoryId)
     }
-  }, []);
+  });
 
   useEffect(() => {
     console.log(search);
