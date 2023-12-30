@@ -10,20 +10,25 @@ import { useProducts } from '../assets/data/ProductContext';
 import { useParams } from "react-router";
 
 
-const Products = () => {
+const Products = ({ search }) => {
 
   const products = useProducts();
   const { categoryId } = useParams();
   const [category, setCategory] = useState(0);
-  
+
   // const categories = ['All','Games', 'Movies', 'Anime', 'Sports']
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if(categoryId){
+
+    if (categoryId) {
       setCategory(categoryId)
     }
   }, []);
+
+  useEffect(() => {
+    console.log(search);
+  }, [search])
 
 
   return (
@@ -33,17 +38,32 @@ const Products = () => {
       <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 bg-[#f4f5f7]">
         <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
 
-          {category !== 0 ? products.map((product, index) => (
-            <>
-              {category == product.category && <ProductItem key={index} product={product} />}
-            </>
+          {category !== 0 ? products.filter((item) => {
+              return search.toLowerCase() === '' 
+              ? item
+              : item.title.toLowerCase().includes(search);
+            })
+            .map((product, index) => (
+              <>
+                {category == product.category && <ProductItem key={index} product={product} />}
+              </>
+            ))
 
-          ))
-            : products.map((product, index) => (
+            : products.filter((item) => {
+              return search.toLowerCase() === '' 
+              ? item
+              : item.title.toLowerCase().includes(search);
+            })
+            .map((product, index) => (
               <>
                 <ProductItem key={index} product={product} />
-              </>))
+              </>
+            ))
           }
+
+{/* {category == product.category && <ProductItem key={index} product={product} />} */}
+
+
 
         </div>
       </div>
