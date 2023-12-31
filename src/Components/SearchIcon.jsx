@@ -5,7 +5,7 @@ function SearchIcon({ search, setSearch }) {
   const [searchOpen, setSearchOpen] = useState(false);
   let location = useLocation();
   const navigate = useNavigate();
-  
+
 
   const toggleSearch = () => {
     setSearchOpen(!searchOpen);
@@ -13,7 +13,7 @@ function SearchIcon({ search, setSearch }) {
 
   useEffect(() => {
     console.log(search);
-    console.log(location.pathname)
+    // console.log(location.pathname)
     
   })
 

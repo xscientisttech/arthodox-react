@@ -70,7 +70,7 @@ const Otp = () => {
   }
 
   return (
-    <section className="border-black rounded-lg border-2">
+    <section className="">
       <div>
         <Toaster toastOptions={{ duration: 4000 }} />
         <div id="recaptcha-container"></div>
@@ -79,7 +79,7 @@ const Otp = () => {
             👍Login Success
           </h2>
         ) : (
-          <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
+          <div className="w-80 flex flex-col gap-4 rounded-lg ">
             {showOTP ? (
               <>
                 <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
@@ -111,18 +111,18 @@ const Otp = () => {
                 </button>
               </>
             ) : (
-              <>
-                <PhoneInput country={"in"} value={ph} onChange={setPh} />
+              <div className="flex gap-3 " >
+                <p className=" h-11" ><PhoneInput country={"in"} value={ph} onChange={setPh} /></p>
                 <button
                   onClick={onSignup} type="button"
-                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center p-2.5 text-white rounded"
                 >
                   {loading && (
                     <CgSpinner size={20} className="mt-1 animate-spin" />
                   )}
-                  <span>Send code via SMS</span>
+                  <span>Verify</span>
                 </button>
-              </>
+              </div>
             )}
           </div>
         )}
