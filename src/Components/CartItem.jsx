@@ -7,45 +7,15 @@ const CartItem = (props) => {
 
   return (
     <>
-      <td
-        className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center font-Poppins"
-        data-title="Product"
-      >
-        {" "}
-        <div className="flex justify-center flex-col items-end md:flex-row sm:items-center gap-10">
-          <img src={product.img} alt="" className="w-[6rem] rounded-lg" />
-          <p> {product.title} </p>
-        </div>
+      <td className=" w-[6rem]" data-title="Product" >
+        <img src={product.img} alt="" className="w-[6rem] max-h-[4rem] rounded-lg" />
       </td>
-      <td
-        className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
-        data-title="Price"
-      >
-        &#8377;{product.price}
-      </td>
-      <td
-        className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
-        data-title="Quantity"
-      >
-        1
-      </td>
-      <td
-        className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
-        data-title="Subtotal"
-      >
-        <div className="flex justify-between flex-col items-end md:flex-row sm:before:content-none sm:items-center gap-14">
-          <p> &#8377;{product.price} </p>
-        </div>
-      </td>
-      <td
-        className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
-        data-title="Remove"
-      >
-        <div className="flex justify-between flex-col items-end md:flex-row sm:before:content-none sm:items-center gap-14">
-          <FaTrash
-            className="text-orange-600 cursor-pointer"
-            onClick={() => props.removeFromCart(props.index)}
-          />
+      <td className=" text-center  " data-title="Product" > {product.title} </td>
+      <td className=" text-center " data-title="Price" > {product.price} </td>
+      <td className=" text-center " data-title="Quantity" > 1 </td>
+      <td className=" text-center " data-title="Subtotal" > {product.price} </td>
+      <td className=" text-center " data-title="Remove" >
+        <div className="flex justify-center"> <FaTrash className="text-orange-600 cursor-pointer" onClick={() => props.removeFromCart(props.index)} />
         </div>
       </td>
     </>

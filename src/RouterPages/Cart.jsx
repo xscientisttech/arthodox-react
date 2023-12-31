@@ -8,34 +8,39 @@ import { useCart } from "../assets/data/CartContext";
 
 const Cart = () => {
 
-  const { cart, removeFromCart } = useCart();
+  const { cart, cartTotal, removeFromCart } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    console.log(cartTotal())
+  })
+
   const Navigate = useNavigate();
   return (
     <Fragment>
       <Hero title="Cart" />
-      <section className="w-full flex justify-center lg:px-[10%] py-[4%]">
+      <section className="w-full flex justify-center lg:px-[10%] p-[4%]">
         <div className="w-full gap-5 flex flex-wrap justify-center items-center lg:items-start lg:justify-start">
-          <div className="flex">
-            <table className="sm:w-full sm:border-0 border-collapse border-4 border-solid border-[#faf3ea] w-[100vw] ">
-              <thead className="flex flex-wrap">
-                <tr className=" hidden sm:bg-[#faf3ea] sm:flex sm:gap-20">
-                  <th className="lg:block hidden"></th>
-                  <th className="md:block hidden"></th>
+          <div className="flex w-full flex-1">
+            <table className=" min-w-0 border-collapse border-[#faf3ea] w-full">
+              <thead className="w-full " >
+                <tr className=" bg-[#faf3ea] ">
+                  {/* <th className="lg:block hidden"></th> */}
+                  {/* <th className="md:block hidden"></th> */}
+                  <th className="text-center p-4 max-w-[6rem] max-h-[4rem]"></th>
                   <th className="text-center p-4">Product</th>
                   <th className="text-center p-4">Price</th>
                   <th className="text-center p-4">Quantity</th>
                   <th className="text-center p-4">Subtotal</th>
-                  <th className="text-center p-4"> </th>
+                  <th className="text-center p-4">{}</th>
                 </tr>
               </thead>
-              <tbody className="flex  justify-centre items-center mt-10 flex-col">
+              <tbody className="">
                 {cart.map((item, index) => (
-                  <tr className="block w-full sm:flex px-8 xl:px-0 lg:px-0 md:px-0 gap-28 items-center justify-centre" key={index}>
+                  <tr className=" mt-4 hover:bg-slate-100 " key={index}>
                     <CartItem product={item} index={index} removeFromCart={removeFromCart} />
                   </tr>
                 ))}
@@ -46,11 +51,11 @@ const Cart = () => {
             <h1 className="text-2xl font-bold">Cart Total</h1>
             <div className=" w-full flex justify-between p-3 px-10 items-center mt-6">
               <p className="font-semibold">Subtotal</p>
-              <p className="font-semibold">Rs. 1000</p>
+              <p className="font-semibold">Rs.{cartTotal()}</p>
             </div>
             <div className=" w-full flex justify-between p-3 px-10 items-center mt-6">
               <p className="font-semibold">Total</p>
-              <p className="font-semibold">Rs. 1000</p>
+              <p className="font-semibold">Rs. {cartTotal()}</p>
             </div>
             <button
               class="mt-6 px-8 py-2 rounded-xl border-solid bg-black text-white font-semibold border-[black] hover:bg-[#f9f1e7] hover:text-black border-2"

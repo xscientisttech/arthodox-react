@@ -11,7 +11,7 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-    console.log(cart);
+    // console.log(cart);
     setCart([...cart, item]);
   };
 
@@ -23,9 +23,10 @@ export function CartProvider({ children }) {
 
   const cartTotal = () => {
     let total = 0;
-    for (const item of cart) {
+    cart.forEach((item) => {
       total += item.price;
-    }
+    });
+    console.log(total);
     return total;
   };
 
