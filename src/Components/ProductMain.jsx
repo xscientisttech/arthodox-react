@@ -4,6 +4,7 @@ import DummyData from "../assets/data/DummyData";
 import { useCart } from "../assets/data/CartContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import colorwheel from "../assets/images/background/colorwheel.jpeg";
 import {
   FaInstagram,
   FaLinkedinIn,
@@ -17,7 +18,7 @@ import {
 const ProductMain = (props) => {
   const product = props.product;
   const { addToCart } = useCart();
-  
+
   const [selectedColor, setSelectedColor] = useState("#b99033");
   const frames = [
     {
@@ -25,32 +26,30 @@ const ProductMain = (props) => {
       x: 45,
       y: 40,
       width: 122,
-      height: 60
+      height: 60,
     },
     {
       src: DummyData.BgChangeImgUrl2,
       x: 54,
       y: 60,
       width: 143,
-      height: 65
+      height: 65,
     },
     {
       src: DummyData.BgChangeImgUrl3,
       x: 77,
       y: 42,
       width: 150,
-      height: 66
+      height: 66,
     },
     {
       src: DummyData.BgChangeImgUrl4,
       x: 108,
       y: 24,
       width: 90,
-      height: 85
-    }
+      height: 85,
+    },
   ];
-
-  
 
   const [selectedImage, setSelectedImage] = useState(frames[0].src);
 
@@ -76,15 +75,15 @@ const ProductMain = (props) => {
 
   const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
-    
+
     // setBackgroundMain(event.target.value);
   };
 
   const handleColorPallate = (color) => {
     setSelectedColor(color);
-    
+
     clearCanvas();
-    setSelectedImage('');
+    setSelectedImage("");
     setImageProps({
       x: 50,
       y: 25,
@@ -94,7 +93,6 @@ const ProductMain = (props) => {
     // setBackgroundMain(color);
   };
 
-  
   const changeImage = (frame) => {
     setSelectedImage(frame.src);
     setImageProps({
@@ -103,11 +101,10 @@ const ProductMain = (props) => {
       width: frame.width,
       height: frame.height,
     });
-    
+
     // setBackgroundMain(frame);
     console.log(frame.src);
   };
-
 
   const [count, setCount] = useState(1);
 
@@ -120,7 +117,6 @@ const ProductMain = (props) => {
     setCount(count - 1);
   };
 
-
   // canvas to change background images and product iamge
 
   const canvasRef = useRef(null);
@@ -130,21 +126,19 @@ const ProductMain = (props) => {
     width: frames[0].width,
     height: frames[0].height,
   });
-  
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
     const bgImage = new Image();
-    bgImage.src = selectedImage; 
-    
+    bgImage.src = selectedImage;
 
     ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
 
     const mainImage = new Image();
-    mainImage.src = product.img; 
-    mainImage.onload = function() {
+    mainImage.src = product.img;
+    mainImage.onload = function () {
       ctx.drawImage(
         mainImage,
         imageProps.x,
@@ -153,20 +147,13 @@ const ProductMain = (props) => {
         imageProps.height
       );
     };
-
-
   }, [product.img, selectedImage, imageProps]);
 
   const clearCanvas = () => {
-
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   };
-
-
-
 
   return (
     <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-24 bg-[] font-Poppins">
@@ -203,7 +190,11 @@ const ProductMain = (props) => {
               src={product.img}
               alt=""
             /> */}
-            <canvas  ref={canvasRef} className=" w-full h-full"   style={{ border: '1px solid #000' }} ></canvas>
+            <canvas
+              ref={canvasRef}
+              className=" w-full h-full"
+              style={{ border: "1px solid #000" }}
+            ></canvas>
           </div>
         </div>
 
@@ -211,7 +202,7 @@ const ProductMain = (props) => {
           <h1 className="text-[2.5rem] font-semibold absolute top-24 md:relative md:top-0">
             {product.title}
           </h1>
-          <p className="text-[1.2rem] text-[#9F9F9F] p-0">{product.price}</p>
+          <p className="text-2xl font-semibold text-[#202020] p-0">&#8377; {product.price}</p>
           <p className="text-black">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa,
             atque ducimus! Officiis rerum maxime eaque magnam
@@ -246,10 +237,15 @@ const ProductMain = (props) => {
               ></div>
 
               <label className="cursor-pointer">
-                <div
+                <img
+                  src={colorwheel}
+                  alt="wheel"
+                  className="w-[34px] aspect-square border-2 border-gray-300 rounded-full mr-2"
+                />
+                {/* <div
                   className="w-[34px] aspect-square border-2 border-gray-300 rounded-full mr-2"
                   style={{ backgroundColor: selectedColor }}
-                ></div>
+                ></div> */}
                 <input
                   type="color"
                   id="color-picker"
@@ -263,9 +259,9 @@ const ProductMain = (props) => {
           </div>
           <div className="flex flex-wrap gap-5 items-center">
             <div className="flex items-center justify-center bg-white w-[120px] h-10 gap-5 border rounded-[10px] border-solid border-[rgb(175,175,175)]">
-              <FaMinus onClick={decreament}/>
+              <FaMinus onClick={decreament} />
               <p id="count">{count}</p>
-              <FaPlus onClick={increment}/>
+              <FaPlus onClick={increment} />
             </div>
             <div className="flex gap-5 items-center">
               <button
@@ -277,7 +273,7 @@ const ProductMain = (props) => {
 
               <button
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
-                onClick={() => Navigate("/Checkout")}
+                onClick={() => Navigate("/Cart")}
               >
                 BUY
               </button>

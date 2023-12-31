@@ -21,7 +21,7 @@ const CartItem = (props) => {
         className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
         data-title="Price"
       >
-        {product.price}
+        &#8377;{product.price}
       </td>
       <td
         className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
@@ -34,7 +34,7 @@ const CartItem = (props) => {
         data-title="Subtotal"
       >
         <div className="flex justify-between flex-col items-end md:flex-row sm:before:content-none sm:items-center gap-14">
-          <p> {product.price} </p>
+          <p> &#8377;{product.price} </p>
         </div>
       </td>
       <td
