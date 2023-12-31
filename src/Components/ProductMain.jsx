@@ -14,10 +14,9 @@ import {
   FaMinus,
 } from "react-icons/fa";
 
-const ProductMain = (props) => {
-  const product = props.product;
+const ProductMain = ({ product, setTypeBuy }) => {
   const { addToCart } = useCart();
-  
+
   const [selectedColor, setSelectedColor] = useState("#b99033");
   const frames = [
     {
@@ -25,32 +24,30 @@ const ProductMain = (props) => {
       x: 45,
       y: 40,
       width: 122,
-      height: 60
+      height: 60,
     },
     {
       src: DummyData.BgChangeImgUrl2,
       x: 54,
       y: 60,
       width: 143,
-      height: 65
+      height: 65,
     },
     {
       src: DummyData.BgChangeImgUrl3,
       x: 77,
       y: 42,
       width: 150,
-      height: 66
+      height: 66,
     },
     {
       src: DummyData.BgChangeImgUrl4,
       x: 108,
       y: 24,
       width: 90,
-      height: 85
-    }
+      height: 85,
+    },
   ];
-
-  
 
   const [selectedImage, setSelectedImage] = useState(frames[0].src);
 
@@ -60,8 +57,20 @@ const ProductMain = (props) => {
     console.log("copied ! ");
   };
 
+  const [frameSize, setFrameSize] = useState("default");
+
   const notifyAddedToCart = (product) => {
-    addToCart(product);
+    const finalData = {
+      id: product.id,
+      img: product.img,
+      title: product.title,
+      price: product.price,
+      discount: product.Discount,
+      frameSize: frameSize,
+      color: selectedColor,
+      quantity: count,
+    };
+    addToCart(finalData);
     toast.success(`${product.title} added to Cart ! `, {
       position: "bottom-right",
       autoClose: 5000,
@@ -76,15 +85,15 @@ const ProductMain = (props) => {
 
   const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
-    
+
     // setBackgroundMain(event.target.value);
   };
 
   const handleColorPallate = (color) => {
     setSelectedColor(color);
-    
+
     clearCanvas();
-    setSelectedImage('');
+    setSelectedImage("");
     setImageProps({
       x: 50,
       y: 25,
@@ -94,7 +103,6 @@ const ProductMain = (props) => {
     // setBackgroundMain(color);
   };
 
-  
   const changeImage = (frame) => {
     setSelectedImage(frame.src);
     setImageProps({
@@ -103,23 +111,25 @@ const ProductMain = (props) => {
       width: frame.width,
       height: frame.height,
     });
-    
+
     // setBackgroundMain(frame);
     console.log(frame.src);
   };
-
 
   const [count, setCount] = useState(1);
 
   const Navigate = useNavigate();
 
   const increment = () => {
-    setCount(count + 1);
+    if (count < 10) {
+      setCount(count + 1);
+    }
   };
-  const decreament = () => {
-    setCount(count - 1);
+  const decrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
   };
-
 
   // canvas to change background images and product iamge
 
@@ -130,21 +140,19 @@ const ProductMain = (props) => {
     width: frames[0].width,
     height: frames[0].height,
   });
-  
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
     const bgImage = new Image();
-    bgImage.src = selectedImage; 
-    
+    bgImage.src = selectedImage;
 
     ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
 
     const mainImage = new Image();
-    mainImage.src = product.img; 
-    mainImage.onload = function() {
+    mainImage.src = product.img;
+    mainImage.onload = function () {
       ctx.drawImage(
         mainImage,
         imageProps.x,
@@ -153,20 +161,13 @@ const ProductMain = (props) => {
         imageProps.height
       );
     };
-
-
   }, [product.img, selectedImage, imageProps]);
 
   const clearCanvas = () => {
-
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   };
-
-
-
 
   return (
     <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-24 bg-[] font-Poppins">
@@ -229,10 +230,13 @@ const ProductMain = (props) => {
             <div className="flex gap-5 ">
               <div className="sort-by">
                 <label className="relative flex w-40 md:w-40 rounded overflow-hidden">
-                  <select className="appearance-none text-inherit shadow-none flex-1 cursor-pointer p-[0.7em] border-2 border-black">
-                    <option value="1">Frame Size</option>
-                    <option value="2">Size 1</option>
-                    <option value="3">Size 2</option>
+                  <select
+                    className="appearance-none text-inherit shadow-none flex-1 cursor-pointer p-[0.7em] border-2 border-black"
+                    onChange={(event) => setFrameSize(event.target.value)}
+                  >
+                    <option value="default">Frame Size</option>
+                    <option value="size 1">Size 1</option>
+                    <option value="size 2">Size 2</option>
                   </select>
                 </label>
               </div>
@@ -272,21 +276,28 @@ const ProductMain = (props) => {
           </div>
           <div className="flex flex-wrap gap-5 items-center">
             <div className="flex items-center justify-center bg-white w-[120px] h-10 gap-5 border rounded-[10px] border-solid border-[rgb(175,175,175)]">
-              <FaMinus onClick={decreament} />
+              <FaMinus onClick={decrement} />
               <p id="count">{count}</p>
               <FaPlus onClick={increment} />
             </div>
             <div className="flex gap-5 items-center">
               <button
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
-                onClick={() => notifyAddedToCart(product)}
+                onClick={() => {
+                  setTypeBuy(false);
+                  notifyAddedToCart(product);
+                }}
               >
                 Add To Cart
               </button>
 
               <button
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
-                onClick={() => Navigate("/Checkout")}
+                onClick={(event) => {
+                  setTypeBuy(true);
+                  notifyAddedToCart(product);
+                  Navigate("/Checkout");
+                }}
               >
                 BUY
               </button>

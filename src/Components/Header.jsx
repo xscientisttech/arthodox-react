@@ -6,7 +6,7 @@ import SearchIcon from "./SearchIcon";
 import DummyData from "../assets/data/DummyData";
 import logo from "../assets/images/Arth-Logo.png";
 
-const Header = ({search , setSearch}) => {
+const Header = ({ search, setSearch, setTypeBuy }) => {
   const location = useLocation();
   const pathMatchRoute = (route) => {
     if (route === location.pathname) {
@@ -26,7 +26,10 @@ const Header = ({search , setSearch}) => {
             className="w-10 h-10 cursor-pointer"
             onClick={() => Navigate("/")}
           />
-          <h1 className="text-lg font-bold cursor-pointer" onClick={() => Navigate("/")}>
+          <h1
+            className="text-lg font-bold cursor-pointer"
+            onClick={() => Navigate("/")}
+          >
             Arthodox
           </h1>
         </div>
@@ -71,7 +74,7 @@ const Header = ({search , setSearch}) => {
         <div className="flex justify-center items-center gap-5 text-2xl">
           <SearchIcon search={search} setSearch={setSearch} />
 
-          <NavCart />
+          <NavCart setTypeBuy={setTypeBuy} />
           <HamburgerMenu />
         </div>
       </header>

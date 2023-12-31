@@ -11,8 +11,11 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-    console.log(cart);
-    setCart([...cart, item]);
+    let existingProduct = cart.find((product) => product.id == item.id);
+    // console.log("sdsdsd", existingProduct);
+    if (existingProduct == undefined) {
+      setCart([...cart, item]);
+    }
   };
 
   const removeFromCart = (index) => {
@@ -24,13 +27,22 @@ export function CartProvider({ children }) {
   const cartTotal = () => {
     let total = 0;
     for (const item of cart) {
-      total += item.Discount;
+      total += item.quantity * item.discount;
     }
     return total;
   };
 
+  const value = () => {
+    let val = 0;
+    // let len = cart.length();
+    val = cart[cart.length - 1].quantity * cart[cart.length - 1].discount;
+    return val;
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, cartTotal, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, cartTotal, removeFromCart, value }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -5,7 +5,7 @@ import PopupCartItem from "./PopupCartItem";
 import { useCart } from "../assets/data/CartContext";
 import {FaCartShopping} from 'react-icons/fa6'
 
-const NavCart = () => {
+const NavCart = ({ setTypeBuy }) => {
   const { cart, cartTotal, removeFromCart } = useCart();
   const value = cartTotal();
 
@@ -22,6 +22,7 @@ const NavCart = () => {
   const [cartOpen, setCartOpen] = useState(false);
 
   const toggleCart = () => {
+    setTypeBuy(false);
     setCartOpen(!cartOpen);
   };
 

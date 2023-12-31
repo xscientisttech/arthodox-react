@@ -21,20 +21,20 @@ const CartItem = (props) => {
         className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
         data-title="Price"
       >
-        {product.price}
+        {product.discount}
       </td>
       <td
         className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
         data-title="Quantity"
       >
-        1
+        <p> {product.quantity} </p>
       </td>
       <td
         className="p-2  text-right block text-[1em] before:content-[attr(data-title)':'] before:font-bold  before:float-left sm:before:content-none sm:text-center"
         data-title="Subtotal"
       >
         <div className="flex justify-between flex-col items-end md:flex-row sm:before:content-none sm:items-center gap-14">
-          <p> {product.price} </p>
+          <p> {product.quantity * product.discount} </p>
         </div>
       </td>
       <td
