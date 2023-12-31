@@ -71,7 +71,7 @@ const NavCart = ({ setTypeBuy }) => {
             {cartTotal() != 0 && (
               <button
                 className="border p-2 px-3 text-xs bg-gray-100 hover:bg-gray-200"
-                onClick={() => closeCart("/Checkout")}
+                onClick={() => closeCart("/cart")}
               >
                 CHECKOUT
               </button>

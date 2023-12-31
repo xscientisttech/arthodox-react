@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 
 const ProductMain = ({ product, setTypeBuy }) => {
-  const { addToCart } = useCart();
+  const { addToCart, buyNow } = useCart();
 
   const [selectedColor, setSelectedColor] = useState("#b99033");
   const frames = [
@@ -81,6 +81,20 @@ const ProductMain = ({ product, setTypeBuy }) => {
       progress: undefined,
       theme: "light",
     });
+  };
+
+  const notifyAddedToBuy = (product) => {
+    const finalData = {
+      id: product.id,
+      img: product.img,
+      title: product.title,
+      price: product.price,
+      discount: product.Discount,
+      frameSize: frameSize,
+      color: selectedColor,
+      quantity: count,
+    };
+    buyNow(finalData);
   };
 
   const handleColorChange = (event) => {
@@ -295,7 +309,7 @@ const ProductMain = ({ product, setTypeBuy }) => {
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
                 onClick={(event) => {
                   setTypeBuy(true);
-                  notifyAddedToCart(product);
+                  notifyAddedToBuy(product);
                   Navigate("/Checkout");
                 }}
               >

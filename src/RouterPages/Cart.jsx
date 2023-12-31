@@ -59,12 +59,15 @@ const Cart = () => {
               <p className="font-semibold">Total</p>
               <p className="font-semibold">Rs {cartTotal()}</p>
             </div>
-            <button
-              class="mt-6 px-8 py-2 rounded-xl border-solid bg-black text-white font-semibold border-[black] hover:bg-[#f9f1e7] hover:text-black border-2"
-              onClick={() => Navigate("/Checkout")}
-            >
-              Check Out
-            </button>
+
+            {cartTotal() != 0 && (
+              <button
+                class="mt-6 px-8 py-2 rounded-xl border-solid bg-black text-white font-semibold border-[black] hover:bg-[#f9f1e7] hover:text-black border-2"
+                onClick={() => Navigate("/Checkout")}
+              >
+                Check Out
+              </button>
+            )}
           </div>
         </div>
       </section>

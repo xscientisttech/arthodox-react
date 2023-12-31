@@ -27,7 +27,12 @@ const PopupCartItem = (props) => {
               <h4 className="text-lg font-semibold text-gray-600">
                 {product.title}
               </h4>
-              <p className=" text-red-700 text-sm">{product.Discount}</p>
+              <p className=" text-red-700 text-sm">
+                {product.quantity + "  "}x{"  " + product.discount}
+              </p>
+              <p className=" text-red-700 text-sm">
+                {product.quantity * product.discount}
+              </p>
             </div>
           </div>
           <div

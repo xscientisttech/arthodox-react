@@ -5,7 +5,7 @@ import Otp from "../Components/otp";
 import { useCart } from "../assets/data/CartContext";
 
 const Checkout = ({ typeBuy }) => {
-  const { cart, cartTotal, value } = useCart();
+  const { buy, cartTotal } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -153,12 +153,10 @@ const Checkout = ({ typeBuy }) => {
               <div className="flex justify-between">
                 <p>Subtotal</p>
                 {typeBuy == true ? (
-                  <p>Rs {value()}</p>
+                  <p>Rs {buy[0].discount * buy[0].quantity}</p>
                 ) : (
                   <p>Rs {cartTotal()}</p>
                 )}
-                {/* {!typeBuy && <p>Rs {value()}</p>}
-                {typeBuy && <p>Rs {cartTotal()}</p>} */}
               </div>
               <div className="product-name flex justify-between">
                 <p>Shipping & Handling</p>
@@ -167,7 +165,7 @@ const Checkout = ({ typeBuy }) => {
               <div className="total flex justify-between font-bold text-red-700 ">
                 <p className="">Total</p>
                 {typeBuy == true ? (
-                  <p>Rs {value()}</p>
+                  <p>Rs {buy[0].discount * buy[0].quantity}</p>
                 ) : (
                   <p>Rs {cartTotal()}</p>
                 )}
