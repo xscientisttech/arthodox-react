@@ -17,7 +17,7 @@ const PopupCartItem = (props) => {
                     <img className=" shadow-lg border" src={product.img} alt="cart-img" width="50rem" />
                     <div className=" ml-5" >
                         <h4 className="text-lg font-semibold text-gray-600">{product.title}</h4>
-                        <p className=" text-red-700 text-sm" >{product.price}</p>
+                        <p className=" text-red-700 text-sm" >&#8377; {product.price}</p>
                     </div>
                 </div>
                 <div className="w-10 aspect-square flex justify-end items-center" onClick={() => props.removeFromCart(props.index)}>

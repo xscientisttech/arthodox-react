@@ -99,6 +99,7 @@ const Otp = () => {
                   disabled={false}
                   autoFocus
                   className="opt-container "
+                  required
                 ></OtpInput>
                 <button
                   onClick={onOTPVerify}
