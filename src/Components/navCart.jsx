@@ -64,7 +64,7 @@ const NavCart = () => {
               <h3>Total : </h3>
               <p className=" text-red-700 text-sm"> Rs {cartTotal()}</p>
             </div>
-            <button className="border p-2 px-3 text-xs bg-gray-100 hover:bg-gray-200" onClick={() => closeCart("/Checkout")}>CHECKOUT</button>
+            <button className="border p-2 px-3 text-xs bg-gray-100 hover:bg-gray-200" onClick={() => closeCart("/Cart")}>CHECKOUT</button>
           </div>
         </div>
       )}

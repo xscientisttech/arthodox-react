@@ -99,6 +99,7 @@ const Otp = () => {
                   disabled={false}
                   autoFocus
                   className="opt-container "
+                  required
                 ></OtpInput>
                 <button
                   onClick={onOTPVerify}
@@ -112,9 +113,15 @@ const Otp = () => {
               </>
             ) : (
               <>
-                <PhoneInput country={"in"} value={ph} onChange={setPh} />
+                <PhoneInput
+                  country={"in"}
+                  value={ph}
+                  onChange={setPh}
+                  required
+                />
                 <button
-                  onClick={onSignup} type="button"
+                  onClick={onSignup}
+                  type="button"
                   className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
                 >
                   {loading && (
