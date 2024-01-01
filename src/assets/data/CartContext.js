@@ -16,7 +16,7 @@ export function CartProvider({ children }) {
     if (existingProduct < 0) {
       setCart([...cart, item]);
     } else {
-      if (cart[existingProduct].quantity != item.quantity) {
+      if (cart[existingProduct].quantity < item.quantity) {
         cart[existingProduct].quantity = item.quantity;
       } else if (cart[existingProduct].quantity < 10) {
         cart[existingProduct].quantity++;
