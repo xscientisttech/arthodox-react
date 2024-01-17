@@ -19,6 +19,7 @@ export function ProductProvider({ children }) {
         {
             id: 1,
             img: img10,
+            quantity: 1,
             title: 'Product 1',
             price: 1000,
             Discount: 890,
@@ -28,6 +29,7 @@ export function ProductProvider({ children }) {
         {
             id: 2,
             img: img2,
+            quantity: 1,
             title: 'Product 2',
             price: 2000,
             Discount: 1000,
@@ -37,6 +39,7 @@ export function ProductProvider({ children }) {
         {
             id: 3,
             img: img3,
+            quantity: 1,
             title: 'Product 3',
             price: 2000,
             Discount: 900,
@@ -46,6 +49,7 @@ export function ProductProvider({ children }) {
         {
             id: 4,
             img: img4,
+            quantity: 1,
             title: 'Product 4',
             price: 2000,
             Discount: 1230,
@@ -55,6 +59,7 @@ export function ProductProvider({ children }) {
         {
             id: 5,
             img: img5,
+            quantity: 1,
             title: 'Product 5',
             price: 2000,
             Discount: 1150,
@@ -64,6 +69,7 @@ export function ProductProvider({ children }) {
         {
             id: 6,
             img: img6,
+            quantity: 1,
             title: 'Product 6',
             price: 2000,
             Discount: 1350,
@@ -73,6 +79,7 @@ export function ProductProvider({ children }) {
         {
             id: 7,
             img: img7,
+            quantity: 1,
             title: 'Product 7',
             price: 2000,
             Discount: 1200,
@@ -82,6 +89,7 @@ export function ProductProvider({ children }) {
         {
             id: 8,
             img: img8,
+            quantity: 1,
             title: 'Product 8',
             price: 2000,
             Discount: 1300,
@@ -91,6 +99,7 @@ export function ProductProvider({ children }) {
         {
             id: 9,
             img: img9,
+            quantity: 1,
             title: 'Product 9',
             price: 2000,
             Discount: 1300,

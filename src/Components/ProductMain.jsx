@@ -16,8 +16,13 @@ import {
 } from "react-icons/fa";
 
 const ProductMain = (props) => {
+
+
+  const categories = ['Games', 'Movies', 'Anime', 'Sports'];
+  const [data, setData] = useState();
   const product = props.product;
   const { addToCart } = useCart();
+  const [count, setCount] = useState(1);
 
   const [selectedColor, setSelectedColor] = useState("#b99033");
   const frames = [
@@ -56,11 +61,13 @@ const ProductMain = (props) => {
   const [linkCoppied, setLinkCoppied] = useState("hidden");
   const copyLink = () => {
     setLinkCoppied("block");
-    console.log("copied ! ");
+    // console.log("copied ! ");
   };
 
-  const notifyAddedToCart = (product) => {
-    addToCart(product);
+  const notifyAddedToCart = () => {
+    const data = { ...product, quantity: count }
+    addToCart(data);
+
     toast.success(`${product.title} added to Cart ! `, {
       position: "bottom-right",
       autoClose: 5000,
@@ -75,12 +82,12 @@ const ProductMain = (props) => {
 
   const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
-
-    // setBackgroundMain(event.target.value);
+    formData.backgroundColor = event.target.value;
   };
 
   const handleColorPallate = (color) => {
     setSelectedColor(color);
+    formData.backgroundColor = color;
 
     clearCanvas();
     setSelectedImage("");
@@ -90,11 +97,11 @@ const ProductMain = (props) => {
       width: 200,
       height: 100,
     });
-    // setBackgroundMain(color);
   };
 
   const changeImage = (frame) => {
     setSelectedImage(frame.src);
+    formData.backgroundImage = frame.src ;
     setImageProps({
       x: frame.x,
       y: frame.y,
@@ -102,20 +109,12 @@ const ProductMain = (props) => {
       height: frame.height,
     });
 
-    // setBackgroundMain(frame);
-    console.log(frame.src);
+    // console.log(frame.src);
   };
 
-  const [count, setCount] = useState(1);
 
   const Navigate = useNavigate();
 
-  const increment = () => {
-    setCount(count + 1);
-  };
-  const decreament = () => {
-    setCount(count - 1);
-  };
 
   // canvas to change background images and product iamge
 
@@ -155,9 +154,46 @@ const ProductMain = (props) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
+
+  const [formData, setFormData] = useState({
+    backgroundImage: selectedImage,
+    backgroundColor: selectedColor,
+    frameSize: 1,
+    quantity: count,
+    sku: '',
+    category: product.category,
+
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Logic to handle form submission goes here
+    console.log("Form submitted:", formData);
+  };
+
+  const increment = () => {
+    setCount(count + 1);
+    formData.quantity = count+1;
+  };
+  const decreament = () => {
+    if (count > 1) {
+      setCount(count - 1);
+      formData.quantity = count-1;
+    }
+  };
+
+
   return (
     <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-24 bg-[] font-Poppins">
-      <div className="w-full flex flex-col md:flex-row justify-center gap-10 xl:gap-28 lg:gap-24 md:gap-20">
+      <form onSubmit={handleSubmit} className="w-full flex flex-col md:flex-row justify-center gap-10 xl:gap-28 lg:gap-24 md:gap-20">
         <div className="w-full h-fit sm:min-w-max  gap-10 sm:gap-10 md:w-6/12 flex mt-5 md:h-full p-0 justify-between">
           <div
             id="frames-container"
@@ -170,6 +206,7 @@ const ProductMain = (props) => {
                   className=" w-full rounded-lg aspect-square cursor-pointer"
                   src={frame.src}
                   onClick={() => changeImage(frame)}
+                  onChange={(e) => handleInputChange(e)}
                   alt={`Frame ${index + 1}`}
                 />
               </div>
@@ -204,18 +241,23 @@ const ProductMain = (props) => {
           </h1>
           <p className="text-2xl font-semibold text-[#202020] p-0">&#8377; {product.price}</p>
           <p className="text-black">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa,
-            atque ducimus! Officiis rerum maxime eaque magnam
+            {product.description}
           </p>
           <div className="flex flex-col gap-[5px]">
             <div className="flex gap-5 ">
               <div className="sort-by">
                 <label className="relative flex w-40 md:w-40 rounded overflow-hidden">
-                  <select className="appearance-none text-inherit shadow-none flex-1 cursor-pointer p-[0.7em] border-2 border-black">
-                    <option value="1">Frame Size</option>
-                    <option value="2">Size 1</option>
-                    <option value="3">Size 2</option>
+                  <select
+                    name="frameSize"
+                    value={formData.frameSize}
+                    onChange={(e) => handleInputChange(e)}
+                    className="appearance-none text-inherit shadow-none flex-1 cursor-pointer p-[0.7em] border-2 border-black"
+                  >
+                    <option value="0">Frame Size</option>
+                    <option value="1">Size 1</option>
+                    <option value="2">Size 2</option>
                   </select>
+
                 </label>
               </div>
             </div>
@@ -260,20 +302,21 @@ const ProductMain = (props) => {
           <div className="flex flex-wrap gap-5 items-center">
             <div className="flex items-center justify-center bg-white w-[120px] h-10 gap-5 border rounded-[10px] border-solid border-[rgb(175,175,175)]">
               <FaMinus onClick={decreament} />
-              <p id="count">{count}</p>
+              <p id="count" name='quantity' value={count} onChange={(e) => handleInputChange(e)} >{count}</p>
               <FaPlus onClick={increment} />
             </div>
             <div className="flex gap-5 items-center">
-              <button
+              <button type="submit"
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
                 onClick={() => notifyAddedToCart(product)}
               >
                 Add To Cart
               </button>
 
-              <button
+              <button type="submit"
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
-                onClick={() => Navigate("/Cart")}
+                // onClick={() => Navigate("/Checkout")}
+                onClick={handleSubmit}
               >
                 BUY
               </button>
@@ -301,11 +344,11 @@ const ProductMain = (props) => {
             </div>
             <div className="flex items-center gap-5">
               <p className="w-20">Category</p>
-              <p>wall Frame</p>
+              <p>{categories[product.category]}</p>
             </div>
             <div className="flex items-center gap-5">
               <p className="w-20">Tags</p>
-              <p>Spider, Frame, Home, Shope</p>
+              <p>{categories[product.category]}</p>
             </div>
             <div className="flex items-center gap-5">
               <p className="w-20">Share</p>
@@ -338,7 +381,7 @@ const ProductMain = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </section>
   );
 };
