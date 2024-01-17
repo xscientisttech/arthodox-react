@@ -7,16 +7,6 @@ function SearchIcon({ search, setSearch }) {
   const navigate = useNavigate();
 
 
-  const toggleSearch = () => {
-    setSearchOpen(!searchOpen);
-  };
-
-  useEffect(() => {
-    console.log(search);
-    // console.log(location.pathname)
-    
-  })
-
   useEffect(() => {
     if (search !== '' && location.pathname !== '/Products') {
       navigate('/Products');

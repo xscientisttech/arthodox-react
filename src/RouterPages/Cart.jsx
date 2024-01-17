@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
@@ -10,13 +10,25 @@ const Cart = () => {
 
   const { cart, cartTotal, removeFromCart } = useCart();
 
+  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => { 
+    if (cart.length > 0) {
+      setTimeout(() => setIsLoading(false), 1500);
+      } else {
+        // navigate("/");
+        setIsLoading(true);
+      }
+  },[cart])
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    console.log(cartTotal())
-  })
+  // useEffect(() => {
+  //   console.log(cartTotal())
+  // })
 
   const Navigate = useNavigate();
   return (
@@ -25,27 +37,33 @@ const Cart = () => {
       <section className="w-full flex justify-center lg:px-[10%] p-[4%]">
         <div className="w-full gap-5 flex flex-wrap justify-center items-center lg:items-start lg:justify-start">
           <div className="flex w-full flex-1">
-            <table className=" min-w-0 border-collapse border-[#faf3ea] w-full">
-              <thead className="w-full " >
-                <tr className=" bg-[#faf3ea] ">
-                  {/* <th className="lg:block hidden"></th> */}
-                  {/* <th className="md:block hidden"></th> */}
-                  <th className="text-center p-4 max-w-[6rem] max-h-[4rem]"></th>
-                  <th className="text-center p-4">Product</th>
-                  <th className="text-center p-4">Price</th>
-                  <th className="text-center p-4">Quantity</th>
-                  <th className="text-center p-4">Subtotal</th>
-                  <th className="text-center p-4">{}</th>
-                </tr>
-              </thead>
-              <tbody className="">
-                {cart.map((item, index) => (
-                  <tr className=" mt-4 hover:bg-slate-100 " key={index}>
-                    <CartItem product={item} index={index} removeFromCart={removeFromCart} />
+            {isLoading ? <>
+              <p className=" w-full bg-[#faf3ea] p-4">No items in Cart ... </p>
+            </> : <>
+              <table className=" min-w-0 border-collapse border-[#faf3ea] w-full">
+                <thead className="w-full " >
+                  <tr className=" bg-[#faf3ea] ">
+                    {/* <th className="lg:block hidden"></th> */}
+                    {/* <th className="md:block hidden"></th> */}
+                    <th className="text-center p-4 max-w-[6rem] max-h-[4rem]"></th>
+                    <th className="text-center p-4">Product</th>
+                    <th className="text-center p-4">Price</th>
+                    <th className="text-center p-4">Quantity</th>
+                    <th className="text-center p-4">Subtotal</th>
+                    <th className="text-center p-4">{ }</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="">
+                  {cart.map((item, index) => (
+                    <tr className=" mt-4 hover:bg-slate-100 " key={index}>
+                      <CartItem product={item} index={index} removeFromCart={removeFromCart} />
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+            }
+
           </div>
           <div className="bg-[#f9f1e7] flex flex-col justify-center items-center p-8 w-80">
             <h1 className="text-2xl font-bold">Cart Total</h1>

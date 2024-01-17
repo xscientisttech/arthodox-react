@@ -19,7 +19,10 @@ const Checkout = () => {
     email: "",
     // addInfo: "",
   });
+  
   const [showOtp, setShowOTP] = useState(false);
+
+
   const PostData = async (e) => {
     e.preventDefault();
 
