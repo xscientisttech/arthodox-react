@@ -10,7 +10,7 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 import { toast, Toaster } from "react-hot-toast";
 
-const Otp = () => {
+const Otp = ( { setIsVerified } ) => {
   const [otp, setOtp] = useState("");
   const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
@@ -59,9 +59,12 @@ const Otp = () => {
     window.confirmationResult
       .confirm(otp)
       .then(async (res) => {
-        console.log(res);
+        console.log("Otp verified ! : ", res);
         setUser(res.user);
         setLoading(false);
+        // navigate("/");
+        setIsVerified(true);
+        
       })
       .catch((err) => {
         console.log(err);

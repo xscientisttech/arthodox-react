@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "firebase": "^9.6.4",
+    "firebase": "^9.23.0",
     "i": "^0.3.7",
     "otp-input-react": "^0.3.0",
     "primereact": "^10.0.9",
