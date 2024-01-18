@@ -2,11 +2,19 @@ import { Fragment, useState, useEffect } from "react";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
 import Otp from "../Components/otp";
+import '../firebase.config';
+import { getFirestore, addDoc, collection } from "firebase/firestore/lite";
+
 
 const Checkout = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+
+  // const database = FirebaseApp.database();
+  // const ordersDataRef = database.ref('Orders');
+  const db = getFirestore();
 
   const [details, setDetails] = useState({
     firstname: "",
@@ -20,44 +28,27 @@ const Checkout = () => {
     // addInfo: "",
   });
 
-  const [showOtp, setShowOTP] = useState(false);
+  const [isDisabled, setIsDisablled] = useState('');
+  const [isVerified, setIsVerified] = useState(false);
 
   const PostData = async (e) => {
     e.preventDefault();
 
-    const {
-      firstName,
-      lastName,
-      company,
-      country,
-      streetaddress,
-      city,
-      pincode,
-      email,
-    } = details;
-
-    const res = await fetch(
-      "https://arthodoxotp-default-rtdb.firebaseio.com/orders.json",
-
-
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          company,
-          country,
-          streetaddress,
-          city,
-          pincode,
-          email,
-        }),
+    if (isVerified) {
+      const res = await addDoc(collection(db, 'Orders'), details);
+      if (res) {
+        console.log('Data Stored Successfully ! ');
+        alert("Order Placed ! ")
+      } else {
+        console.log("Database Error");
+        alert("Database Error ! ")
+        
       }
-    );
-    setShowOTP(true);
+    } else  {
+      alert("Please Verify Mobile Number ! ")
+      console.log("Please Verify");
+    }
+
   };
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -89,6 +80,7 @@ const Checkout = () => {
       <section className="content w-full p-10 lg:p-16 py-10">
         <form
           action="submit"
+          onSubmit={PostData}
           className="container grid grid-cols-1 lg:grid-cols-2 md:p-20 lg:px-40 p-0 justify-center gap-10"
         >
           <div className="c1 items-center lg:items-start min-w-1/2 sm:w-full flex flex-col gap-10">
@@ -125,7 +117,7 @@ const Checkout = () => {
                   />
                 </div>
               </div>
-              <div className="company-name flex flex-col gap-5">
+              {/* <div className="company-name flex flex-col gap-5">
                 <label htmlFor="company">Company Name (Optional)</label>
                 <input
                   name="company"
@@ -136,26 +128,26 @@ const Checkout = () => {
                   }
                   required
                 />
+              </div> */}
+              <div className="phone flex flex-col gap-5">
+                <label htmlFor="phone">Phone</label>
+                <Otp setIsVerified />
               </div>
-              <div className="country flex flex-col gap-5">
-                <label htmlFor="country">Country / Region</label>
+
+              <div className="email flex flex-col gap-5">
+                <label htmlFor="email">Email</label>
                 <input
-                  type="text"
-                  name="country"
-                  className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...details, country: e.target.value })
+                    setDetails({ ...details, email: e.target.value })
                   }
+                  type="email"
+                  name="email"
+                  className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   required
                 />
               </div>
-              {showOtp ? (
-                <div className="phone flex flex-col gap-5">
-                  <label htmlFor="phone">Phone</label>
 
-                  <Otp />
-                </div>
-              ) : null}
+              
               <div className="address flex flex-col gap-5">
                 <label htmlFor="address">Street Address</label>
                 <input
@@ -192,15 +184,15 @@ const Checkout = () => {
                 {errorMessage && <p className="text-red-500">{errorMessage}</p>}
               </div>
 
-              <div className="email flex flex-col gap-5">
-                <label htmlFor="email">Email</label>
+              <div className="country flex flex-col gap-5">
+                <label htmlFor="country">Country / Region</label>
                 <input
-                  onChange={(e) =>
-                    setDetails({ ...details, email: e.target.value })
-                  }
-                  type="email"
-                  name="email"
+                  type="text"
+                  name="country"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
+                  onChange={(e) =>
+                    setDetails({ ...details, country: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -248,12 +240,16 @@ const Checkout = () => {
                 throughout this website, to manage access to your account, and
                 for other purposes described in our privacy policy.
               </p>
-              <button
-                onClick={PostData}
+              {/* <button
+                type="submit"
+                // onClick={PostData}
+                disabled
                 className="w-44 p-4 rounded-lg font-semibold bg-blue-500 text-white self-center mt-10 hover:bg-slate-600"
               >
                 Place Order
-              </button>
+              </button> */}
+              <input type="submit" className="w-44 p-4 cursor-pointer rounded-lg font-semibold bg-blue-500 text-white self-center mt-10 hover:bg-slate-600" value="Place Order" />
+
             </div>
           </div>
         </form>
