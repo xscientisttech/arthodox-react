@@ -84,6 +84,12 @@ const ProductMain = (props) => {
     });
   };
 
+  const clickToBuy = () => {
+    const data = { ...product, quantity: count }
+    addToCart(data);
+    Navigate('/Cart')
+  };
+
   const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
     formData.backgroundColor = event.target.value;
@@ -311,7 +317,7 @@ const ProductMain = (props) => {
             </div>
             <div className="flex gap-5 items-center">
               <button type="submit"
-                className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
+                className="text-white font-bold min-w-fit px-2 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
                 onClick={() => notifyAddedToCart(product)}
               >
                 Add To Cart
@@ -319,8 +325,10 @@ const ProductMain = (props) => {
 
               <button type="submit"
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
-                // onClick={() => Navigate("/Checkout")}
-                onClick={handleSubmit}
+                // onClick={() => Navigate("/Cart")}
+                // onClick={handleSubmit}
+                // onClick={() => notifyAddedToCart(product)}
+                onClick={() => clickToBuy(product)}
               >
                 BUY
               </button>
