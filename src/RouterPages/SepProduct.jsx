@@ -31,7 +31,7 @@ const SepProduct = () => {
   return (
     <>
       <Navigation />
-      <ProductMain product={product} />
+      <ProductMain product={product} key={product.key} />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
         <div className="w-full flex flex-col items-center justify-center gap-20">
@@ -78,7 +78,7 @@ const SepProduct = () => {
         <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 ">
           <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
             {products.slice(0,3).map((product, index) => (
-              <ProductItem product={product} />
+              <ProductItem product={product} key={index}/>
             ))}
 
           </div>

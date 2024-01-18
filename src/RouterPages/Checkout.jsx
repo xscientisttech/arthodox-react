@@ -39,6 +39,7 @@ const Checkout = () => {
     const res = await fetch(
       "https://arthodoxotp-default-rtdb.firebaseio.com/orders.json",
 
+
       {
         method: "POST",
         headers: {

@@ -23,7 +23,7 @@ const Category = () => {
         <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
 
         {categories.map((category, index) => (
-          <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title={category} Index={index+1} />
+          <CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title={category} Index={index+1} key={index} />
         ))}
         
         </div>
