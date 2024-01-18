@@ -19,9 +19,8 @@ const Checkout = () => {
     email: "",
     // addInfo: "",
   });
-  
-  const [showOtp, setShowOTP] = useState(false);
 
+  const [showOtp, setShowOTP] = useState(false);
 
   const PostData = async (e) => {
     e.preventDefault();
@@ -38,7 +37,7 @@ const Checkout = () => {
     } = details;
 
     const res = await fetch(
-      "https://arthoorders-default-rtdb.firebaseio.com/orders.json",
+      "https://arthodoxotp-default-rtdb.firebaseio.com/orders.json",
 
       {
         method: "POST",
@@ -109,7 +108,6 @@ const Checkout = () => {
                     type="text"
                     id="fname"
                     className=" font-normal  flex-grow w-full p-4 rounded-lg border-2 border-slate-950 "
-
                   />
                 </div>
                 <div className=" flex flex-col gap-5">
@@ -179,7 +177,6 @@ const Checkout = () => {
                     setDetails({ ...details, city: e.target.value })
                   }
                   required
-
                 />
               </div>
               <div className="zip-code flex flex-col gap-5">
@@ -204,7 +201,6 @@ const Checkout = () => {
                   name="email"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   required
-
                 />
               </div>
             </div>
