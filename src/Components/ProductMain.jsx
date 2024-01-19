@@ -310,7 +310,7 @@ const ProductMain = (props) => {
               <FaPlus onClick={increment} />
             </div>
             <div className="flex gap-5 items-center">
-              <button type="submit"
+              <button 
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
                 onClick={() => notifyAddedToCart(product)}
               >

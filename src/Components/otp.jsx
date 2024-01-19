@@ -59,11 +59,11 @@ const Otp = ( { setIsVerified } ) => {
     window.confirmationResult
       .confirm(otp)
       .then(async (res) => {
-        console.log("Otp verified ! : ", res);
         setUser(res.user);
         setLoading(false);
+        // toast.success("OTP Verified !");
         // navigate("/");
-        setIsVerified(true);
+        // setIsVerified(true);
         
       })
       .catch((err) => {
@@ -76,9 +76,9 @@ const Otp = ( { setIsVerified } ) => {
     <section className="">
       <div>
         <Toaster toastOptions={{ duration: 4000 }} />
-        <div id="recaptcha-container"></div>
+        <div id="recaptcha-container" ></div>
         {user ? (
-          <h2 className="text-center text-white font-medium text-2xl">
+          <h2 className="text-center  text-black font-medium text-2xl">
             👍Login Success
           </h2>
         ) : (
@@ -106,7 +106,7 @@ const Otp = ( { setIsVerified } ) => {
                 ></OtpInput>
                 <button
                   onClick={onOTPVerify}
-                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-black rounded"
                 >
                   {loading && (
                     <CgSpinner size={20} className="mt-1 animate-spin" />

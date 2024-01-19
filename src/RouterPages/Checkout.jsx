@@ -17,8 +17,8 @@ const Checkout = () => {
   const db = getFirestore();
 
   const [details, setDetails] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     company: "",
     country: "",
     streetaddress: "",
@@ -35,7 +35,7 @@ const Checkout = () => {
     e.preventDefault();
 
     if (isVerified) {
-      const res = await addDoc(collection(db, 'Orders'), details);
+      const res = await addDoc(collection(db, 'profile'), details);
       if (res) {
         console.log('Data Stored Successfully ! ');
         alert("Order Placed ! ")
@@ -131,7 +131,7 @@ const Checkout = () => {
               </div> */}
               <div className="phone flex flex-col gap-5">
                 <label htmlFor="phone">Phone</label>
-                <Otp setIsVerified />
+                <Otp setIsVerified={setIsVerified} />
               </div>
 
               <div className="email flex flex-col gap-5">
