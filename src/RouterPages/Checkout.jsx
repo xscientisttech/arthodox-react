@@ -15,7 +15,6 @@ const Checkout = () => {
     window.scrollTo(0, 0);
   }, []);
 
-
   // const database = FirebaseApp.database();
   // const ordersDataRef = database.ref('Orders');
   const db = getFirestore();
@@ -219,25 +218,25 @@ const Checkout = () => {
           </div>
           <div className="c2 min-w-1/2 sm:w-full p-5 gap-10">
             <div className="product-details flex flex-col gap-5">
-              <div className="heading flex justify-between">
+              {/* <div className="heading flex justify-between">
                 <p>Product</p>
-                <p>Subtotal</p>
+                <p>na</p>
               </div>
               <div className="product-name flex justify-between">
                 <p>Best Frame</p>
-                <p>Rs. 2500</p>
-              </div>
+                <p>10000</p>
+              </div> */}
               <div className="flex justify-between">
                 <p>Subtotal</p>
-                <p>Rs. 2500</p>
+                <p>Rs. {cartTotal()}</p>
               </div>
               <div className="total flex justify-between">
-                <p>Total</p>
-                <p>Rs. 2500</p>
+                <p>Total (Including GST)</p>
+                <p>Rs. {cartTotalWithGST()}</p>
               </div>
             </div>
             <div className="payment-mode flex flex-col mt-10 gap-5">
-              <div className="dbt flex flex-col gap-2">
+              {/* <div className="dbt flex flex-col gap-2">
                 <div className="flex items-center">
                   <input type="radio" checked name="dbt" />
                   <label htmlFor="dbt" className="ml-2">
@@ -249,9 +248,9 @@ const Checkout = () => {
                   your Order ID as the payment reference. Your order will not be
                   shipped until the funds have cleared in our account.
                 </p>
-              </div>
+              </div> */}
               <div className="cod flex items-center gap-2">
-                <input type="radio" name="dbt" />
+                <input type="radio" checked name="dbt" />
                 <label htmlFor="cod">Cash On Delivery</label>
               </div>
               <p>

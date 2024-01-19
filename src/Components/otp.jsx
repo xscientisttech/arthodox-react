@@ -1,5 +1,6 @@
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
+import './otp.css'
 
 import OtpInput from "otp-input-react";
 import { useState } from "react";
@@ -73,16 +74,21 @@ const Otp = ( { setIsVerified } ) => {
   }
 
   return (
-    <section className="">
+    <section className=" border-2 border-black rounded-xl p-2">
       <div>
         <Toaster toastOptions={{ duration: 4000 }} />
         <div id="recaptcha-container" ></div>
         {user ? (
+<<<<<<< HEAD
           <h2 className="text-center  text-black font-medium text-2xl">
             👍Login Success
+=======
+          <h2 className="text-center text-black font-medium text-2xl">
+            Number Verified 👍
+>>>>>>> f3f1b6548340bdfbd84519e364c622ddc5c89cf5
           </h2>
         ) : (
-          <div className="w-80 flex flex-col gap-4 rounded-lg ">
+          <div className=" flex flex-grow flex-col gap-4 rounded-lg ">
             {showOTP ? (
               <>
                 <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
@@ -90,7 +96,7 @@ const Otp = ( { setIsVerified } ) => {
                 </div>
                 <label
                   htmlFor="otp"
-                  className="font-bold text-xl text-white text-center"
+                  className="font-bold text-xl text-black text-center"
                 >
                   Enter your OTP
                 </label>
@@ -101,7 +107,7 @@ const Otp = ( { setIsVerified } ) => {
                   otpType="number"
                   disabled={false}
                   autoFocus
-                  className="opt-container "
+                  className="opt-container border-none "
                   required
                 ></OtpInput>
                 <button
@@ -115,14 +121,14 @@ const Otp = ( { setIsVerified } ) => {
                 </button>
               </>
             ) : (
-              <div className="flex gap-3 " >
+              <div className="flex gap-3 flex-grow" >
                 <p className=" h-11" ><PhoneInput country={"in"} value={ph} onChange={setPh} /></p>
                 <button
                   onClick={onSignup} type="button"
                   className="bg-emerald-600 w-full flex gap-1 items-center justify-center p-2.5 text-white rounded"
                 >
                   {loading && (
-                    <CgSpinner size={20} className="mt-1 animate-spin" />
+                    <CgSpinner size={20} className="mt-1 invert animate-spin" />
                   )}
                   <span>Verify</span>
                 </button>
