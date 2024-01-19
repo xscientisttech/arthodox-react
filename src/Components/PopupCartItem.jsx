@@ -6,6 +6,7 @@ import { FaRegCircleXmark } from "react-icons/fa6";
 const PopupCartItem = (props) => {
 
     const product = props.product;
+    const totalPrice = product.price * product.quantity;
 
     const Navigate = useNavigate();
 

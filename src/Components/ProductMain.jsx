@@ -27,6 +27,7 @@ const ProductMain = (props) => {
   const [selectedColor, setSelectedColor] = useState("#b99033");
   const frames = [
     {
+      key: 0,
       src: DummyData.BgChangeImgUrl1,
       x: 45,
       y: 40,
@@ -34,6 +35,7 @@ const ProductMain = (props) => {
       height: 60,
     },
     {
+      key: 1,
       src: DummyData.BgChangeImgUrl2,
       x: 54,
       y: 60,
@@ -41,6 +43,7 @@ const ProductMain = (props) => {
       height: 65,
     },
     {
+      key: 2,
       src: DummyData.BgChangeImgUrl3,
       x: 77,
       y: 42,
@@ -48,6 +51,7 @@ const ProductMain = (props) => {
       height: 66,
     },
     {
+      key: 3,
       src: DummyData.BgChangeImgUrl4,
       x: 108,
       y: 24,
@@ -78,6 +82,12 @@ const ProductMain = (props) => {
       progress: undefined,
       theme: "light",
     });
+  };
+
+  const clickToBuy = () => {
+    const data = { ...product, quantity: count }
+    addToCart(data);
+    Navigate('/Cart')
   };
 
   const handleColorChange = (event) => {
@@ -200,7 +210,7 @@ const ProductMain = (props) => {
             className=" flex gap-5 flex-col py-10 pt-0 justify-between w-8 aspect-square sm:w-24"
           >
             {frames.map((frame, index) => (
-              <div className=" w-16 md:w-20 ">
+              <div className=" w-16 md:w-20 " key={index}>
                 <img
                   key={index}
                   className=" w-full rounded-lg aspect-square cursor-pointer"
@@ -307,7 +317,7 @@ const ProductMain = (props) => {
             </div>
             <div className="flex gap-5 items-center">
               <button type="submit"
-                className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
+                className="text-white font-bold min-w-fit px-2 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
                 onClick={() => notifyAddedToCart(product)}
               >
                 Add To Cart
@@ -315,8 +325,10 @@ const ProductMain = (props) => {
 
               <button type="submit"
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
-                // onClick={() => Navigate("/Checkout")}
-                onClick={handleSubmit}
+                // onClick={() => Navigate("/Cart")}
+                // onClick={handleSubmit}
+                // onClick={() => notifyAddedToCart(product)}
+                onClick={() => clickToBuy(product)}
               >
                 BUY
               </button>
@@ -327,7 +339,7 @@ const ProductMain = (props) => {
                 data-te-clipboard-target="#copy-target"
                 data-te-ripple-init
                 data-te-ripple-color="light"
-                class=" bg-slate-200 rounded-xl hover:bg-slate-300 py-2 px-3"
+                className=" bg-slate-200 rounded-xl hover:bg-slate-300 py-2 px-3"
               >
                 <div className="flex gap-2 items-center">
                   <FaLink onClick={copyLink} />
@@ -337,7 +349,7 @@ const ProductMain = (props) => {
               <ToastContainer />
             </div>
           </div>
-          <div class="flex flex-col gap-2.5">
+          <div className="flex flex-col gap-2.5">
             <div className="flex items-center gap-5">
               <p className="w-20">SKU</p>
               <p>SS001</p>
@@ -352,7 +364,7 @@ const ProductMain = (props) => {
             </div>
             <div className="flex items-center gap-5">
               <p className="w-20">Share</p>
-              <div class="social-links flex">
+              <div className="social-links flex">
                 <a
                   href="#"
                   className="flex justify-center items-center h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"

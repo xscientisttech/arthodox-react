@@ -107,7 +107,7 @@ const Footer = () => {
             <h4 className="text-lg text-[black] capitalize font-medium relative mb-[35px] before:content-[''] before:absolute before:bg-[black] before:h-0.5 before:box-border before:w-[75px] before:left-0 before:-bottom-2.5">
               follow us
             </h4>
-            <div class="social-links flex mt-10">
+            <div className="social-links flex mt-10">
               <a
                 href="#"
                 className="flex justify-center items-center h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
