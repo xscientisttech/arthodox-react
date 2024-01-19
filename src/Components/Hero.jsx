@@ -7,7 +7,7 @@ const Hero = (props) => {
 	return (
 		<>
 			<div className="flex justify-center items-center font-Poppins">
-				<div className="w-full h-[25rem]">
+				<div className="w-full sm:h-[10rem] md:h-[25rem]">
 					<img
 						src={DummyData.HeroImgUrl}
 						alt="back-img"
@@ -15,9 +15,9 @@ const Hero = (props) => {
 					/>
 				</div>
 				<div className=" absolute flex flex-col justify-center items-center">
-					<h2 className="text-[3rem] font-bold ">{props.title}</h2>
+					<h2 className=" text-[1.5rem] sm:text-[3rem] font-bold ">{props.title}</h2>
 					<p className="flex justify-center items-center">
-						<span className="text-xl font-semibold">Home </span>
+						<span className=" text-[1rem] md:text-xl font-semibold">Home </span>
 						<FaGreaterThan/>
 						<span className="text-xl font-semibold">
 							{" "}

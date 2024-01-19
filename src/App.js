@@ -11,6 +11,7 @@ import Footer from './Components/Footer';
 import SepProduct from './RouterPages/SepProduct';
 import { CartProvider } from './assets/data/CartContext';
 import { ProductProvider } from './assets/data/ProductContext';
+import { ToastContainer } from 'react-toastify';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
 
   return (
     <Fragment>
+      <ToastContainer />
       <Router>
         <ProductProvider>
           <CartProvider>
