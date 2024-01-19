@@ -1,15 +1,15 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, memo, useMemo } from "react";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
 import Otp from "../Components/otp";
 import '../firebase.config';
 import { getFirestore, addDoc, collection } from "firebase/firestore/lite";
+import { useCart } from "../assets/data/CartContext";
 
 
 const Checkout = () => {
 
-
-  
+  const { cart, cartTotal, removeFromCart } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,9 +40,7 @@ const Checkout = () => {
   const PostData = async (e) => {
     e.preventDefault();
 
-    const data = {
-
-    }
+    details.cart = cart;
 
     if (isVerified) {
       const res = await addDoc(collection(db, 'profile'), details);
@@ -52,7 +50,6 @@ const Checkout = () => {
       } else {
         console.log("Database Error");
         alert("Database Error ! ")
-        
       }
     } else  {
       alert("Please Verify Mobile Number ! ")
@@ -89,10 +86,11 @@ const Checkout = () => {
     }
   };
 
+
   useEffect(() => {
-    const address = '';
-    setDetails({ ...fullAddresss, fullAddresss: address });
-  }, [third])
+    const address = fullAddresss.streetaddress+" "+fullAddresss.city+" "+fullAddresss.country+" "+fullAddresss.pincode ;
+    setDetails({ ...details, fullAddresss: address });
+  }, [fullAddresss])
   
 
   return (
