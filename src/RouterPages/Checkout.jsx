@@ -1,14 +1,15 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, memo, useMemo } from "react";
 import Quality from "../Components/Quality";
 import Hero from "../Components/Hero";
 import Otp from "../Components/otp";
 import '../firebase.config';
 import { getFirestore, addDoc, collection } from "firebase/firestore/lite";
 import { useCart } from "../assets/data/CartContext";
-import DummyData from "../assets/data/DummyData";
+
+
 const Checkout = () => {
 
-  const { cartTotal, cartTotalWithGST } = useCart();
+  const { cart, cartTotal, removeFromCart } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,16 +19,18 @@ const Checkout = () => {
   // const ordersDataRef = database.ref('Orders');
   const db = getFirestore();
 
-  const [details, setDetails] = useState({
-    firstname: "",
-    lastname: "",
-    company: "",
-    country: "",
+  const [fullAddresss, setFullAddress] = useState({
     streetaddress: "",
     city: "",
     pincode: "",
+    country: "",
+  });
+
+  const [details, setDetails] = useState({
+    firstName: "",
+    lastName: "",
+    fullAddresss: "",
     email: "",
-    // addInfo: "",
   });
 
   const [isDisabled, setIsDisablled] = useState('');
@@ -36,15 +39,16 @@ const Checkout = () => {
   const PostData = async (e) => {
     e.preventDefault();
 
+    details.cart = cart;
+
     if (isVerified) {
-      const res = await addDoc(collection(db, 'Orders'), details);
+      const res = await addDoc(collection(db, 'profile'), details);
       if (res) {
         console.log('Data Stored Successfully ! ');
         alert("Order Placed ! ")
       } else {
         console.log("Database Error");
         alert("Database Error ! ")
-        
       }
     } else  {
       alert("Please Verify Mobile Number ! ")
@@ -53,28 +57,40 @@ const Checkout = () => {
 
   };
 
+  // const onAddressChange = () => {
+  //   let fullAddresss = `${details.fullAddresss}, ${details.city} - ${details.pincode}`;
+  // }
+
   const [errorMessage, setErrorMessage] = useState("");
+
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
 
     if (name === "pincode") {
       if (!/^\d+$/.test(value)) {
-        setDetails({ ...details, [name]: value });
+        setDetails({ ...fullAddresss, [name]: value });
         setErrorMessage("Please enter a valid numeric PIN code.");
       } else if (value.length !== 6) {
-        setDetails({ ...details, [name]: value });
+        setDetails({ ...fullAddresss, [name]: value });
         setErrorMessage("PIN code must be exactly 6 digits.");
       } else if (value !== "431001") {
-        setDetails({ ...details, [name]: value });
+        setDetails({ ...fullAddresss, [name]: value });
         setErrorMessage("This PIN code is out of service.");
       } else {
-        setDetails({ ...details, [name]: value });
+        setDetails({ ...fullAddresss, [name]: value });
         setErrorMessage("");
       }
     } else {
-      setDetails({ ...details, [name]: value });
+      setDetails({ ...fullAddresss, [name]: value });
     }
   };
+
+
+  useEffect(() => {
+    const address = fullAddresss.streetaddress+" "+fullAddresss.city+" "+fullAddresss.country+" "+fullAddresss.pincode ;
+    setDetails({ ...details, fullAddresss: address });
+  }, [fullAddresss])
+  
 
   return (
     <Fragment>
@@ -133,7 +149,7 @@ const Checkout = () => {
               </div> */}
               <div className="phone flex flex-col gap-5">
                 <label htmlFor="phone">Phone</label>
-                <Otp setIsVerified />
+                <Otp setIsVerified={setIsVerified} />
               </div>
 
               <div className="email flex flex-col gap-5">
@@ -157,7 +173,7 @@ const Checkout = () => {
                   name="address"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...details, streetaddress: e.target.value })
+                    setDetails({ ...fullAddresss, streetaddress: e.target.value })
                   }
                   required
                 />
@@ -169,7 +185,7 @@ const Checkout = () => {
                   name="city"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...details, city: e.target.value })
+                    setDetails({ ...fullAddresss, city: e.target.value })
                   }
                   required
                 />
@@ -193,7 +209,7 @@ const Checkout = () => {
                   name="country"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...details, country: e.target.value })
+                    setDetails({ ...fullAddresss, country: e.target.value })
                   }
                   required
                 />

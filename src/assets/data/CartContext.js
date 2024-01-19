@@ -13,7 +13,7 @@ const initialCollection = {
 };
 
 export function CartProvider({ children }) {
-  const [collection, setCollection] = useState(initialCollection);
+  const [collection, setCollection] = useState(JSON.parse(localStorage.getItem('collection')) || initialCollection);
   const cart = collection.cart;
   const localCart = localStorage.getItem("collection");
 
@@ -32,10 +32,10 @@ export function CartProvider({ children }) {
     } else {
       copiedCart.push(product);
     }
-    console.log(copiedCart);
+    // console.log(copiedCart);
     setCollection({ ...collection, cart: copiedCart });
-    localStorage.setItem("collection", JSON.stringify(collection));
-  };
+    setLocalCart({ ...collection, cart: copiedCart });
+  }
 
   const removeFromCart = (product) => {
     console.log("product removed : ", product.id);
@@ -43,13 +43,16 @@ export function CartProvider({ children }) {
     const index = copiedCart.findIndex((item) => item.id === product.id);
     if (index !== -1) {
       copiedCart.splice(index, 1);
+      setCollection({ ...collection, cart: copiedCart });
+      setLocalCart({ ...collection, cart: copiedCart });
+      console.log(localStorage.getItem("collection"));
     }
     //  else {
     //   copiedCart.push(product);
     // }
-    setCollection({ ...collection, cart: copiedCart });
-    localStorage.setItem("collection", JSON.stringify(collection));
-  };
+    // localStorage.setItem('collection', JSON.stringify(collection));
+  }
+
 
   const cartTotal = () => {
     let total = 0;
@@ -77,11 +80,18 @@ export function CartProvider({ children }) {
   //   initCart();
   // },[])
 
-  // useEffect(() => {
-  //   // localStorage.setItem('collection', JSON.stringify(collection));
-  //   setCollection(JSON.parse(localStorage.getItem('collection')));
-  //   console.log("localstorage : ", JSON.parse(localStorage.getItem('collection')));
-  // }, [localCart])
+  const setLocalCart = (collection) => {
+    localStorage.setItem('collection', JSON.stringify(collection));
+  }
+
+  useEffect(() => {
+    // localStorage.setItem('collection', JSON.stringify(collection));
+    // setCollection(JSON.parse(localStorage.getItem('collection')));
+    
+    // localStorage.setItem('collection', JSON.stringify(collection));
+    console.log("localstorage : ", JSON.parse(localStorage.getItem('collection')));
+  }, [collection])
+
 
   return (
     <CartContext.Provider
