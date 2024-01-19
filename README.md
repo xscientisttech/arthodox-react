@@ -1,62 +1,106 @@
-# Getting Started with Create React App
+# Arthodox-React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Guidelines
 
-## Available Scripts
+> Always remember to install packages after all git changes ( push | Pull )
 
-In the project directory, you can run:
+### Issues guidelines
 
-### `npm start`
+- Start have regular team meet, discuss daily goles and share work along with
+  teams.
+- Don't work on anything unless you are assigned, if you make a pull request
+  without being assigned to that issue, it will be closed without being merged
+- Don't work on more than one issue at a time, this is so that you don't make a
+  huge pull request and others can have opportunities to work on another issue
+  while you work on something else
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Pull Guidelines
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Don't work on the main branch, create your own branch by following the
+  instructions here.
 
-### `npm test`
+     ```git
+     git checkout -b [branchname]
+     ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+     - update local repository with latest changes using pull request.
 
-### `npm run build`
+     ```git
+     git pull origin dev         <!-- as all the latest changes are in dev -->
+     ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Uploading Guidelines
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Always take pull **before** and **after** working on any change.
+- always check for conflicts.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Project structure
 
-### `npm run eject`
+```
+src:
+└── assets:
+|   └── images:
+|   └── data:
+|   fav.ico
+|   ...
+└── common:
+└── components:
+|   └── [Special Component]:
+|       [shared components]
+|       ...
+└── pages:
+|       Home.jsx
+|       Category.jsx
+|       Products.jsx
+|       ...
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Color schemas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Pages
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Bugs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Tasks:
 
-## Learn More
+1. Add Poppins as default font
+2. Home page sections are not distinguishable
+3. Product Card Optimization.
+4. Add dynamic contents.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# our product diff coulour for diff section
+# price label imporve 
+# manage search bar icon 
+# start services
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Product page 
 
-### Analyzing the Bundle Size
+- tags redirect
+- category redirect
+- copy to clip link (alert)
+- no additional info
+- improve ux
+- change background
+- large space 
+- responsive
+- added to cart successfully popup
+- coppied button locate beside share option
+- add Rupees icon 
+- add border radius to product card
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Bugs
 
-### Making a Progressive Web App
+- sepProduct Resiponsiveness
+- scroll to zero 
+- product image not changing 
+- categoryItem filter not that good
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+# fixed 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- scroll to zero 
+- product image not changing 
+- change background
+- add to cart timer.
