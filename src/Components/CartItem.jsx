@@ -14,7 +14,7 @@ const CartItem = (props) => {
       <td className=" text-center  " data-title="Product" > {product.title} </td>
       <td className=" text-center " data-title="Price" > {product.price} </td>
       <td className=" text-center " data-title="Quantity" > {product.quantity || '1'} </td>
-      <td className=" text-center " data-title="Subtotal" > {product.price} </td>
+      <td className=" text-center " data-title="Subtotal" > {product.price * product.quantity} </td>
       <td className=" text-center " data-title="Remove" >
         <div className="flex justify-center"> <FaTrash className="text-orange-600 cursor-pointer" onClick={() => props.removeFromCart(product)} />
         </div>

@@ -62,7 +62,7 @@ export default function Home() {
 					<div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
 						<div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
 							{categories.slice(0, 3).map((category, index) => (
-								<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title={category} Index={index + 1} />
+								<CategoryItem CategoryImgUrl={DummyData.CategoryImgUrl} Title={category} Index={index + 1} key={index}/>
 							))}
 						</div>
 					</div>
