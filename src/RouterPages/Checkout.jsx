@@ -7,6 +7,10 @@ import { getFirestore, addDoc, collection } from "firebase/firestore/lite";
 
 
 const Checkout = () => {
+
+
+  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -16,16 +20,18 @@ const Checkout = () => {
   // const ordersDataRef = database.ref('Orders');
   const db = getFirestore();
 
-  const [details, setDetails] = useState({
-    firstName: "",
-    lastName: "",
-    company: "",
-    country: "",
+  const [fullAddresss, setFullAddress] = useState({
     streetaddress: "",
     city: "",
     pincode: "",
+    country: "",
+  });
+
+  const [details, setDetails] = useState({
+    firstName: "",
+    lastName: "",
+    fullAddresss: "",
     email: "",
-    // addInfo: "",
   });
 
   const [isDisabled, setIsDisablled] = useState('');
@@ -33,6 +39,10 @@ const Checkout = () => {
 
   const PostData = async (e) => {
     e.preventDefault();
+
+    const data = {
+
+    }
 
     if (isVerified) {
       const res = await addDoc(collection(db, 'profile'), details);
@@ -51,28 +61,39 @@ const Checkout = () => {
 
   };
 
+  // const onAddressChange = () => {
+  //   let fullAddresss = `${details.fullAddresss}, ${details.city} - ${details.pincode}`;
+  // }
+
   const [errorMessage, setErrorMessage] = useState("");
+
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
 
     if (name === "pincode") {
       if (!/^\d+$/.test(value)) {
-        setDetails({ ...details, [name]: value });
+        setDetails({ ...fullAddresss, [name]: value });
         setErrorMessage("Please enter a valid numeric PIN code.");
       } else if (value.length !== 6) {
-        setDetails({ ...details, [name]: value });
+        setDetails({ ...fullAddresss, [name]: value });
         setErrorMessage("PIN code must be exactly 6 digits.");
       } else if (value !== "431001") {
-        setDetails({ ...details, [name]: value });
+        setDetails({ ...fullAddresss, [name]: value });
         setErrorMessage("This PIN code is out of service.");
       } else {
-        setDetails({ ...details, [name]: value });
+        setDetails({ ...fullAddresss, [name]: value });
         setErrorMessage("");
       }
     } else {
-      setDetails({ ...details, [name]: value });
+      setDetails({ ...fullAddresss, [name]: value });
     }
   };
+
+  useEffect(() => {
+    const address = '';
+    setDetails({ ...fullAddresss, fullAddresss: address });
+  }, [third])
+  
 
   return (
     <Fragment>
@@ -155,7 +176,7 @@ const Checkout = () => {
                   name="address"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...details, streetaddress: e.target.value })
+                    setDetails({ ...fullAddresss, streetaddress: e.target.value })
                   }
                   required
                 />
@@ -167,7 +188,7 @@ const Checkout = () => {
                   name="city"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...details, city: e.target.value })
+                    setDetails({ ...fullAddresss, city: e.target.value })
                   }
                   required
                 />
@@ -191,7 +212,7 @@ const Checkout = () => {
                   name="country"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...details, country: e.target.value })
+                    setDetails({ ...fullAddresss, country: e.target.value })
                   }
                   required
                 />

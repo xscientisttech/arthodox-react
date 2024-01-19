@@ -63,7 +63,7 @@ const Otp = ( { setIsVerified } ) => {
         setLoading(false);
         // toast.success("OTP Verified !");
         // navigate("/");
-        // setIsVerified(true);
+        setIsVerified(true);
         
       })
       .catch((err) => {
