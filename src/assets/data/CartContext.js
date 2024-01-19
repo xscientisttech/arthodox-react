@@ -1,5 +1,5 @@
 // CartContext.js
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
@@ -9,26 +9,26 @@ export function useCart() {
 
 const initialCollection = {
   cart: [],
-  product: null
-}
+  product: null,
+};
 
 export function CartProvider({ children }) {
   const [collection, setCollection] = useState(JSON.parse(localStorage.getItem('collection')) || initialCollection);
   const cart = collection.cart;
-  const localCart = localStorage.getItem('collection');
+  const localCart = localStorage.getItem("collection");
 
   const initCart = (items) => {
-    setCollection(({ cart: items, product: null }));
-    localStorage.setItem('collection', JSON.stringify(collection));
-  }
+    setCollection({ cart: items, product: null });
+    localStorage.setItem("collection", JSON.stringify(collection));
+  };
 
   const addToCart = (product) => {
     const copiedCart = [...collection.cart];
-    const index = copiedCart.findIndex(item => item.id === product.id)
+    const index = copiedCart.findIndex((item) => item.id === product.id);
     // console.log("product",product,"index",index);
     if (index !== -1) {
       copiedCart[index].quantity += product.quantity;
-      console.log('copiedCart : ', copiedCart);
+      console.log("copiedCart : ", copiedCart);
     } else {
       copiedCart.push(product);
     }
@@ -38,9 +38,9 @@ export function CartProvider({ children }) {
   }
 
   const removeFromCart = (product) => {
-    console.log('product removed : ', product.id)
+    console.log("product removed : ", product.id);
     const copiedCart = [...collection.cart];
-    const index = copiedCart.findIndex(item => item.id === product.id)
+    const index = copiedCart.findIndex((item) => item.id === product.id);
     if (index !== -1) {
       copiedCart.splice(index, 1);
       setCollection({ ...collection, cart: copiedCart });
@@ -57,13 +57,26 @@ export function CartProvider({ children }) {
   const cartTotal = () => {
     let total = 0;
     cart.forEach((item) => {
-      total += item.price;
+      total += item.price * item.quantity;
     });
     // console.log(total);
     return total;
   };
 
-  // useEffect(() => { 
+  const cartTotalWithGST = () => {
+    let total = 0;
+    let gst = 0;
+    let finaltotal = 0;
+    cart.forEach((item) => {
+      total += item.price * item.quantity;
+      gst = total*0.18;
+      finaltotal = total + gst;
+    });
+    // console.log(total);
+    return finaltotal;
+  };
+
+  // useEffect(() => {
   //   initCart();
   // },[])
 
@@ -81,7 +94,9 @@ export function CartProvider({ children }) {
 
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, cartTotal, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, cartTotal, removeFromCart, cartTotalWithGST }}
+    >
       {children}
     </CartContext.Provider>
   );
