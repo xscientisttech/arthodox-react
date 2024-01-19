@@ -14,6 +14,8 @@ import { ProductProvider } from './assets/data/ProductContext';
 
 
 const App = () => {
+
+  localStorage.setItem("UID","");
   
   const [search, setSearch] = useState('');
 

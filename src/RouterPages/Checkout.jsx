@@ -9,7 +9,7 @@ import { useCart } from "../assets/data/CartContext";
 
 const Checkout = () => {
 
-  const { cart, cartTotal, removeFromCart } = useCart();
+  const { cart, cartTotal, removeFromCart, cartTotalWithGST } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,6 +31,7 @@ const Checkout = () => {
     lastName: "",
     fullAddresss: "",
     email: "",
+    cart: {},
   });
 
   const [isDisabled, setIsDisablled] = useState('');
@@ -40,8 +41,13 @@ const Checkout = () => {
     e.preventDefault();
 
     details.cart = cart;
+    details.uid = localStorage.getItem("UID");
 
-    if (isVerified) {
+    console.log('details : ',details);
+
+    // details.cart = cart;
+
+    if (isVerified || true) {
       const res = await addDoc(collection(db, 'profile'), details);
       if (res) {
         console.log('Data Stored Successfully ! ');
@@ -68,20 +74,20 @@ const Checkout = () => {
 
     if (name === "pincode") {
       if (!/^\d+$/.test(value)) {
-        setDetails({ ...fullAddresss, [name]: value });
+        setFullAddress({ ...fullAddresss, [name]: value });
         setErrorMessage("Please enter a valid numeric PIN code.");
       } else if (value.length !== 6) {
-        setDetails({ ...fullAddresss, [name]: value });
+        setFullAddress({ ...fullAddresss, [name]: value });
         setErrorMessage("PIN code must be exactly 6 digits.");
       } else if (value !== "431001") {
-        setDetails({ ...fullAddresss, [name]: value });
+        setFullAddress({ ...fullAddresss, [name]: value });
         setErrorMessage("This PIN code is out of service.");
       } else {
-        setDetails({ ...fullAddresss, [name]: value });
+        setFullAddress({ ...fullAddresss, [name]: value });
         setErrorMessage("");
       }
     } else {
-      setDetails({ ...fullAddresss, [name]: value });
+      setFullAddress({ ...fullAddresss, [name]: value });
     }
   };
 
@@ -173,7 +179,7 @@ const Checkout = () => {
                   name="address"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...fullAddresss, streetaddress: e.target.value })
+                    setFullAddress({ ...fullAddresss, streetaddress: e.target.value })
                   }
                   required
                 />
@@ -185,7 +191,7 @@ const Checkout = () => {
                   name="city"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...fullAddresss, city: e.target.value })
+                    setFullAddress({ ...fullAddresss, city: e.target.value })
                   }
                   required
                 />
@@ -209,7 +215,7 @@ const Checkout = () => {
                   name="country"
                   className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
-                    setDetails({ ...fullAddresss, country: e.target.value })
+                    setFullAddress({ ...fullAddresss, country: e.target.value })
                   }
                   required
                 />
