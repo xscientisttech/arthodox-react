@@ -47,12 +47,12 @@ const Otp = ({ setIsVerified, ph, setPh }) => {
           window.confirmationResult = confirmationResult;
           setLoading(false);
           setShowOTP(true);
-          // toast.success("OTP sent successfully!");
+          toast.success("OTP sent successfully!");
         })
         .catch((error) => {
           console.log(error);
           setLoading(false);
-          // toast.error("Server Error\n Please Try again Later");
+          toast.error("Server Error\n Please Try again Later");
         });
     } catch (error) {
       console.log('try error verify : ',error);
@@ -67,10 +67,10 @@ const Otp = ({ setIsVerified, ph, setPh }) => {
         .confirm(otp)
         .then(async (res) => {
           setUser(res.user);
-          localStorage.setItem("UID", res.uid);
+          localStorage.setItem("UID", res.user.uid);
           console.log('otp res : ', res);
           setLoading(false);
-          // toast.success("OTP Verified !");
+          toast.success("OTP Verified !");
           // navigate("/");
           setIsVerified(true);
 
@@ -78,7 +78,7 @@ const Otp = ({ setIsVerified, ph, setPh }) => {
         .catch((err) => {
           console.log(err);
           setLoading(false);
-          // toast.error("Server Error\n Please Try again Later");
+          toast.error("Server Error\n Please Try again Later");
         });
     } catch (error) {
       console.log("try Error : ", error);

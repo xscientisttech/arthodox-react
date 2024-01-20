@@ -6,11 +6,14 @@ import '../firebase.config';
 import { getFirestore, addDoc, collection } from "firebase/firestore/lite";
 import { useCart } from "../assets/data/CartContext";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 
 const Checkout = () => {
 
-  const { cart, cartTotal, removeFromCart, cartTotalWithGST } = useCart();
+  const navigate = useNavigate();
+
+  const { cart, cartTotal, emptyCart, removeFromCart, cartTotalWithGST } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,35 +34,42 @@ const Checkout = () => {
     name: '',
     fullAddresss: "",
     email: "",
-    cart: {},
   });
 
   const [isDisabled, setIsDisablled] = useState('');
-  const [isVerified, setIsVerified] = useState(false);
+  const [isVerified, setIsVerified] = useState(true);
   const [ph, setPh] = useState("");
 
   const PostData = async (e) => {
     e.preventDefault();
 
-    details.cart = cart;
+    // details.cart = cart;
+    const uid = localStorage.getItem("UID");
     details.phone = ph;
-    details.uid = localStorage.getItem("UID");
+    details.uid = uid;
+    const orders = {cart: cart};
+    orders.uid = uid;
+    orders.phone = ph;
+    
 
     console.log('details : ', details);
 
     // details.cart = cart;
 
     if (isVerified) {
-      const res = await addDoc(collection(db, 'profile'), details);
-      if (res) {
+      const res1 = await addDoc(collection(db, 'profile'), details);
+      const res2 = await addDoc(collection(db, 'orders'), orders);
+      if (res1 && res2) {
         console.log('Data Stored Successfully ! ');
-        toast.success("Order Placed ! ")
+        toast.success("Order Placed ! ");
+        emptyCart();
+        navigate('/');
       } else {
         console.log("Database Error");
         toast.error("Database Error ! ")
       }
     } else {
-      toast.error("Please Verify Mobile Number ! ")
+      // toast.error("Please Verify Mobile Number ! ")
       console.log("Please Verify");
     }
 
@@ -276,7 +286,7 @@ const Checkout = () => {
               </button> */}
 
               <div className="group flex flex-col items-center sm:items-start relative">
-                <div className="absolute -top-4 -left-4 text-red-500 w-56 p-4 border rounded-2xl shadow-lg opacity-0 group-hover:opacity-100">
+                <div className={`absolute -top-4 -left-4 text-red-500 w-56 p-4 border rounded-2xl shadow-lg opacity-0 ${isVerified ? '' : ' group-hover:opacity-100 '}`}>
                   Verify Phone number 
                 </div>
                 <input type="submit" disabled={!isVerified} className={` w-44 ${isVerified ? ' hover:bg-blue-700 cursor-pointer' : 'group bg-slate-600'} p-4 rounded-lg font-semibold bg-blue-500 text-white mt-10 `} value="Place Order" />
