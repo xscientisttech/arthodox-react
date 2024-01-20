@@ -5,11 +5,15 @@ import Otp from "../Components/otp";
 import '../firebase.config';
 import { getFirestore, addDoc, collection } from "firebase/firestore/lite";
 import { useCart } from "../assets/data/CartContext";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 
 const Checkout = () => {
 
-  const { cart, cartTotal, removeFromCart, cartTotalWithGST } = useCart();
+  const navigate = useNavigate();
+
+  const { cart, cartTotal, emptyCart, removeFromCart, cartTotalWithGST } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,37 +31,45 @@ const Checkout = () => {
   });
 
   const [details, setDetails] = useState({
-    firstName: "",
-    lastName: "",
+    name: '',
     fullAddresss: "",
     email: "",
-    cart: {},
   });
 
   const [isDisabled, setIsDisablled] = useState('');
-  const [isVerified, setIsVerified] = useState(false);
+  const [isVerified, setIsVerified] = useState(true);
+  const [ph, setPh] = useState("");
 
   const PostData = async (e) => {
     e.preventDefault();
 
-    details.cart = cart;
-    details.uid = localStorage.getItem("UID");
+    // details.cart = cart;
+    const uid = localStorage.getItem("UID");
+    details.phone = ph;
+    details.uid = uid;
+    const orders = {cart: cart};
+    orders.uid = uid;
+    orders.phone = ph;
+    
 
-    console.log('details : ',details);
+    console.log('details : ', details);
 
     // details.cart = cart;
 
-    if (isVerified || true) {
-      const res = await addDoc(collection(db, 'profile'), details);
-      if (res) {
+    if (isVerified) {
+      const res1 = await addDoc(collection(db, 'profile'), details);
+      const res2 = await addDoc(collection(db, 'orders'), orders);
+      if (res1 && res2) {
         console.log('Data Stored Successfully ! ');
-        alert("Order Placed ! ")
+        toast.success("Order Placed ! ");
+        emptyCart();
+        navigate('/');
       } else {
         console.log("Database Error");
-        alert("Database Error ! ")
+        toast.error("Database Error ! ")
       }
-    } else  {
-      alert("Please Verify Mobile Number ! ")
+    } else {
+      // toast.error("Please Verify Mobile Number ! ")
       console.log("Please Verify");
     }
 
@@ -93,50 +105,50 @@ const Checkout = () => {
 
 
   useEffect(() => {
-    const address = fullAddresss.streetaddress+" "+fullAddresss.city+" "+fullAddresss.country+" "+fullAddresss.pincode ;
+    const address = fullAddresss.streetaddress + " " + fullAddresss.city + " " + fullAddresss.country + " " + fullAddresss.pincode;
     setDetails({ ...details, fullAddresss: address });
   }, [fullAddresss])
-  
+
 
   return (
     <Fragment>
       <Hero title="Checkout" />
-      <section className="content w-full p-10 lg:p-16 py-10">
+      <section className="content w-full p-[5%] lg:p-16 py-10">
         <form
           action="submit"
           onSubmit={PostData}
-          className="container grid grid-cols-1 lg:grid-cols-2 md:p-20 lg:px-40 p-0 justify-center gap-10"
+          className="container grid grid-cols-1 lg:grid-cols-2 md:p-20 lg:px-40 p-0 sm:p-0 justify-center gap-10"
         >
-          <div className="c1 items-center lg:items-start min-w-1/2 sm:w-full flex flex-col gap-10">
+          <div className="c1 items-center lg:items-start min-w-1/2 sm:w-full flex flex-col p-5 gap-10">
             <h1 className="text-2xl font-bold">Billing Details</h1>
             <div
               id="billing"
               className="form flex flex-col font-semibold gap-5"
             >
-              <div className="name flex  gap-5 max-w-md font-normal">
+              <div className="name flex flex-col sm:flex-row gap-5 w-full font-normal">
                 <div className=" flex flex-col gap-5">
                   <label htmlFor="fname">First name</label>
                   <input
                     onChange={(e) =>
-                      setDetails({ ...details, firstName: e.target.value })
+                      setDetails({ ...details, name: e.target.value })
                     }
                     required
                     name="firstname"
                     type="text"
                     id="fname"
-                    className=" font-normal  flex-grow w-full p-4 rounded-lg border-2 border-slate-950 "
+                    className=" font-normal  flex-grow w-full p-2 sm:p-4 rounded-sm sm:rounded-lg border-2 border-slate-950 "
                   />
                 </div>
                 <div className=" flex flex-col gap-5">
                   <label htmlFor="lastname">Last name</label>
                   <input
                     onChange={(e) =>
-                      setDetails({ ...details, lastName: e.target.value })
+                      setDetails({ ...details, name: details.name + " " + e.target.value })
                     }
                     name="lname"
                     type="text"
                     id="lname"
-                    className=" font-normal  w-full p-4 flex-grow rounded-lg border-2 border-slate-950 "
+                    className=" font-normal  w-full p-2  sm:p-4 flex-grow rounded-sm sm:rounded-lg border-2 border-slate-950 "
                     required
                   />
                 </div>
@@ -146,7 +158,7 @@ const Checkout = () => {
                 <input
                   name="company"
                   type="text"
-                  className=" w-full max-w-md font-normal  p-4 rounded-lg border-2 border-slate-950 "
+                  className=" w-full w-full font-normal  p-2 sm:p-4 rounded-sm sm:rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
                     setDetails({ ...details, company: e.target.value })
                   }
@@ -155,7 +167,7 @@ const Checkout = () => {
               </div> */}
               <div className="phone flex flex-col gap-5">
                 <label htmlFor="phone">Phone</label>
-                <Otp setIsVerified={setIsVerified} />
+                <Otp ph={ph} setPh={setPh} setIsVerified={setIsVerified} />
               </div>
 
               <div className="email flex flex-col gap-5">
@@ -166,18 +178,18 @@ const Checkout = () => {
                   }
                   type="email"
                   name="email"
-                  className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
+                  className="w-full font-normal p-2 sm:p-4 rounded-sm sm:rounded-lg border-2 border-slate-950 "
                   required
                 />
               </div>
 
-              
+
               <div className="address flex flex-col gap-5">
                 <label htmlFor="address">Street Address</label>
                 <input
                   type="text"
                   name="address"
-                  className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
+                  className="w-full font-normal p-2 sm:p-4 rounded-sm sm:rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
                     setFullAddress({ ...fullAddresss, streetaddress: e.target.value })
                   }
@@ -189,7 +201,7 @@ const Checkout = () => {
                 <input
                   type="text"
                   name="city"
-                  className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
+                  className="w-full font-normal p-2 sm:p-4 rounded-sm sm:rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
                     setFullAddress({ ...fullAddresss, city: e.target.value })
                   }
@@ -201,7 +213,7 @@ const Checkout = () => {
                 <input
                   type="number"
                   name="pincode"
-                  className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
+                  className="w-full font-normal p-2 sm:p-4 rounded-sm sm:rounded-lg border-2 border-slate-950 "
                   onChange={onChangeHandler}
                   required
                 />
@@ -213,7 +225,7 @@ const Checkout = () => {
                 <input
                   type="text"
                   name="country"
-                  className="max-w-md font-normal p-4 rounded-lg border-2 border-slate-950 "
+                  className="w-full font-normal p-2 sm:p-4 rounded-sm sm:rounded-lg border-2 border-slate-950 "
                   onChange={(e) =>
                     setFullAddress({ ...fullAddresss, country: e.target.value })
                   }
@@ -272,7 +284,13 @@ const Checkout = () => {
               >
                 Place Order
               </button> */}
-              <input type="submit" className="w-44 p-4 cursor-pointer rounded-lg font-semibold bg-blue-500 text-white self-center mt-10 hover:bg-slate-600" value="Place Order" />
+
+              <div className="group flex flex-col items-center sm:items-start relative">
+                <div className={`absolute -top-4 -left-4 text-red-500 w-56 p-4 border rounded-2xl shadow-lg opacity-0 ${isVerified ? '' : ' group-hover:opacity-100 '}`}>
+                  Verify Phone number 
+                </div>
+                <input type="submit" disabled={!isVerified} className={` w-44 ${isVerified ? ' hover:bg-blue-700 cursor-pointer' : 'group bg-slate-600'} p-4 rounded-lg font-semibold bg-blue-500 text-white mt-10 `} value="Place Order" />
+              </div>
 
             </div>
           </div>
