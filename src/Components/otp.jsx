@@ -79,13 +79,10 @@ const Otp = ( { setIsVerified } ) => {
         <Toaster toastOptions={{ duration: 4000 }} />
         <div id="recaptcha-container" ></div>
         {user ? (
-<<<<<<< HEAD
-          <h2 className="text-center  text-black font-medium text-2xl">
-            👍Login Success
-=======
+
+
           <h2 className="text-center text-black font-medium text-2xl">
             Number Verified 👍
->>>>>>> f3f1b6548340bdfbd84519e364c622ddc5c89cf5
           </h2>
         ) : (
           <div className=" flex flex-grow flex-col gap-4 rounded-lg ">

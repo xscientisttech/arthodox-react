@@ -9,7 +9,7 @@ import { useCart } from "../assets/data/CartContext";
 
 const Checkout = () => {
 
-  const { cart, cartTotal, removeFromCart } = useCart();
+  const { cart, cartTotal, removeFromCart, cartTotalWithGST } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
