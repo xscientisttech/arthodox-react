@@ -249,7 +249,7 @@ const ProductMain = (props) => {
           <h1 className="text-[2.5rem] font-semibold absolute top-24 md:relative md:top-0">
             {product.title}
           </h1>
-          <p className="text-2xl font-semibold text-[#202020] p-0">&#8377; {product.price}</p>
+          <p className="text-2xl font-semibold text-red-600 p-0">&#8377; {product.Discount} <del className='mt-1 text-black text-lg' >&#8377;{product.price}</del></p>
           <p className="text-black">
             {product.description}
           </p>

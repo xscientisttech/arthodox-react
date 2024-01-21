@@ -8,7 +8,7 @@ import DummyData from "../assets/data/DummyData";
 
 const Category = () => {
 
-  const categories = ['Games', 'Movies', 'Anime', 'Sports'];
+  const categories = ['Games', 'Movies', 'Anime', 'Sports', 'God'];
 
   useEffect(() => {
     window.scrollTo(0, 0);

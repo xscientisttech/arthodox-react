@@ -106,6 +106,16 @@ export function ProductProvider({ children }) {
             description: 'Description for Product 9',
             category: 4
         },
+        {
+            id: 10,
+            img: img9,
+            quantity: 1,
+            title: 'Product 9',
+            price: 2000,
+            Discount: 1300,
+            description: 'Description for Product 9',
+            category: 5
+        },
 
     ];
 

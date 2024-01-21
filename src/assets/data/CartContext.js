@@ -76,6 +76,10 @@ export function CartProvider({ children }) {
     return finaltotal;
   };
 
+  const emptyCart = () => {
+    setCollection({ ...collection, cart: [] });
+  }
+
   // useEffect(() => {
   //   initCart();
   // },[])
@@ -95,7 +99,7 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, cartTotal, removeFromCart, cartTotalWithGST }}
+      value={{ cart, addToCart, cartTotal, removeFromCart, cartTotalWithGST, emptyCart }}
     >
       {children}
     </CartContext.Provider>

@@ -1,13 +1,20 @@
 .form-control {
+    width: 100% !important;
     border:none !important;
     padding: 5px !important;
     height: 100% !important;
-    flex-grow: 1;
+    display: flex;
+    flex-grow: 1 !important;
+    border-bottom: 1px solid black !important;
+    border-radius: none;
+    
 }
 
 .react-tel-input {
     height: 100%;
+    /* width: 70% !important; */
     display: flex;
+    flex-grow: 1;
     flex-direction: row-reverse;
     gap: 10px !important;
 }
