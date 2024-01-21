@@ -9,6 +9,7 @@ import img8 from '../images/items/8.jpg'
 import img9 from '../images/items/9.jpg'
 import img10 from '../images/items/10.jpg'
 import img11 from '../images/items/11.jpg'
+import img12 from '../images/items/ram1.png'
 
 const ProductContext = createContext();
 
@@ -108,7 +109,7 @@ export function ProductProvider({ children }) {
         },
         {
             id: 10,
-            img: img9,
+            img: img12,
             quantity: 1,
             title: 'Product 9',
             price: 2000,
