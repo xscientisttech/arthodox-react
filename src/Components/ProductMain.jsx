@@ -24,7 +24,7 @@ const ProductMain = (props) => {
   const { addToCart } = useCart();
   const [count, setCount] = useState(1);
 
-  const [selectedColor, setSelectedColor] = useState("#b99033");
+  const [selectedColor, setSelectedColor] = useState("#C9C9C9");
   const frames = [
     {
       key: 0,
@@ -99,7 +99,7 @@ const ProductMain = (props) => {
     setSelectedColor(color);
     formData.backgroundColor = color;
 
-    clearCanvas();
+    // clearCanvas();
     setSelectedImage("");
     setImageProps({
       x: 50,
@@ -111,7 +111,7 @@ const ProductMain = (props) => {
 
   const changeImage = (frame) => {
     setSelectedImage(frame.src);
-    formData.backgroundImage = frame.src ;
+    formData.backgroundImage = frame.src;
     setImageProps({
       x: frame.x,
       y: frame.y,
@@ -136,33 +136,33 @@ const ProductMain = (props) => {
     height: frames[0].height,
   });
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+  // useEffect(() => {
+  //   const canvas = canvasRef.current;
+  //   const ctx = canvas.getContext("2d");
 
-    const bgImage = new Image();
-    bgImage.src = selectedImage;
+  //   const bgImage = new Image();
+  //   bgImage.src = selectedImage;
 
-    ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+  //   ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
 
-    const mainImage = new Image();
-    mainImage.src = product.img;
-    mainImage.onload = function () {
-      ctx.drawImage(
-        mainImage,
-        imageProps.x,
-        imageProps.y,
-        imageProps.width,
-        imageProps.height
-      );
-    };
-  }, [product.img, selectedImage, imageProps]);
+  //   const mainImage = new Image();
+  //   mainImage.src = product.img;
+  //   mainImage.onload = function () {
+  //     ctx.drawImage(
+  //       mainImage,
+  //       imageProps.x,
+  //       imageProps.y,
+  //       imageProps.width,
+  //       imageProps.height
+  //     );
+  //   };
+  // }, [product.img, selectedImage, imageProps]);
 
-  const clearCanvas = () => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  };
+  // const clearCanvas = () => {
+  //   const canvas = canvasRef.current;
+  //   const ctx = canvas.getContext("2d");
+  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // };
 
 
   const [formData, setFormData] = useState({
@@ -191,12 +191,12 @@ const ProductMain = (props) => {
 
   const increment = () => {
     setCount(count + 1);
-    formData.quantity = count+1;
+    formData.quantity = count + 1;
   };
   const decreament = () => {
     if (count > 1) {
       setCount(count - 1);
-      formData.quantity = count-1;
+      formData.quantity = count - 1;
     }
   };
 
@@ -226,22 +226,26 @@ const ProductMain = (props) => {
             className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] sm:w-[16rem] aspect-square items-center bg-[${selectedColor}] `}
             style={{ background: selectedColor }}
           >
-            {/* <img
-              className={`w-full h-full ${bgVisible}`}
-              src={selectedImage}
-              alt=""
-            />
+            {/* Temporary  */}
+            {
+              selectedImage !== "" &&
+              <img
+                className={`w-full h-full`}
+                src={selectedImage}
+                alt=""
+              />
+            }
             <img
               className="absolute sm:w-72 h-20 sm:h-80"
               id=""
               src={product.img}
               alt=""
-            /> */}
-            <canvas
+            />
+            {/* <canvas
               ref={canvasRef}
               className=" w-full h-full"
               style={{ border: "1px solid #000" }}
-            ></canvas>
+            ></canvas> */}
           </div>
         </div>
 
