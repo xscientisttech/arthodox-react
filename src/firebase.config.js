@@ -5,13 +5,13 @@ import { getAuth } from "firebase/auth";
 import 'firebase/database';
 // import firebase from 'firebase';
 const firebaseConfig = {
-  apiKey: "AIzaSyD5wQg53J2O8CEr28AVIHcjyes1EyroAOw",
-  authDomain: "arthodoxotp.firebaseapp.com",
-  projectId: "arthodoxotp",
-  storageBucket: "arthodoxotp.appspot.com",
-  messagingSenderId: "797239297917",
-  appId: "1:797239297917:web:31585bfc72d35ddea76e14",
-  measurementId: "G-QQ2TS5ECZ2"
+  apiKey: "AIzaSyAm6NiP5hyBTqH2aTaiQI3T_84DBr-UdZw",
+  authDomain: "arthodox-7e239.firebaseapp.com",
+  projectId: "arthodox-7e239",
+  storageBucket: "arthodox-7e239.appspot.com",
+  messagingSenderId: "272196047464",
+  appId: "1:272196047464:web:760d2842f281f80c0921dd",
+  measurementId: "G-HWR94G2QVC"
 };
 
 const app = initializeApp(firebaseConfig);

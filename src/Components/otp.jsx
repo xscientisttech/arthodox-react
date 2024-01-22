@@ -1,5 +1,6 @@
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
+import './otp.css'
 
 import OtpInput from "otp-input-react";
 import { useState } from "react";
@@ -8,11 +9,11 @@ import "react-phone-input-2/lib/style.css";
 import { auth } from "../firebase.config";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
-import { toast, Toaster } from "react-hot-toast";
+// import { toast, Toaster } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
 
-const Otp = ( { setIsVerified } ) => {
+const Otp = ({ setIsVerified, ph, setPh }) => {
   const [otp, setOtp] = useState("");
-  const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
   const [user, setUser] = useState(null);
@@ -26,7 +27,7 @@ const Otp = ( { setIsVerified } ) => {
           callback: (response) => {
             onSignup();
           },
-          "expired-callback": () => {},
+          "expired-callback": () => { },
         },
         auth
       );
@@ -37,52 +38,66 @@ const Otp = ( { setIsVerified } ) => {
     setLoading(true);
     onCaptchVerify();
 
-    const appVerifier = window.recaptchaVerifier;
+    try {
+      const appVerifier = window.recaptchaVerifier;
+      const formatPh = "+" + ph;
 
-    const formatPh = "+" + ph;
+      signInWithPhoneNumber(auth, formatPh, appVerifier)
+        .then((confirmationResult) => {
+          window.confirmationResult = confirmationResult;
+          setLoading(false);
+          setShowOTP(true);
+          toast.success("OTP sent successfully!");
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+          toast.error("Server Error\n Please Try again Later");
+        });
+    } catch (error) {
+      console.log('try error verify : ',error);
+    }
 
-    signInWithPhoneNumber(auth, formatPh, appVerifier)
-      .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
-        setLoading(false);
-        setShowOTP(true);
-        toast.success("OTP sent successfully!");
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
   }
 
   function onOTPVerify() {
     setLoading(true);
-    window.confirmationResult
-      .confirm(otp)
-      .then(async (res) => {
-        console.log("Otp verified ! : ", res);
-        setUser(res.user);
-        setLoading(false);
-        // navigate("/");
-        setIsVerified(true);
-        
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
+    try {
+      window.confirmationResult
+        .confirm(otp)
+        .then(async (res) => {
+          setUser(res.user);
+          localStorage.setItem("UID", res.user.uid);
+          console.log('otp res : ', res);
+          setLoading(false);
+          toast.success("OTP Verified !");
+          // navigate("/");
+          setIsVerified(true);
+
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+          toast.error("Server Error\n Please Try again Later");
+        });
+    } catch (error) {
+      console.log("try Error : ", error);
+    }
   }
 
   return (
-    <section className="">
+    <section className=" border-2 border-black rounded-xl p-2">
+      {/* <ToastContainer /> */}
+      {/* <Toaster toastOptions={{ duration: 4000 }} /> */}
       <div>
-        <Toaster toastOptions={{ duration: 4000 }} />
-        <div id="recaptcha-container"></div>
+        <div id="recaptcha-container" ></div>
         {user ? (
-          <h2 className="text-center text-white font-medium text-2xl">
-            👍Login Success
+
+          <h2 className="text-center text-black font-medium text-2xl">
+            Number Verified 👍
           </h2>
         ) : (
-          <div className="w-80 flex flex-col gap-4 rounded-lg ">
+          <div className=" flex flex-grow flex-col gap-4 rounded-lg ">
             {showOTP ? (
               <>
                 <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
@@ -90,7 +105,7 @@ const Otp = ( { setIsVerified } ) => {
                 </div>
                 <label
                   htmlFor="otp"
-                  className="font-bold text-xl text-white text-center"
+                  className="font-bold text-xl text-black text-center"
                 >
                   Enter your OTP
                 </label>
@@ -101,12 +116,12 @@ const Otp = ( { setIsVerified } ) => {
                   otpType="number"
                   disabled={false}
                   autoFocus
-                  className="opt-container "
+                  className="opt-container border-none "
                   required
                 ></OtpInput>
                 <button
                   onClick={onOTPVerify}
-                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-black rounded"
                 >
                   {loading && (
                     <CgSpinner size={20} className="mt-1 animate-spin" />
@@ -115,14 +130,14 @@ const Otp = ( { setIsVerified } ) => {
                 </button>
               </>
             ) : (
-              <div className="flex gap-3 " >
-                <p className=" h-11" ><PhoneInput country={"in"} value={ph} onChange={setPh} /></p>
+              <div className="flex flex-col sm:flex-row gap-3 flex-grow" >
+                <p className=" h-11 w-full sm:w-[60%] flex flex-grow" ><PhoneInput country={"in"} value={ph} onChange={setPh} /></p>
                 <button
                   onClick={onSignup} type="button"
-                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center p-2.5 text-white rounded"
+                  className="bg-emerald-600 w-full sm:max-w-[6rem] flex gap-1 items-center justify-center p-2.5 text-white rounded"
                 >
                   {loading && (
-                    <CgSpinner size={20} className="mt-1 animate-spin" />
+                    <CgSpinner size={20} className="mt-1 invert animate-spin" />
                   )}
                   <span>Verify</span>
                 </button>

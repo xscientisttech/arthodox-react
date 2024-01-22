@@ -41,9 +41,9 @@ function ProductItem({ product }) {
                     {product.title}
                 </h3>
                 <p>{product.description}</p>
-                <p className="text-[#898989] text-base flex gap-2.5">
-                    <span className="text-[#3a3a3a] font-medium">&#8377;{product.Discount}</span>
-                    <del>&#8377;{product.price}</del>
+                <p className="text-[#898989] flex gap-2.5">
+                    <span className="text-black text-xl font-bold">&#8377;{product.Discount}</span>
+                    <del className='mt-1' >&#8377;{product.price}</del>
                 </p>
             </div>
         </div>

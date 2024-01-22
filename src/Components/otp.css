@@ -1,0 +1,40 @@
+.form-control {
+    width: 100% !important;
+    border:none !important;
+    padding: 5px !important;
+    height: 100% !important;
+    display: flex;
+    flex-grow: 1 !important;
+    border-bottom: 1px solid black !important;
+    border-radius: none;
+    
+}
+
+.react-tel-input {
+    height: 100%;
+    /* width: 70% !important; */
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row-reverse;
+    gap: 10px !important;
+}
+
+.react-tel-input .flag-dropdown {
+    position: relative !important;
+}
+
+.opt-container input{
+    border: 2px solid black !important;
+    border-radius: 5px !important;
+    -webkit-border-radius: 5px ;
+    -moz-border-radius: 5px ;
+    -ms-border-radius: 5px ;
+    -o-border-radius: 5px ;
+}
+
+.opt-container{
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
