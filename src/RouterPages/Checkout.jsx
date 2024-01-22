@@ -38,7 +38,7 @@ const Checkout = () => {
   });
 
   const [isDisabled, setIsDisablled] = useState('');
-  const [isVerified, setIsVerified] = useState(true);
+  const [isVerified, setIsVerified] = useState(false);
   const [ph, setPh] = useState("");
 
   const PostData = async (e) => {
@@ -48,10 +48,11 @@ const Checkout = () => {
     const uid = localStorage.getItem("UID");
     details.phone = ph;
     details.uid = uid;
+
     const orders = {cart: cart};
     orders.uid = uid;
     orders.phone = ph;
-    
+    orders.date = new Date().toLocaleString() + "";
 
     console.log('details : ', details);
 
