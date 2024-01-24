@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import Quality from "../Components/Quality";
 import Navigation from "../Components/Navigation";
 import ProductMain from "../Components/ProductMain";
@@ -14,19 +14,27 @@ const SepProduct = () => {
 
   const { productId } = useParams();
   const products = useProducts();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [productId]);
 
-
-  
   const product = products.find((product) => product.id === parseInt(productId, 10));
+
+  const [relatedProducts, setRelatedProducts] = useState(products.filter((item) => item.id !== product.id && item.category === parseInt(product.category)));
+
+  // useEffect(() => {
+  //   // setRelatedProducts(products.filter((item) => [] || item.category === parseInt(product.category)));
+  //   // console.log("related Product id : ", product.id);
+  //   // console.log("related Products : ", relatedProducts);
+  // }, [relatedProducts])
+
+
+
 
   if (!product) {
     return <div>Product not found</div>;
   }
-
 
   return (
     <>
@@ -70,22 +78,23 @@ const SepProduct = () => {
       </section>
 
       <section className="mt-20 px-[10%] bg-[#f4f4f4] py-10">
-      <div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] mt-4 m-auto rounded-[10px]">
-						<h1 className=" justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md font-Poppins">
-							Related Products
-						</h1>
-					</div>
+        <div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] mt-4 m-auto rounded-[10px]">
+          <h1 className=" justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md font-Poppins">
+            Related Products
+          </h1>
+        </div>
         <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 ">
-          <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
-            {products.slice(0,3).map((product, index) => (
-              <ProductItem product={product} key={index}/>
+          <div className="grid gap-y-14 grid-cols-1 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
+            {relatedProducts.slice(0, 3).map((product, index) => (
+              <ProductItem product={product} key={index} />
             ))}
 
           </div>
         </div>
+
         <button
           className="flex justify-center m-auto cursor-pointer text-white bg-black text-base mt-8 px-8 py-3 rounded-xl hover:text-[black] hover:bg-[white] hover:border hover:border-solid hover:border-[black] hover:font-semibold"
-          onClick={() => Navigate("/Products")}
+          onClick={() => Navigate(`/Products/category/${product.category}`)}
         >
           Show more
         </button>

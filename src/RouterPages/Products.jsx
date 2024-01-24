@@ -48,7 +48,7 @@ const Products = ({ search }) => {
       <Hero title="Products" />
       <Filter sortBy={sortBy} setSortBy={setSortBy} />
       <div className="max-w-full h-auto grid place-items-center p-6 md:p-20 bg-[#f4f5f7]">
-        <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
+        <div className="grid gap-y-14 grid-cols-1 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
           {sortedProducts.map((product, index) => (
             <ProductItem key={index} product={product} />
           ))}
