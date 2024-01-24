@@ -34,7 +34,7 @@ const Cart = () => {
       <Hero title="Cart" />
       <section className="w-full flex justify-center lg:px-[10%] p-[4%]">
         <div className="w-full gap-5 flex flex-wrap justify-center items-center lg:items-start lg:justify-start">
-          <div className="flex w-full flex-1">
+          <div className="flex w-full lg:w-auto lg:flex-1 overflow-hidden">
             {isLoading ? (
               <>
                 <p className=" w-full bg-[#faf3ea] p-4">
@@ -42,7 +42,7 @@ const Cart = () => {
                 </p>
               </>
             ) : (
-              <>
+              <div className="w-full overflow-x-auto">
                 <table className=" min-w-0 border-collapse border-[#faf3ea] w-full">
                   <thead className="w-full ">
                     <tr className=" bg-[#faf3ea] ">
@@ -68,7 +68,7 @@ const Cart = () => {
                     ))}
                   </tbody>
                 </table>
-              </>
+              </div>
             )}
           </div>
           <div className="bg-[#f9f1e7] flex flex-col justify-center items-center p-8 w-80">

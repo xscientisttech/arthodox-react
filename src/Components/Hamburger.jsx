@@ -24,7 +24,7 @@ const HamburgerMenu = () => {
       </div>
       {menuOpen && (
         <div className="absolute top-14 right-8 w-72 h-0 ">
-          <ul className="gap-3 flex flex-col justify-center items-center p-5 font-semibold text-lg bg-[rgba(255,255,255,0.5)] rounded-xl">
+          <ul className="gap-3 flex flex-col justify-center items-center p-5 font-semibold text-lg bg-white rounded-xl">
             <li
               className=" cursor-pointer hover:text-orange-600"
               onClick={() => Navigate("/")}

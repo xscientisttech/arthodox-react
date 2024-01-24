@@ -27,6 +27,15 @@ import pubg2 from '../images/items/pubg2.jpg'
 import pubg3 from '../images/items/pubg3.jpg'
 import gta1 from '../images/items/gta1.jpg'
 import gta2 from '../images/items/gta2.jpg'
+import virat1 from '../images/items/Virat-Kohli-HD-Wallpaper-Money-Heist.jpg'
+import virat2 from '../images/items/Virat-Kohli-HD-Wallpaper-scaled.jpg'
+import ronaldo1 from '../images/items/4k-Cristiano-Ronaldo-Wallpaper-For-iPhone.jpg'
+import ronaldo2 from '../images/items/Cristiano-Ronaldo-Wallpaper-1920x1080-4k.jpg'
+import messi1 from '../images/items/Lionel-Messi-Inter-Miami-CF-Pfp-HD.jpg'
+import messi2 from '../images/items/Lionel-Messi-Inter-Miami-CF-Profile-Photo.jpg'
+import trans1 from '../images/items/Transformers-Full-HD-Wallpaper.jpg'
+import avenger from '../images/items/Avengers-Endgame-Android-Wallpaper.jpeg'
+import avatar from '../images/items/Neytiri-Avatar-2-Wallpaper.jpg'
 
 const ProductContext = createContext();
 
@@ -35,96 +44,6 @@ export function ProductProvider({ children }) {
 
     const products = [
         
-        {
-            id: 1,
-            img: img10,
-            quantity: 1,
-            title: 'Product 1',
-            price: 1000,
-            Discount: 890,
-            description: 'Description for Product 1',
-            category: 0
-        },
-        {
-            id: 2,
-            img: img2,
-            quantity: 1,
-            title: 'Product 2',
-            price: 2000,
-            Discount: 1000,
-            description: 'Description for Product 2',
-            category: 1
-        },
-        {
-            id: 3,
-            img: img3,
-            quantity: 1,
-            title: 'Product 3',
-            price: 2000,
-            Discount: 900,
-            description: 'Description for Product 3',
-            category: 1
-        },
-        {
-            id: 4,
-            img: img4,
-            quantity: 1,
-            title: 'Product 4',
-            price: 2000,
-            Discount: 1230,
-            description: 'Description for Product 4',
-            category: 2
-        },
-        {
-            id: 5,
-            img: img5,
-            quantity: 1,
-            title: 'Product 5',
-            price: 2000,
-            Discount: 1150,
-            description: 'Description for Product 5',
-            category: 2
-        },
-        {
-            id: 6,
-            img: img6,
-            quantity: 1,
-            title: 'Product 6',
-            price: 2000,
-            Discount: 1350,
-            description: 'Description for Product 6',
-            category: 2
-        },
-        // {
-        //     id: 7,
-        //     img: img7,
-        //     quantity: 1,
-        //     title: 'Product 7',
-        //     price: 2000,
-        //     Discount: 1200,
-        //     description: 'Description for Product 7',
-        //     category: 3
-        // },
-        // {
-        //     id: 8,
-        //     img: img8,
-        //     quantity: 1,
-        //     title: 'Product 8',
-        //     price: 2000,
-        //     Discount: 1300,
-        //     description: 'Description for Product 8',
-        //     category: 3
-        // },
-        {
-            id: 9,
-            img: img9,
-            quantity: 1,
-            title: 'Product 9',
-            price: 2000,
-            Discount: 1300,
-            description: 'Description for Product 9',
-            category: 4
-        },
         {
             id: 10,
             img: g1,
@@ -154,6 +73,37 @@ export function ProductProvider({ children }) {
             Discount: 1700,
             description: 'Description for Product 12',
             category: 5
+        },
+        
+        {
+            id: 7,
+            img: avenger,
+            quantity: 1,
+            title: 'Product 7',
+            price: 2000,
+            Discount: 1200,
+            description: 'Description for Product 7',
+            category: 2
+        },
+        {
+            id: 8,
+            img: trans1,
+            quantity: 1,
+            title: 'Product 8',
+            price: 2000,
+            Discount: 1300,
+            description: 'Description for Product 8',
+            category: 2
+        },
+        {
+            id: 9,
+            img: avatar,
+            quantity: 1,
+            title: 'Product 9',
+            price: 2000,
+            Discount: 1300,
+            description: 'Description for Product 9',
+            category: 2
         },
         {
             id: 13,
@@ -294,6 +244,67 @@ export function ProductProvider({ children }) {
             Discount: 1725,
             description: 'Description for Product 26',
             category: 1
+        },
+        {
+            
+            id: 1,
+            img: virat1,
+            quantity: 1,
+            title: 'Product 1',
+            price: 1000,
+            Discount: 890,
+            description: 'Description for Product 1',
+            category: 4
+        },
+        {
+            id: 2,
+            img: virat2,
+            quantity: 1,
+            title: 'Product 2',
+            price: 2000,
+            Discount: 1000,
+            description: 'Description for Product 2',
+            category: 4
+        },
+        {
+            id: 3,
+            img: ronaldo1,
+            quantity: 1,
+            title: 'Product 3',
+            price: 2000,
+            Discount: 900,
+            description: 'Description for Product 3',
+            category: 4
+        },
+        {
+            id: 4,
+            img: ronaldo2,
+            quantity: 1,
+            title: 'Product 4',
+            price: 2000,
+            Discount: 1230,
+            description: 'Description for Product 4',
+            category: 4
+        },
+        {
+            id: 5,
+            img: messi1,
+            quantity: 1,
+            title: 'Product 5',
+            price: 2000,
+            Discount: 1150,
+            description: 'Description for Product 5',
+            category: 4
+        },
+        {
+            id: 6,
+            img: messi2,
+            quantity: 1,
+            title: 'Product 6',
+            price: 2000,
+            Discount: 1350,
+            description: 'Description for Product 6',
+            category: 4
         },
 
     ];
