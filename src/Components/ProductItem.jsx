@@ -27,7 +27,7 @@ function ProductItem({ product }) {
     
 
     return (
-        <div className="relative bg-[#f4f5f7] overflow-hidden max-w-[350px] max-h-[450px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 "
+        <div className="relative bg-[#f4f5f7] overflow-hidden w-[21rem] max-w-[350px] max-h-[450px] shadow-[3px_3px_10px_2px_rgb(232,232,235)] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)] hover:scale-105 "
             onClick={() => navigateToProduct(product.id)}
             key={product.id}
         >
