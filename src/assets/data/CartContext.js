@@ -57,7 +57,7 @@ export function CartProvider({ children }) {
   const cartTotal = () => {
     let total = 0;
     cart.forEach((item) => {
-      total += item.price * item.quantity;
+      total += item.Discount * item.quantity;
     });
     // console.log(total);
     return total;
@@ -68,7 +68,7 @@ export function CartProvider({ children }) {
     let gst = 0;
     let finaltotal = 0;
     cart.forEach((item) => {
-      total += item.price * item.quantity;
+      total += item.Discount * item.quantity;
       gst = total*0.18;
       finaltotal = total + gst;
     });

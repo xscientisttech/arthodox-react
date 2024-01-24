@@ -34,7 +34,7 @@ function ProductItem({ product }) {
             <img
                 src={product.img}
                 alt="Avatar"
-                className="w-[100%] h-[70%]"
+                className="w-[100%] h-[70%] object-cover"
             />
             <div className="flex flex-col gap-[5px] w-full justify-start p-[3%]">
                 <h3 className="font-semibold text-2xl text-[#3a3a3a]">

@@ -13,6 +13,7 @@ const DummyData = {
     BgChangeImgUrl2 : img2,
     BgChangeImgUrl3 : img3,
     BgChangeImgUrl4 : img4,
+
     Title: "Wall Frame",
     Description : "Attractive Wall Frames",
     Dprice: "Rs.1000",

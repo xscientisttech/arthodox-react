@@ -16,9 +16,7 @@ import {
 } from "react-icons/fa";
 
 const ProductMain = (props) => {
-
-
-  const categories = ['Games', 'Movies', 'Anime', 'Sports'];
+  const categories = ["Games", "Movies", "Anime", "Sports"];
   const [data, setData] = useState();
   const product = props.product;
   const { addToCart } = useCart();
@@ -69,7 +67,7 @@ const ProductMain = (props) => {
   };
 
   const notifyAddedToCart = () => {
-    const data = { ...product, quantity: count }
+    const data = { ...product, quantity: count };
     addToCart(data);
 
     toast.success(`${product.title} added to Cart ! `, {
@@ -85,9 +83,9 @@ const ProductMain = (props) => {
   };
 
   const clickToBuy = () => {
-    const data = { ...product, quantity: count }
+    const data = { ...product, quantity: count };
     addToCart(data);
-    Navigate('/Cart')
+    Navigate("/Cart");
   };
 
   const handleColorChange = (event) => {
@@ -122,9 +120,7 @@ const ProductMain = (props) => {
     // console.log(frame.src);
   };
 
-
   const Navigate = useNavigate();
-
 
   // canvas to change background images and product iamge
 
@@ -164,15 +160,13 @@ const ProductMain = (props) => {
   //   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // };
 
-
   const [formData, setFormData] = useState({
     backgroundImage: selectedImage,
     backgroundColor: selectedColor,
     frameSize: 1,
     quantity: count,
-    sku: '',
+    sku: "",
     category: product.category,
-
   });
 
   const handleInputChange = (e) => {
@@ -200,17 +194,19 @@ const ProductMain = (props) => {
     }
   };
 
-
   return (
     <section className="p-5 mt-14  sm:px-16 md:mt-0 w-full flex justify-center items-center md:px-24 bg-[] font-Poppins">
-      <form onSubmit={handleSubmit} className="w-full flex flex-col md:flex-row justify-center gap-10 xl:gap-28 lg:gap-24 md:gap-20">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full flex flex-col md:flex-row justify-center gap-10 xl:gap-28 lg:gap-24 md:gap-20"
+      >
         <div className="w-full h-fit sm:min-w-max  gap-10 sm:gap-10 md:w-6/12 flex mt-5 md:h-full p-0 justify-between">
           <div
             id="frames-container"
-            className=" flex gap-5 flex-col py-10 pt-0 justify-between w-8 aspect-square sm:w-24"
+            className=" hidden sm:flex gap-5 flex-col py-10 pt-0 justify-between w-8 aspect-square sm:w-24"
           >
-            {frames.map((frame, index) => (
-              <div className=" w-16 md:w-20 " key={index}>
+            {/* {frames.map((frame, index) => (
+              <div className="hidden w-16 md:w-20 " key={index}>
                 <img
                   key={index}
                   className=" w-full rounded-lg aspect-square cursor-pointer"
@@ -220,27 +216,24 @@ const ProductMain = (props) => {
                   alt={`Frame ${index + 1}`}
                 />
               </div>
-            ))}
+            ))} */}
           </div>
           <div
             className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] sm:w-[16rem] aspect-square items-center bg-[${selectedColor}] `}
             style={{ background: selectedColor }}
           >
             {/* Temporary  */}
-            {
-              selectedImage !== "" &&
+            {/* <div className="w-full h-full"> */}
+              {selectedImage !== "" && (
+                <img className={`hidden w-full h-full`} src={selectedImage} alt="" />
+              )}
               <img
-                className={`w-full h-full`}
-                src={selectedImage}
+                className="-absolute w-full h-full object-cover"
+                id=""
+                src={product.img}
                 alt=""
               />
-            }
-            <img
-              className="absolute sm:w-72 h-20 sm:h-80"
-              id=""
-              src={product.img}
-              alt=""
-            />
+            {/* </div> */}
             {/* <canvas
               ref={canvasRef}
               className=" w-full h-full"
@@ -253,10 +246,13 @@ const ProductMain = (props) => {
           <h1 className="text-[2.5rem] font-semibold absolute top-24 md:relative md:top-0">
             {product.title}
           </h1>
-          <p className="text-2xl font-semibold text-[#202020] p-0">&#8377; {product.price}</p>
-          <p className="text-black">
-            {product.description}
+          <p className="text-2xl font-semibold text-red-600 p-0">
+            &#8377; {product.Discount}{" "}
+            <del className="mt-1 text-black text-lg">
+              &#8377;{product.price}
+            </del>
           </p>
+          <p className="text-black">{product.description}</p>
           <div className="flex flex-col gap-[5px]">
             <div className="flex gap-5 ">
               <div className="sort-by">
@@ -271,7 +267,6 @@ const ProductMain = (props) => {
                     <option value="1">Size 1</option>
                     <option value="2">Size 2</option>
                   </select>
-
                 </label>
               </div>
             </div>
@@ -316,18 +311,27 @@ const ProductMain = (props) => {
           <div className="flex flex-wrap gap-5 items-center">
             <div className="flex items-center justify-center bg-white w-[120px] h-10 gap-5 border rounded-[10px] border-solid border-[rgb(175,175,175)]">
               <FaMinus onClick={decreament} />
-              <p id="count" name='quantity' value={count} onChange={(e) => handleInputChange(e)} >{count}</p>
+              <p
+                id="count"
+                name="quantity"
+                value={count}
+                onChange={(e) => handleInputChange(e)}
+              >
+                {count}
+              </p>
               <FaPlus onClick={increment} />
             </div>
             <div className="flex gap-5 items-center">
-              <button type="submit"
+              <button
+                type="submit"
                 className="text-white font-bold min-w-fit px-2 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
                 onClick={() => notifyAddedToCart(product)}
               >
                 Add To Cart
               </button>
 
-              <button type="submit"
+              <button
+                type="submit"
                 className="text-white font-bold px-5 h-10 rounded-xl  bg-black border border-solid border-[black] hover:bg-white hover:text-black"
                 // onClick={() => Navigate("/Cart")}
                 // onClick={handleSubmit}

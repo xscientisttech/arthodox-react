@@ -93,6 +93,7 @@ const Otp = ({ setIsVerified, ph, setPh }) => {
         <div id="recaptcha-container" ></div>
         {user ? (
 
+
           <h2 className="text-center text-black font-medium text-2xl">
             Number Verified 👍
           </h2>

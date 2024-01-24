@@ -11,6 +11,7 @@ import { useNavigate } from "react-router";
 
 const Checkout = () => {
 
+
   const navigate = useNavigate();
 
   const { cart, cartTotal, emptyCart, removeFromCart, cartTotalWithGST } = useCart();
