@@ -16,7 +16,8 @@ import {
 } from "react-icons/fa";
 
 const ProductMain = (props) => {
-  const categories = ["Games", "Movies", "Anime", "Sports"];
+
+  const categories = props.categories;
   const [data, setData] = useState();
   const product = props.product;
   const { addToCart } = useCart();
@@ -187,6 +188,7 @@ const ProductMain = (props) => {
     setCount(count + 1);
     formData.quantity = count + 1;
   };
+  
   const decreament = () => {
     if (count > 1) {
       setCount(count - 1);

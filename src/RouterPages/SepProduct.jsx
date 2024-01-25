@@ -4,16 +4,17 @@ import Navigation from "../Components/Navigation";
 import ProductMain from "../Components/ProductMain";
 import { useNavigate } from "react-router";
 import ProductItem from "../Components/ProductItem";
-import DummyData from "../assets/data/DummyData";
 import { useParams } from 'react-router-dom';
 import { useProducts } from '../assets/data/ProductContext';
+import wall1 from '../assets/images/background/wall9.jpg';
+import wall2 from '../assets/images/background/wall11.jpg';
 
 const SepProduct = () => {
 
   const Navigate = useNavigate();
 
   const { productId } = useParams();
-  const products = useProducts();
+  const { products, categories }= useProducts();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,7 +40,7 @@ const SepProduct = () => {
   return (
     <>
       <Navigation />
-      <ProductMain product={product} key={product.key} />
+      <ProductMain product={product} categories={categories} key={product.key} />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
         <div className="w-full flex flex-col items-center justify-center gap-20">
@@ -66,11 +67,11 @@ const SepProduct = () => {
           </div>
           <div className="w-full flex gap-10 items-center justify-center flex-wrap">
             <img
-              src={DummyData.BgChangeImgUrl1} alt="living-img"
+              src={wall1} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
             <img
-              src={DummyData.BgChangeImgUrl2} alt="living-img"
+              src={wall2} alt="living-img"
               className="w-6/12 max-w-[520px] min-w-[250px] aspect-[1.5] rounded-[10px]"
             ></img>
           </div>

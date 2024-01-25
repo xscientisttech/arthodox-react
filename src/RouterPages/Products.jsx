@@ -6,7 +6,7 @@ import Hero from "../Components/Hero";
 import ProductItem from "../Components/ProductItem";
 
 const Products = ({ search }) => {
-  const products = useProducts();
+  const { products, categories }= useProducts();
   const { categoryId } = useParams();
   const [category, setCategory] = useState(categoryId || 0);
   const [sortBy, setSortBy] = useState("null");
@@ -22,7 +22,7 @@ const Products = ({ search }) => {
 
   const filteredProducts = products
     .filter((item) => {
-      return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search);
+      return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search) || categories[item.category].toLowerCase().includes(search);
     })
     .filter((item) => category === 0 || item.category === parseInt(category));
 
