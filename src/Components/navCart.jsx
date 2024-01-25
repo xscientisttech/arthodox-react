@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useEffect, useRef, useState } from "react";
-=======
-import React, { useEffect, useState } from "react";
->>>>>>> f7fe8a195c7821f98432649fa36e9801816da0e0
 import { useNavigate } from "react-router";
 import DummyData from "../assets/data/DummyData";
 import PopupCartItem from "./PopupCartItem";
@@ -10,19 +6,15 @@ import { useCart } from "../assets/data/CartContext";
 import { FaCartShopping } from "react-icons/fa6";
 
 const NavCart = () => {
-  const { cart, cartTotal, removeFromCart, Quantity } = useCart();
 
-<<<<<<< HEAD
   const Navigate = useNavigate();
+
+  const { cart, cartTotal, removeFromCart, Quantity } = useCart();
 
   const popupCartRef = useRef();
 
-  const { cart, cartTotal, removeFromCart } = useCart();
-=======
-  useEffect(() => {
-    console.log('Quantity ', Quantity());
-  },[Quantity])
->>>>>>> f7fe8a195c7821f98432649fa36e9801816da0e0
+
+
 
   // const cartTotal = () => {
   //   let total = 0;
@@ -57,16 +49,14 @@ const NavCart = () => {
 
 
   return (
-<<<<<<< HEAD
-    <div ref={popupCartRef} className=" font-Poppins">
-      <div className="relative text-2xl hover:scale-110" onClick={toggleCart}>
-=======
+
+
     <div className=" font-Poppins">
       <div
         className="relative text-2xl hover:scale-110 flex"
         onClick={toggleCart}
       >
->>>>>>> f7fe8a195c7821f98432649fa36e9801816da0e0
+
         <FaCartShopping
           id="menu"
           className={cartOpen ? <FaCartShopping /> : <FaCartShopping />}
