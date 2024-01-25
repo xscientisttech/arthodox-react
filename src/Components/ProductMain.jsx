@@ -243,7 +243,7 @@ const ProductMain = (props) => {
         </div>
 
         <div className="w-full md:w-6/12 h-full flex grow flex-col gap-5 p-2.5">
-          <h1 className="text-[2.5rem] font-semibold absolute top-24 md:relative md:top-0">
+          <h1 className="text-[2.5rem] font-semibold absolute top-28 md:relative md:top-0">
             {product.title}
           </h1>
           <p className="text-2xl font-semibold text-red-600 p-0">

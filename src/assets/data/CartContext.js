@@ -63,6 +63,15 @@ export function CartProvider({ children }) {
     return total;
   };
 
+  const Quantity = () => {
+    let Quant = 0;
+    cart.forEach((item) => {
+      Quant += item.quantity;
+      console.log(Quant)
+    })
+    return Quant;
+  }
+
   const cartTotalWithGST = () => {
     let total = 0;
     let gst = 0;
@@ -99,7 +108,7 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, cartTotal, removeFromCart, cartTotalWithGST, emptyCart }}
+      value={{ cart, addToCart, cartTotal, removeFromCart, cartTotalWithGST, emptyCart, Quantity }}
     >
       {children}
     </CartContext.Provider>
