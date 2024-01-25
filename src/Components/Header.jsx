@@ -27,7 +27,7 @@ const Header = ({search , setSearch}) => {
             onClick={() => Navigate("/")}
           />
           <h1 className="text-lg font-bold cursor-pointer" onClick={() => Navigate("/")}>
-            Arthodox
+            Aartify
           </h1>
         </div>
         <ul className=" flex justify-center gap-10">

@@ -2,7 +2,19 @@ import React from "react";
 import { useNavigate } from "react-router";
 import DummyData from "../assets/data/DummyData";
 import logo from "../assets/images/Arth-Logo.png";
-import {FaInstagram, FaLinkedinIn, FaTwitter, FaFacebookF} from 'react-icons/fa'
+import { SiPhonepe } from "react-icons/si";
+import { SiPaytm } from "react-icons/si";
+import paytm from "../assets/images/paytm.svg";
+import googlePay from "../assets/images/google-pay.svg";
+import phonepe from "../assets/images/phonepe.svg";
+import { RiVisaFill } from "react-icons/ri";
+import debit from "../assets/images/debitcard.png";
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaFacebookF,
+} from "react-icons/fa";
 
 const Footer = () => {
   const Navigate = useNavigate();
@@ -26,7 +38,7 @@ const Footer = () => {
         <div className="flex items-center justify-center mt-[-3rem]">
           <img
             src={logo}
-            alt='Arthodox-Logo'
+            alt="Arthodox-Logo"
             className="w-10 cursor-pointer "
             onClick={scrollToTop}
           />
@@ -34,7 +46,7 @@ const Footer = () => {
             className="text-2xl font-bold cursor-pointer"
             onClick={scrollToTop}
           >
-            Arthodox
+            Aartify
           </h1>
         </div>
       </div>
@@ -45,9 +57,8 @@ const Footer = () => {
               Registered Office Address:
             </h4>
             <p>
-              xScientist Tech LLP Office, Beed Bypass Rd, Near Jain
-              International School, Shiv Krupa Colony, Pwd Colony, Chh Sambhaji
-              Nagar, Maharashtra 431005.
+              Plot no.190,gut no.102, arunoday colony, Beed Bypass Rd, parisar,
+              Chh Sambhajinagar, Maharashtra 431001
             </p>
           </div>
           <div className=" min-w-3/12 px-[15px] py-0">
@@ -67,9 +78,9 @@ const Footer = () => {
               <li>
                 <a href="#">order status</a>
               </li> */}
-              <li>
+              {/* <li>
                 <a href="#">payment options</a>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className=" min-w-3/12 px-[15px] py-0">
@@ -112,26 +123,74 @@ const Footer = () => {
                 href="#"
                 className="flex justify-center items-center h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
               >
-                <FaFacebookF className="text-xl"/>
+                <FaFacebookF className="text-xl" />
               </a>
               <a
                 href="#"
                 className="flex justify-center items-center h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
               >
-                <FaTwitter className="text-xl"/>
+                <FaTwitter className="text-xl" />
               </a>
               <a
                 href="#"
                 className="flex justify-center items-center h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
               >
-                <FaInstagram className="text-xl"/>
+                <FaInstagram className="text-xl" />
               </a>
               <a
                 href="#"
                 className="flex justify-center items-center h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
               >
-                <FaLinkedinIn className="text-xl"/>
+                <FaLinkedinIn className="text-xl" />
               </a>
+            </div>
+            <div>
+              <h1 className="text-lg text-[black] capitalize font-medium relative mb-[35px] before:content-[''] before:absolute before:bg-[black] before:h-0.5 before:box-border before:w-[75px] before:left-0 before:-bottom-2.5">
+                Payment Option
+              </h1>
+              <div className="social-links flex mt-10">
+                <marquee
+                  width="100%"
+                  direction="right"
+                  height="200px"
+                  scrollmount="1"
+                >
+                  <div className="flex">
+                    <a
+                      href="#"
+                      className="flex justify-center items-center h-10 w-10 text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%]  hover:bg-[white]"
+                    >
+                      <img src={googlePay} alt="" size={40}/>
+                    </a>
+                    <a
+                      href="#"
+                      className="flex justify-center items-center h-10 w-10 bg-[#6739b6] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[#6739b6]"
+                    >
+                      <SiPhonepe size={40} />
+                    </a>
+                    <a
+                      href="#"
+                      className="flex justify-center items-center h-10 w-10 bg-gray-300 border-2 text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-gray-400"
+                    >
+                      <img src={paytm} alt="" className="" />
+                      {/* <FaInstagram className="text-xl" /> */}
+                    </a>
+                    <a
+                      href="#"
+                      className="flex justify-center items-center h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
+                    >
+                      <RiVisaFill className="text-4xl" />
+                    </a>
+                    <a
+                      href="#"
+                      className="flex justify-center items-center h-10 w-10 bg-[black] text-center leading-10 text-[white] transition-all duration-[0.5s] ease-[ease] ml-0 mr-2.5 mt-0 mb-2.5 rounded-[50%] hover:text-[black] hover:bg-[white]"
+                    >
+                      <img src={debit} alt="" className="text-4xl" width="92"/>
+                     
+                    </a>
+                  </div>
+                </marquee>
+              </div>
             </div>
           </div>
         </div>
