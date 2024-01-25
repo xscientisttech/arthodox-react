@@ -224,7 +224,7 @@ const ProductMain = (props) => {
             className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] sm:w-[16rem] aspect-square items-center bg-[${selectedColor}] `}
             style={{ background: selectedColor }}
           >
-            {/* Temporary  */}
+            {/* Temporary  */} 
             {/* <div className="w-full h-full"> */}
               {selectedImage !== "" && (
                 <img className={`hidden w-full h-full`} src={selectedImage} alt="" />
