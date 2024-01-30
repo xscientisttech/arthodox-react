@@ -31,7 +31,7 @@ export default function Home() {
 				<img
 					src={DummyData.HeroImgUrl}
 					alt="heroimg"
-					className="h-[50vh] object-cover xl:h-[calc(100vh_-_4rem)] lg:h-[80vh] md:h-[70vh] sm:h-[60vh] w-full bg-cover bg-center relative"
+					className="h-[50vh] object-fit xl:h-[calc(100vh_-_4rem)] lg:h-[80vh] md:h-[70vh] sm:h-[60vh] w-full bg-cover bg-center relative"
 				/>
 				<div className="absolute xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl xl:w-[500px] lg:w-[350px] md:w-[280px] sm:w-[230px] w-[190px] xl:right-[5%] lg:right-[4%] md:right-[3%] sm:right-[2%] right-[1%] xl:top-[50%] lg:top-[45%] md:top-[40%] sm:top-[35%] top-[30%]">
 					<h1 className="font-['Shantell Sans', cursive] ">Discover Our New collection</h1>

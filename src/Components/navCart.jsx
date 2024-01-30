@@ -51,7 +51,7 @@ const NavCart = () => {
   return (
 
 
-    <div className=" font-Poppins">
+    <div ref={popupCartRef} className=" font-Poppins">
       <div
         className="relative text-2xl hover:scale-110 flex"
         onClick={toggleCart}
@@ -61,7 +61,7 @@ const NavCart = () => {
           id="menu"
           className={cartOpen ? <FaCartShopping /> : <FaCartShopping />}
         />
-        <h1 className="absolute -top-4 left-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">{Quantity()}</h1>
+        <h1 className="absolute -top-3 left-2 bg-red-500 text-white rounded-full w-5 aspect-square flex items-center justify-center text-xs">{Quantity()}</h1>
       </div>
       {cartOpen && (
         <div className=" transition shadow-lg absolute top-10 md:top-14 right-0 md:right-10 w-full sm:w-fit h-fit min-h-[96px]  flex flex-col justify-start items-center font-semibold bg-white text-base ">

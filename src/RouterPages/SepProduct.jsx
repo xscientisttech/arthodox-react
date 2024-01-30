@@ -39,7 +39,7 @@ const SepProduct = () => {
 
   return (
     <>
-      <Navigation />
+      <Navigation title={product.title} />
       <ProductMain product={product} categories={categories} key={product.key} />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">

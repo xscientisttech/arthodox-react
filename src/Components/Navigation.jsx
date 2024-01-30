@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import {FaCaretLeft} from 'react-icons/fa'
 import { useNavigate } from 'react-router'
 
-const Navigation = () => {
+const Navigation = ({title}) => {
 
     const Navigate = useNavigate();
     return (
@@ -14,6 +14,7 @@ const Navigation = () => {
                         <FaCaretLeft/>
                         <p onClick={()=>Navigate('/Products')} className=' cursor-pointer'>Products</p>
                         <FaCaretLeft/>
+                        <p className=' cursor-pointer'>{title}</p>
                     </div>
                 </div>
             </div>

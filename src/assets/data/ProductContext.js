@@ -41,274 +41,272 @@ const ProductContext = createContext();
 
 export function ProductProvider({ children }) {
 
-    const categories = [" ", "Games", "Movies", "Anime", "Sports", "God"];
+    const categories = ["Games", "Movies", "Anime", "Sports", "God"];
 
     const products = [
-        
         {
-            id: 10,
-            img: g1,
-            quantity: 1,
-            title: 'Product 10',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 10',
-            category: 5
+          id: 10,
+          img: g1,
+          quantity: 1,
+          title: 'Product 10',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 10',
+          category: 4
         },
         {
-            id: 11,
-            img: k1,
-            quantity: 1,
-            title: 'Product 11',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 11',
-            category: 5
+          id: 11,
+          img: k1,
+          quantity: 1,
+          title: 'Product 11',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 11',
+          category: 4
         },
         {
-            id: 12,
-            img: ram2,
-            quantity: 1,
-            title: 'Product 12',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 12',
-            category: 5
-        },
-        
-        {
-            id: 7,
-            img: avenger,
-            quantity: 1,
-            title: 'Product 7',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 7',
-            category: 2
+          id: 12,
+          img: ram2,
+          quantity: 1,
+          title: 'Product 12',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 12',
+          category: 4
         },
         {
-            id: 8,
-            img: trans1,
-            quantity: 1,
-            title: 'Product 8',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 8',
-            category: 2
+          id: 7,
+          img: avenger,
+          quantity: 1,
+          title: 'Product 7',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 7',
+          category: 1
         },
         {
-            id: 9,
-            img: avatar,
-            quantity: 1,
-            title: 'Product 9',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 9',
-            category: 2
+          id: 8,
+          img: trans1,
+          quantity: 1,
+          title: 'Product 8',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 8',
+          category: 1
         },
         {
-            id: 13,
-            img: img12,
-            quantity: 1,
-            title: 'Product 13',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 13',
-            category: 5
+          id: 9,
+          img: avatar,
+          quantity: 1,
+          title: 'Product 9',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 9',
+          category: 1
         },
         {
-            id: 14,
-            img: r3,
-            quantity: 1,
-            title: 'Product 14',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 14',
-            category: 5
+          id: 13,
+          img: img12,
+          quantity: 1,
+          title: 'Product 13',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 13',
+          category: 4
         },
         {
-            id: 15,
-            img: m1,
-            quantity: 1,
-            title: 'Product 15',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 15',
-            category: 5
+          id: 14,
+          img: r3,
+          quantity: 1,
+          title: 'Product 14',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 14',
+          category: 4
         },
         {
-            id: 16,
-            img: r4,
-            quantity: 1,
-            title: 'Product 16',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 16',
-            category: 5
+          id: 15,
+          img: m1,
+          quantity: 1,
+          title: 'Product 15',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 15',
+          category: 4
         },
         {
-            id: 17,
-            img: anime1,
-            quantity: 1,
-            title: 'Product 17',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 17',
-            category: 3
+          id: 16,
+          img: r4,
+          quantity: 1,
+          title: 'Product 16',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 16',
+          category: 4
         },
         {
-            id: 18,
-            img: anime2,
-            quantity: 1,
-            title: 'Product 18',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 18',
-            category: 3
+          id: 17,
+          img: anime1,
+          quantity: 1,
+          title: 'Product 17',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 17',
+          category: 2
         },
         {
-            id: 19,
-            img: anime3,
-            quantity: 1,
-            title: 'Product 19',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 19',
-            category: 3
+          id: 18,
+          img: anime2,
+          quantity: 1,
+          title: 'Product 18',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 18',
+          category: 2
         },
         {
-            id: 20,
-            img: anime4,
-            quantity: 1,
-            title: 'Product 20',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 20',
-            category: 3
+          id: 19,
+          img: anime3,
+          quantity: 1,
+          title: 'Product 19',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 19',
+          category: 2
         },
         {
-            id: 21,
-            img: anime5,
-            quantity: 1,
-            title: 'Product 21',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 21',
-            category: 3
+          id: 20,
+          img: anime4,
+          quantity: 1,
+          title: 'Product 20',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 20',
+          category: 2
         },
         {
-            id: 22,
-            img: anime6,
-            quantity: 1,
-            title: 'Product 22',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 22',
-            category: 3
+          id: 21,
+          img: anime5,
+          quantity: 1,
+          title: 'Product 21',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 21',
+          category: 2
         },
         {
-            id: 23,
-            img: gta1,
-            quantity: 1,
-            title: 'Product 23',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 23',
-            category: 1
+          id: 22,
+          img: anime6,
+          quantity: 1,
+          title: 'Product 22',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 22',
+          category: 2
         },
         {
-            id: 24,
-            img: pubg1,
-            quantity: 1,
-            title: 'Product 24',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 24',
-            category: 1
+          id: 23,
+          img: gta1,
+          quantity: 1,
+          title: 'Product 23',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 23',
+          category: 0
         },
         {
-            id: 25,
-            img: gta2,
-            quantity: 1,
-            title: 'Product 25',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 25',
-            category: 1
+          id: 24,
+          img: pubg1,
+          quantity: 1,
+          title: 'Product 24',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 24',
+          category: 0
         },
         {
-            id: 26,
-            img: gta1,
-            quantity: 1,
-            title: 'Product 26',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 26',
-            category: 1
+          id: 25,
+          img: gta2,
+          quantity: 1,
+          title: 'Product 25',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 25',
+          category: 0
         },
         {
-            
-            id: 1,
-            img: virat1,
-            quantity: 1,
-            title: 'Product 1',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 1',
-            category: 4
+          id: 26,
+          img: gta1,
+          quantity: 1,
+          title: 'Product 26',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 26',
+          category: 0
         },
         {
-            id: 2,
-            img: virat2,
-            quantity: 1,
-            title: 'Product 2',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 2',
-            category: 4
+          id: 1,
+          img: virat1,
+          quantity: 1,
+          title: 'Product 1',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 1',
+          category: 3
         },
         {
-            id: 3,
-            img: ronaldo1,
-            quantity: 1,
-            title: 'Product 3',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 3',
-            category: 4
+          id: 2,
+          img: virat2,
+          quantity: 1,
+          title: 'Product 2',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 2',
+          category: 3
         },
         {
-            id: 4,
-            img: ronaldo2,
-            quantity: 1,
-            title: 'Product 4',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 4',
-            category: 4
+          id: 3,
+          img: ronaldo1,
+          quantity: 1,
+          title: 'Product 3',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 3',
+          category: 3
         },
         {
-            id: 5,
-            img: messi1,
-            quantity: 1,
-            title: 'Product 5',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 5',
-            category: 4
+          id: 4,
+          img: ronaldo2,
+          quantity: 1,
+          title: 'Product 4',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 4',
+          category: 3
         },
         {
-            id: 6,
-            img: messi2,
-            quantity: 1,
-            title: 'Product 6',
-            price: 5000,
-            Discount: 3000,
-            description: 'Description for Product 6',
-            category: 4
+          id: 5,
+          img: messi1,
+          quantity: 1,
+          title: 'Product 5',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 5',
+          category: 3
         },
-
-    ];
+        {
+          id: 6,
+          img: messi2,
+          quantity: 1,
+          title: 'Product 6',
+          price: 5000,
+          Discount: 3000,
+          description: 'Description for Product 6',
+          category: 3
+        }
+      ];
+      
+      
 
     return (
         <ProductContext.Provider value={{products, categories}}>
