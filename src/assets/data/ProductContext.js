@@ -305,8 +305,6 @@ export function ProductProvider({ children }) {
           category: 3
         }
       ];
-      
-      
 
     return (
         <ProductContext.Provider value={{products, categories}}>

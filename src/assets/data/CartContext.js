@@ -28,7 +28,7 @@ export function CartProvider({ children }) {
     // console.log("product",product,"index",index);
     if (index !== -1) {
       copiedCart[index].quantity += product.quantity;
-      console.log("copiedCart : ", copiedCart);
+      // console.log("copiedCart : ", copiedCart);
     } else {
       copiedCart.push(product);
     }
@@ -38,14 +38,14 @@ export function CartProvider({ children }) {
   }
 
   const removeFromCart = (product) => {
-    console.log("product removed : ", product.id);
+    // console.log("product removed : ", product.id);
     const copiedCart = [...collection.cart];
     const index = copiedCart.findIndex((item) => item.id === product.id);
     if (index !== -1) {
       copiedCart.splice(index, 1);
       setCollection({ ...collection, cart: copiedCart });
       setLocalCart({ ...collection, cart: copiedCart });
-      console.log(localStorage.getItem("collection"));
+      // console.log(localStorage.getItem("collection"));
     }
     //  else {
     //   copiedCart.push(product);
@@ -67,7 +67,7 @@ export function CartProvider({ children }) {
     let Quant = 0;
     cart.forEach((item) => {
       Quant += item.quantity;
-      console.log(Quant)
+      // console.log(Quant)
     })
     return Quant;
   }
@@ -102,7 +102,7 @@ export function CartProvider({ children }) {
     // setCollection(JSON.parse(localStorage.getItem('collection')));
     
     // localStorage.setItem('collection', JSON.stringify(collection));
-    console.log("localstorage : ", JSON.parse(localStorage.getItem('collection')));
+    // console.log("localstorage : ", JSON.parse(localStorage.getItem('collection')));
   }, [collection])
 
 

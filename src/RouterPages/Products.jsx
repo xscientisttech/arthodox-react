@@ -22,7 +22,7 @@ const Products = ({ search }) => {
 
   const filteredProducts = products
     .filter((item) => {
-      return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search) || categories[item.category].toLowerCase().includes(search);
+      return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search.toLowerCase()) || categories[item.category].toLowerCase().includes(search.toLowerCase());
     })
     .filter((item) => category === 0 || item.category === parseInt(category));
 

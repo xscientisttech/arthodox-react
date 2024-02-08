@@ -61,7 +61,9 @@ const NavCart = () => {
           id="menu"
           className={cartOpen ? <FaCartShopping /> : <FaCartShopping />}
         />
-        <h1 className="absolute -top-3 left-2 bg-red-500 text-white rounded-full w-5 aspect-square flex items-center justify-center text-xs">{Quantity()}</h1>
+        {Quantity() > 0 && (
+          <h1 className="absolute -top-3 left-2 bg-red-500 text-white rounded-full w-5 aspect-square flex items-center justify-center text-xs">{Quantity()}</h1>
+        )}
       </div>
       {cartOpen && (
         <div className=" transition shadow-lg absolute top-10 md:top-14 right-0 md:right-10 w-full sm:w-fit h-fit min-h-[96px]  flex flex-col justify-start items-center font-semibold bg-white text-base ">
