@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DummyData from "../assets/data/DummyData";
 import { useNavigate } from "react-router";
 import { useProducts } from "../assets/data/ProductContext";
@@ -6,11 +6,20 @@ const CategoryItem = (props) => {
 
 	
 	const { products }= useProducts();
-	const product = products.find((product) => product.category === parseInt(props.Index, 10));
+	const product = products.find((product) => product.category === parseInt(props.category_id, 10));
+
+	useEffect(()=> {
+		console.log('props category id : ', props.category_id);
+	})
+
 	
 	const Navigate = useNavigate();
 	// console.log("cat id ", props.category_id);
 	// console.log('product : ', product);
+	// if (!product) {
+	// 	return (<> Items not found !</>)
+	// }
+	// else 
 	return (
 		<div className="relative overflow-hidden cursor-pointer font-Poppins" onClick={() => Navigate(`/Products/category/${props.Index}`)}>
 			<div className="relative after:content-[''] after:absolute after:w-full after:h-full after:opacity-30- after:hover:opacity-0- after:rounded-3xl after:left-0 after:top-0 after:bg-gradient-to-b after:from-gray-50/0 after:to-gray-900/80">

@@ -68,9 +68,9 @@ export default function Home() {
             <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
               {categories.slice(0, 3).map((category, index) => (
                 <CategoryItem
-                  CategoryImgUrl={DummyData.CategoryImgUrl}
+                  category_id={categories.indexOf(category)}
                   Title={category}
-                  Index={index + 1}
+                  Index={index}
                   key={index}
                 />
               ))}
@@ -84,14 +84,14 @@ export default function Home() {
           </button>
         </div>
       </section>
-      <section className="mt-20 bg-[#f4f4f4] p-10">
+      <section className="mt-20 bg-[#f4f4f4] p-0 sm:p-10">
         <div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] bg-[#f4f4f4] mt-4 m-auto rounded-[10px]">
           <h1 className="justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md font-Poppins">
             Our Products
           </h1>
         </div>
         <div className="max-w-full h-auto grid place-items-center p-6 md:p-20">
-          <div className="grid gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
+          <div className="grid  gap-y-14 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 xl:grid-cols-[repeat(3,1fr)]">
             {products.slice(0, 6).map((product, index) => (
               <ProductItem key={index} product={product} />
             ))}

@@ -273,7 +273,7 @@ const ProductMain = (props) => {
               </div>
             </div>
           </div>
-          <div>
+          <div className=" hidden">
             <p>Color</p>
             <div className="w-fit h-fit flex gap-2.5 flex-wrap items-center">
               <div

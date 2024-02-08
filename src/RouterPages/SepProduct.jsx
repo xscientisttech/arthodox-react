@@ -39,7 +39,7 @@ const SepProduct = () => {
 
   return (
     <>
-      <Navigation />
+      <Navigation title={product.title} />
       <ProductMain product={product} categories={categories} key={product.key} />
 
       <section className=" w-full flex flex-col items-center justify-center px-[10%] py-[5%]">
@@ -78,7 +78,7 @@ const SepProduct = () => {
         </div>
       </section>
 
-      <section className="mt-20 px-[10%] bg-[#f4f4f4] py-10">
+      <section className="mt-20 sm:px-[10%] bg-[#f4f4f4] py-10">
         <div className="xl:h-[7.5vh] lg:h-[6.5vh] md:h-[6vh] sm:h-[5vh] w-[71vw] mt-4 m-auto rounded-[10px]">
           <h1 className=" justify-center flex items-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-lg text-md font-Poppins">
             Related Products
