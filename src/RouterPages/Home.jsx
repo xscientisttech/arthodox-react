@@ -33,8 +33,8 @@ export default function Home() {
           className="h-[50vh] xl:h-[calc(100vh_-_4rem)] lg:h-[80vh] md:h-[70vh] sm:h-[60vh] w-full bg-cover bg-center relative"
         />
 
-        <div className="absolute xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl xl:w-[500px] lg:w-[350px] md:w-[280px] sm:w-[230px] w-[190px] xl:right-[5%] lg:right-[4%] md:right-[3%] sm:right-[2%] right-[1%] xl:top-[50%] lg:top-[45%] md:top-[40%] sm:top-[35%] top-[30%]">
-          <h1 className="font-Poppins">Discover Our New collection</h1>
+        <div className="absolute xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl xl:w-[500px] lg:w-[350px] md:w-[280px] sm:w-[230px] w-[190px] xl:right-[5%] lg:right-[4%] md:right-[3%] sm:right-[2%] right-[1%] xl:top-[40%] lg:top-[45%] md:top-[40%] sm:top-[35%] top-[30%]">
+          <h1 className="font-Black-Ops-One">Discover Our New collection</h1>
           <button
             className=" 
   text-[white] bg-[black] xl:text-xl lg:text-lg md:text-md sm:text-md text-sm xl:px-16 lg:px-12 md:px-10 sm:px-8 px-6 xl:py-4 lg:py-3 md:py-2 sm:py-2 py-1 rounded-[20px] hover:bg-white hover:text-black hover:font-semibold"
@@ -42,13 +42,12 @@ export default function Home() {
           >
             Explore
           </button>
-		  
-        </div>
-		{/* <div className="flex absolute w-full  h-[40%] ">
-          {products.slice(0, 6).map((product, index) => (
+        {/* </div>
+        <div className="flex absolute  h-[40%]">
+          {products.slice(0,4).map((product, index) => (
             <Slider key={index} product={product} />
-          ))}
-        </div> */}
+          ))} */}
+        </div>
       </section>
       <section className="xl:mt-16 lg:mt-12 md:mt-8 sm:mt-6 mt-4  bg-[#f4f4f4] py-10">
         <div className="flex flex-col justify-center items-center text-2xl m-auto">
