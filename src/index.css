@@ -15,6 +15,9 @@
     font-family: 'Black Ops One', system-ui;
   }
 
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+

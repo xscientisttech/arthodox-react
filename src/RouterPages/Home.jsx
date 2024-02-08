@@ -7,14 +7,15 @@ import { useProducts } from "../assets/data/ProductContext";
 import Slider from "../Components/slider";
 
 export default function Home() {
-  const products = useProducts();
-  const categories = ["Games", "Movies", "Anime", "Sports"];
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+	const Navigate = useNavigate();
+	
+	const { products, categories } = useProducts();
 
-  const Navigate = useNavigate();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 
   const scrollDown = () => {
     const viewportHeight = window.innerHeight;
@@ -36,7 +37,8 @@ export default function Home() {
         <div className="absolute xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl xl:w-[500px] lg:w-[350px] md:w-[280px] sm:w-[230px] w-[190px] xl:right-[5%] lg:right-[4%] md:right-[3%] sm:right-[2%] right-[1%] xl:top-[40%] lg:top-[45%] md:top-[40%] sm:top-[35%] top-[30%]">
           <h1 className="font-Black-Ops-One">Discover Our New collection</h1>
           <button
-            className=" 
+            className="
+
   text-[white] bg-[black] xl:text-xl lg:text-lg md:text-md sm:text-md text-sm xl:px-16 lg:px-12 md:px-10 sm:px-8 px-6 xl:py-4 lg:py-3 md:py-2 sm:py-2 py-1 rounded-[20px] hover:bg-white hover:text-black hover:font-semibold"
             onClick={scrollDown}
           >

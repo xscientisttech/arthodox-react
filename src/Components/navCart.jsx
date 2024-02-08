@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import DummyData from "../assets/data/DummyData";
 import PopupCartItem from "./PopupCartItem";
@@ -6,11 +6,15 @@ import { useCart } from "../assets/data/CartContext";
 import { FaCartShopping } from "react-icons/fa6";
 
 const NavCart = () => {
+
+  const Navigate = useNavigate();
+
   const { cart, cartTotal, removeFromCart, Quantity } = useCart();
 
-  useEffect(() => {
-    console.log('Quantity ', Quantity());
-  },[Quantity])
+  const popupCartRef = useRef();
+
+
+
 
   // const cartTotal = () => {
   //   let total = 0;
@@ -33,14 +37,26 @@ const NavCart = () => {
     toggleCart();
   };
 
-  const Navigate = useNavigate();
+  useEffect(() => {
+    let handler = (e) => {
+      if (!popupCartRef.current.contains(e.target) && cartOpen) {
+        toggleCart();
+        // console.log(menuRef.current.contains(e.target));
+      }
+    }
+    document.addEventListener("mousedown", handler);
+  });
+
 
   return (
+
+
     <div className=" font-Poppins">
       <div
         className="relative text-2xl hover:scale-110 flex"
         onClick={toggleCart}
       >
+
         <FaCartShopping
           id="menu"
           className={cartOpen ? <FaCartShopping /> : <FaCartShopping />}

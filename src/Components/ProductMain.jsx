@@ -16,7 +16,8 @@ import {
 } from "react-icons/fa";
 
 const ProductMain = (props) => {
-  const categories = ["Games", "Movies", "Anime", "Sports"];
+
+  const categories = props.categories;
   const [data, setData] = useState();
   const product = props.product;
   const { addToCart } = useCart();
@@ -187,6 +188,7 @@ const ProductMain = (props) => {
     setCount(count + 1);
     formData.quantity = count + 1;
   };
+  
   const decreament = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -222,7 +224,7 @@ const ProductMain = (props) => {
             className={`flex justify-center min-w-[80%] md:min-h-[65vh] md:max-w-[450px] md:max-h-[450px] sm:w-[16rem] aspect-square items-center bg-[${selectedColor}] `}
             style={{ background: selectedColor }}
           >
-            {/* Temporary  */}
+            {/* Temporary  */} 
             {/* <div className="w-full h-full"> */}
               {selectedImage !== "" && (
                 <img className={`hidden w-full h-full`} src={selectedImage} alt="" />

@@ -5,7 +5,7 @@ import { useProducts } from "../assets/data/ProductContext";
 const CategoryItem = (props) => {
 
 	
-	const products = useProducts();
+	const { products }= useProducts();
 	const product = products.find((product) => product.category === parseInt(props.Index, 10));
 	
 	const Navigate = useNavigate();

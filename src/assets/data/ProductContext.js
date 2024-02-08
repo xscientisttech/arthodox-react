@@ -41,6 +41,7 @@ const ProductContext = createContext();
 
 export function ProductProvider({ children }) {
 
+    const categories = [" ", "Games", "Movies", "Anime", "Sports", "God"];
 
     const products = [
         
@@ -310,7 +311,7 @@ export function ProductProvider({ children }) {
     ];
 
     return (
-        <ProductContext.Provider value={products}>
+        <ProductContext.Provider value={{products, categories}}>
             {children}
         </ProductContext.Provider>
     );
@@ -321,6 +322,6 @@ export function useProducts() {
 }
 
 export function useProductById(productId) {
-    const products = useProducts();
+    const { products }= useProducts();
     return products.find((product) => product.id === productId);
 }

@@ -5,10 +5,13 @@ import Filter from "../Components/Filter";
 import Hero from "../Components/Hero";
 import CategoryItem from "../Components/CategoryItem";
 import DummyData from "../assets/data/DummyData";
+import { useProducts } from "../assets/data/ProductContext";
 
 const Category = () => {
 
-  const categories = ['Games', 'Movies', 'Anime', 'Sports', 'God'];
+  // const categories = ['Games', 'Movies', 'Anime', 'Sports', 'God'];
+  
+	const { products, categories } = useProducts();
 
   useEffect(() => {
     window.scrollTo(0, 0);
