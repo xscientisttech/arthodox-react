@@ -21,7 +21,7 @@ function Slider({ product }) {
 
   return (
     <div
-      className="relative bg-[#f4f5f7] overflow-hidden w-[21rem] max-w-[350px] max-h-[450px] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)]"
+      className="relative bg-[#f4f5f7] w-[21rem] max-w-[350px] max-h-[450px] cursor-pointer hover:transition-[0.20s] hover:shadow-[3px_3px_15px_2px_rgb(188,188,189)]"
       onClick={() => navigateToProduct(product.id)}
       key={product.id}
     >

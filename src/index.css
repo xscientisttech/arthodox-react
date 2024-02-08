@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rubik+Burned&family=Single+Day&display=swap');
+
+
+.font-rubik-burned {
+    font-family: 'Rubik Burned', sans-serif;
+  }
+  
+  .font-single-day {
+    font-family: 'Single Day', cursive;
+  }
+  .font-Black-Ops-One {
+    font-family: 'Black Ops One', system-ui;
+  }
+
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

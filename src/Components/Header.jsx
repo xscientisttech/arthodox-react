@@ -10,7 +10,7 @@ const Header = ({search , setSearch}) => {
   const location = useLocation();
   const pathMatchRoute = (route) => {
     if (route === location.pathname) {
-      return true;
+      return true
     }
   };
 
